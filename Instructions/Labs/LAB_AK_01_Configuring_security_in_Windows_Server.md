@@ -69,7 +69,7 @@ ms.locfileid: "137907087"
 
 1. 結果を確認するために、手順 2. のコマンドを再実行します。結果が返されないことに注目してください。
 
-#### <a name="task-2-locate-and-disable-domain-accounts-that-have-not-been-used-to-sign-in-for-at-least-90-days"></a>タスク 2: 少なくとも 90 日間はサインインに使用されていないドメイン アカウントを検出して無効にする
+#### <a name="task-2-locate-and-disable-domain-accounts-that-have-not-been-used-to-sign-in-for-at-least-90-days"></a>タスク 2: 90 日間以上サインインしていないドメイン アカウントを検出して無効にする
 
 1. 少なくとも 90 日間はサインインに使用されていない Active Directory ユーザー アカウントを特定するために、Windows PowerShell コマンド プロンプトで次のコマンドを入力し、Enter キーを押します。
 

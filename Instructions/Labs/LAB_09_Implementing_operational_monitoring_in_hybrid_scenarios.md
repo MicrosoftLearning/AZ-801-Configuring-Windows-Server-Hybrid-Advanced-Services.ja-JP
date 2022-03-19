@@ -13,7 +13,7 @@ ms.locfileid: "137907088"
 
 ## <a name="lab-scenario"></a>ラボのシナリオ
 
-Azure リソースのパフォーマンスと構成に関する分析情報を提供する Microsoft Azure の機能を評価する必要があります。特に Azure 仮想マシン (VM) に焦点を当てています。 これを実現するために、Log Analytics を含む、Azure Monitor の機能を調べる予定です。
+あなたは、Microsoft Azure の機能を評価して、主に Azure 仮想マシン (VM) に関する Azure リソースのパフォーマンスと構成の分析情報を検討する必要があります。 これを実行するために、Log Analytics といった Azure Monitor の機能を調べる予定です。
 
 ## <a name="objectives"></a>目標
 
