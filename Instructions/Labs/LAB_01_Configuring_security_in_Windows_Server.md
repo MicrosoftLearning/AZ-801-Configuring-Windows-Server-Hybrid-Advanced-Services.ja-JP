@@ -84,7 +84,7 @@ Windows Defender Credential Guard をサーバーと管理ワークステーシ�
 
 ### <a name="results"></a>結果
 
-この演習を完了すると、次を完了することになります。
+この演習を完了すると、以下のタスクを実行したことになります。
 
 1. グループ ポリシー使用して、組織内のすべてのコンピューターに Windows Defender Credential Guard を実装する。
 1. ローカル コンピューターで Windows Defender Credential Guard を直ちに有効にする。
@@ -243,7 +243,7 @@ Windows Defender Credential Guard をサーバーと管理ワークステーシ�
 
 ### <a name="results"></a>結果
 
-この演習を完了すると、次を完了することになります。
+この演習を完了すると、以下のタスクを実行したことになります。
 
 - LAPS 用に OU とコンピューター アカウントを準備する。
 - LAPS 用に AD DS を準備する。

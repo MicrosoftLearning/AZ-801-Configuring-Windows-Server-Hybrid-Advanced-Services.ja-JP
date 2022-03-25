@@ -53,7 +53,7 @@ Azure VM で実行されている VM に Azure をディザスター リカバ�
 #### <a name="task-1-create-an-azure-site-recovery-vault"></a>タスク 1: Azure Site Recovery コンテナーの作成
 
 1. **SEA-SVR2** で Microsoft Edge を起動し、 **[Azure portal](https://portal.azure.com)** に移動し、 このラボで使用するサブスクリプションの所有者ロールをもつユーザー アカウントの資格情報を使用してサインインします。
-1. Azure portal で、次の設定を使用して Recovery Services コンテナーを作成します (他の設定は既定値のままにします)。
+1. Azure portal から次の設定を使用して Recovery Services コンテナーを作成します (他の設定は既定値のままにします)。
 
    |設定|値|
    |---|---|
@@ -69,11 +69,11 @@ Azure VM で実行されている VM に Azure をディザスター リカバ�
 #### <a name="task-2-configure-the-azure-site-recovery-vault"></a>タスク 2: Azure Site Recovery コンテナーの構成
 
 1. **SEA-SVR2** 上の、Azure Portal を表示している Microsoft Edge ウィンドウで、新しく作成された Azure Recovery Services コンテナーを参照します。 
-1. Azure Portal で、コンテナーの **[Storage replication type]** \(ストレージ レプリケーションの種類\) を **[ローカル冗長]** に設定します。
+1. Azure portal からコンテナーの **[Storage replication type]** \(ストレージ レプリケーションの種類\) を **[ローカル冗長]** に設定します。
 
    > **注:** [ストレージ レプリケーションの種類] は、保護を実装した後では変更できません。
 
-1. Azure Portal で、コンテナーの **[論理的な削除]** と **[セキュリティ機能]** の設定を無効にします。
+1. Azure portal からコンテナーの **[論理的な削除]** と **[セキュリティ機能]** の設定を無効にします。
 
 ## <a name="exercise-2-implementing-hyper-v-vm-protection-by-using-azure-site-recovery-vault"></a>演習 2: Azure Site Recovery コンテナーを使った Hyper-V VM 保護の実装
 
@@ -224,7 +224,7 @@ Azure VM で実行されている VM に Azure をディザスター リカバ�
 
    > **注:** 仮想マシンの名前は、最初は **asr-** プレフィックスとランダムに生成されたサフィックスで構成されますが、最終的には **SEA-CORE1-test** に名前が変更されます。
 
-1. Azure portal で、 **[SEA-CORE1**  レプリケートされた項目] ブレードに戻り、 **[テスト フェールオーバーのクリーンアップ]** を開始します。
+1. Azure portal から **[SEA-CORE1**  レプリケートされた項目] ブレードに戻り、 **[テスト フェールオーバーのクリーンアップ]** を開始します。
 1. テスト フェールオーバー クリーンアップ ジョブが完了したら、 [**SEA-CORE1**  レプリケートされた項目] ブレードが表示されているブラウザー ページを最新の情報に更新し、計画されたフェールオーバーまたは計画外のフェールオーバーを実行するオプションがあることに着目してください。
 1. [**SEA-CORE1** レプリケートされた項目] ブレードで、 **[計画されたフェールオーバー]** ブレードを参照します。
 1. **[計画フェールオーバー]** ブレードで、フェールオーバーの方向の設定が既に設定され、変更できない点に注意してください。 

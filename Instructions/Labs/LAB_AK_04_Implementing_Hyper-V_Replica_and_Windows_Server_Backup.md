@@ -10,7 +10,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 01/28/2022
 ms.locfileid: "137907103"
 ---
-# <a name="lab-answer-key-implementing-hyper-v-replica-and-windows-server-backup"></a>ラボ回答キー: Hyper-V レプリカと Windows Server バックアップの実装
+# <a name="lab-answer-key-implementing-hyper-v-replica-and-windows-server-backup"></a>ラボ解答キー: Hyper-V レプリカと Windows Server バックアップの実装
 
 ## <a name="exercise1-implementing-hyper-v-replica"></a>演習 1: Hyper-V レプリカの実装
 

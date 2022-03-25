@@ -10,7 +10,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 01/28/2022
 ms.locfileid: "137907108"
 ---
-# <a name="lab-answer-key-upgrade-and-migrate-in-windows-server"></a>ラボ回答キー: Windows Server でのアップグレードと移行
+# <a name="lab-answer-key-upgrade-and-migrate-in-windows-server"></a>ラボ解答キー: Windows Server でのアップグレードと移行
 
 ## <a name="exercise-1-deploying-ad-ds-domain-controllers-in-azure"></a>演習 1: AD DS ドメイン コントローラーを Azure にデプロイする
 

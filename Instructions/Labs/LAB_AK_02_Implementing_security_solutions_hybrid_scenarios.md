@@ -10,7 +10,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 01/28/2022
 ms.locfileid: "137907105"
 ---
-# <a name="lab-answer-key-implementing-security-solutions-in-hybrid-scenarios"></a>ラボ回答キー: ハイブリッド シナリオでのセキュリティ ソリューションの実装
+# <a name="lab-answer-key-implementing-security-solutions-in-hybrid-scenarios"></a>ラボ解答キー: ハイブリッド シナリオでのセキュリティ ソリューションの実装
 
 ## <a name="exercise-1-creating-an-azure-log-analytics-workspace-and-an-azure-automation-account"></a>演習 1: Azure Log Analytics ワークスペースと Azure Automation アカウントの作成
 

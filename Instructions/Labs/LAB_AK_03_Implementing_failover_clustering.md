@@ -10,7 +10,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 01/28/2022
 ms.locfileid: "137907090"
 ---
-# <a name="lab-answer-key-implementing-failover-clustering"></a>ラボ応答キー: フェールオーバー クラスタリングの実装
+# <a name="lab-answer-key-implementing-failover-clustering"></a>ラボ解答キー: フェールオーバー クラスタリングの実装
 
 ## <a name="exercise-1-configuring-iscsi-storage"></a>演習 1: iSCSI ストレージの構成
 
