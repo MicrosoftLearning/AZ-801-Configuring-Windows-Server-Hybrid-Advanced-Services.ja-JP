@@ -3,12 +3,12 @@ lab:
   title: 'ラボ: ハイブリッド シナリオでのセキュリティ ソリューションの実装'
   type: Answer Key
   module: 'Module 2: Implementing Security Solutions in Hybrid Scenarios'
-ms.openlocfilehash: b1f88c69277a241f8d27a68fb88ef1652232453a
-ms.sourcegitcommit: 9a51ea796ef3806ab9e7ec1ff75034b2f929ed2a
+ms.openlocfilehash: 34c38131c3d92d6250260fd98da506dec1d42cda
+ms.sourcegitcommit: e31cab525d98deeb444bd10846cbb38215bcdb29
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137907105"
+ms.lasthandoff: 04/01/2022
+ms.locfileid: "141347651"
 ---
 # <a name="lab-answer-key-implementing-security-solutions-in-hybrid-scenarios"></a>ラボ解答キー: ハイブリッド シナリオでのセキュリティ ソリューションの実装
 
@@ -26,7 +26,7 @@ ms.locfileid: "137907105"
    | サブスクリプション | このラボで使用している Azure サブスクリプションの名前 |
    | リソース グループ | 新しいリソース グループの名前 **AZ801-L0201-RG** |
    | Log Analytics ワークスペース | 任意の一意の名前 |
-   | リージョン | 前のタスクで仮想マシンをデプロイした Azure リージョンの名前 |
+   | リージョン | 最寄りのリージョンを選択します |
 
    >**注**: デプロイが完了するまで待ちます。 デプロイには約 1 分かかります。
 

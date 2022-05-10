@@ -2,12 +2,12 @@
 lab:
   title: 'ラボ: Azure Migrate を使用して Hyper-V VM を Azure に移行する'
   module: 'Module 7: Design for Migration'
-ms.openlocfilehash: 9931ebc69ae739cf4996a7fb9ec233d49def3800
-ms.sourcegitcommit: 9a51ea796ef3806ab9e7ec1ff75034b2f929ed2a
+ms.openlocfilehash: a8065c5e9f612e8ecfadfe4208d4175788482145
+ms.sourcegitcommit: e31cab525d98deeb444bd10846cbb38215bcdb29
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137907096"
+ms.lasthandoff: 04/01/2022
+ms.locfileid: "141347657"
 ---
 # <a name="lab-migrating-hyper-v-vms-to-azure-by-using-azure-migrate"></a>ラボ: Azure Migrate を使用して Hyper-V VM を Azure に移行する
 
@@ -260,7 +260,10 @@ Azure Migrate には次の機能が用意されています。
 
    >**注**: ダウンロードが完了するまで待ちます。 これには 5 分ほどかかる場合があります。
 
-1. ダウンロードが完了したら、ダウンロードした .ZIP ファイルの内容を **F:\VMs** フォルダーに抽出します。 
+1. ダウンロードが完了したら、ダウンロードした .ZIP ファイルの内容を **F:\VMs** フォルダーに抽出します。
+
+   >**注**:Microsoft Edge ではプロンプトが既定では表示されないため、.VHD ファイルを F:\VMs フォルダーに手動でコピーする必要がある場合があります。
+
 1. **az801l07a-hv-vm** へのリモート デスクトップ セッション内で、**Hyper-V マネージャー** コンソールを使用して、VM ファイルをコピーした仮想マシンを **F:\VMs** フォルダーにインポートします。 **[Register the virtual machine in-place (use the existing unique ID)]\(仮想マシンをインプレースで登録する (既存の一意の ID を使用)\)** オプションを使用して、 **[仮想プロセッサ数]** を **4** に設定してから、それを **NestedSwitch** に接続します。
 
    >**注**: ラボ環境では、仮想プロセッサ数の変更に関するエラー メッセージはすべて無視してかまいません。 運用環境のシナリオでは、仮想アプライアンスに十分な数のコンピューティング リソースが割り当てられていることを確認する必要があります。

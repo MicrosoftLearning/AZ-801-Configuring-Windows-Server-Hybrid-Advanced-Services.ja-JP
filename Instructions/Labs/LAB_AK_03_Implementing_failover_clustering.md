@@ -3,12 +3,12 @@ lab:
   title: 'ラボ: フェールオーバー クラスタリングの実装'
   type: Answer Key
   module: 'Module 3: High availability in Windows Server'
-ms.openlocfilehash: 0aebdfd4b42079ec2266db4724a3087a3623723f
-ms.sourcegitcommit: 9a51ea796ef3806ab9e7ec1ff75034b2f929ed2a
+ms.openlocfilehash: e2ddf5e078b054dd00f5dfba6bb75cb9ec1dcdb4
+ms.sourcegitcommit: e31cab525d98deeb444bd10846cbb38215bcdb29
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137907090"
+ms.lasthandoff: 04/01/2022
+ms.locfileid: "141347660"
 ---
 # <a name="lab-answer-key-implementing-failover-clustering"></a>ラボ解答キー: フェールオーバー クラスタリングの実装
 
@@ -215,7 +215,7 @@ ms.locfileid: "137907090"
 1. **SEA-SVR2** で、エクスプローラーを開き、 **\\\\FSCluster\\Docs** フォルダーに移動します。
 1. **Docs** フォルダー内で、フォルダーの空の領域にあるコンテキスト メニューを右クリックまたはアクセスして、 **[新規作成]** を選択し、 **[テキスト ドキュメント]** を選択します。
 1. ドキュメントのデフォルト名「**New Text Document.txt**」を受け入れるには、Enter キーを押します。
-1. **SEA-SVR2** で、 **[フェールオーバー クラスター マネージャー]** コンソールに切り替え、 **FSCluster** のコンテキスト メニューを右クリックするかアクセスして、 **[移動]** 、 **[ノードの選択]** の順に選択し、 **[OK]** を選択します。
+1. **SEA-SVR2** で、 **[フェールオーバー クラスター マネージャー]** コンソールに切り替え、 **[FSCluster]** を右クリックしてコンテキスト メニューにアクセスして、 **[移動]** 、 **[ノードの選択]** 、 **[SEA-SVR2]** の順に選択し、 **[OK]** を選択します。
 1. **SEA-SVR2** 上で、エクスプローラーに戻り、 **\\\\FSCluster\\Docs** フォルダーの内容に引き続きアクセスできることを確認します。
 
 #### <a name="task-2-validate-the-failover-and-quorum-configuration-for-the-file-server-role"></a>タスク 2: ファイル サーバー ロールのフェールオーバーとクォーラム構成を検証する

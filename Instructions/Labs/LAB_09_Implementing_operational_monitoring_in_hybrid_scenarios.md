@@ -2,12 +2,12 @@
 lab:
   title: 'ラボ: ハイブリッド シナリオでの運用監視の実装'
   module: 'Module 9: Implementing operational monitoring in hybrid scenarios'
-ms.openlocfilehash: c4f2f64b9027140c85099da700b4cdda49d55715
-ms.sourcegitcommit: 9a51ea796ef3806ab9e7ec1ff75034b2f929ed2a
+ms.openlocfilehash: 8a6f823171076ecb430b7c8af3a5408778f53dd0
+ms.sourcegitcommit: e31cab525d98deeb444bd10846cbb38215bcdb29
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137907088"
+ms.lasthandoff: 04/01/2022
+ms.locfileid: "141347654"
 ---
 # <a name="lab-implementing-operational-monitoring-in-hybrid-scenarios"></a>ラボ: ハイブリッド シナリオでの運用監視の実装
 
@@ -117,9 +117,9 @@ ms.locfileid: "137907088"
 
 1. **SEA-ADM1** で、管理者として Windows PowerShell を開始します。
 
-   >**注**: **SEA-ADM1** にまだ Windows Admin Center をインストールしていない場合は、次の 2 つの手順を実行します。
+   >**注**: **SEA-ADM1** にまだ Windows Admin Center をインストールしていない場合は、次の 2 つの手順を行います。
 
-1. **Windows PowerShell** コンソールで、次のコマンドを実行して Windows Admin Center の最新バージョンをダウンロードします。
+1. **Windows PowerShell** コンソールで、次のコマンドを実行して、最新バージョンの Windows Admin Center をダウンロードします。
     
    ```powershell
    Start-BitsTransfer -Source https://aka.ms/WACDownload -Destination "$env:USERPROFILE\Downloads\WindowsAdminCenter.msi"
@@ -131,6 +131,8 @@ ms.locfileid: "137907088"
    ```
 
    > **注**: インストールが完了するまで待ちます。 これには 2 分ほどかかります。
+
+   > **注**: Windows Admin Center のインストールが完了すると、エラー ERR_CONNECTION_REFUSED が表示される場合があります。 これが発生した場合は、続行する前に SEA-SVR2 を再起動してください。
 
 1. **SEA-ADM1** で Microsoft Edge を起動し、 **https://SEA-ADM1.contoso.com** で Windows Admin Center のローカル インスタンスに接続します。 
 1. ダイアログが表示されたら、 **[Windows セキュリティ]** ダイアログ ボックスに次の資格情報を入力し、 **[OK]** を選択します。
@@ -148,7 +150,7 @@ ms.locfileid: "137907088"
    | 設定 | 値 |
    | --- | --- |
    | サブスクリプション | このラボで使用している Azure サブスクリプションの名前 |
-   | リソース グループ | **AZ801-L0901-RG** |
+   | リソース グループ | **AZ801-L0902-RG** |
    | リソース グループのリージョン | 前の演習で仮想マシンをデプロイした Azure リージョンの名前 |
    | Log Analytics ワークスペース | 前の演習で作成したワークスペースの名前 |
    | Enable Azure Arc (Azure Arc を有効にする) | オン |

@@ -3,12 +3,12 @@ lab:
   title: 'ラボ: Azure Migrate を使用して Hyper-V VM を Azure に移行する'
   type: Answer Key
   module: 'Module 7: Design for Migration'
-ms.openlocfilehash: 0a93b992a4b7a6a1fe568af3cb0030d4b2f35962
-ms.sourcegitcommit: 9a51ea796ef3806ab9e7ec1ff75034b2f929ed2a
+ms.openlocfilehash: f77acac8db0b799c232fae878f04d632ae49447a
+ms.sourcegitcommit: e31cab525d98deeb444bd10846cbb38215bcdb29
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137907154"
+ms.lasthandoff: 04/01/2022
+ms.locfileid: "141347666"
 ---
 # <a name="lab-answer-key-migrating-hyper-v-vms-to-azure-by-using-azure-migrate"></a>ラボの解答キー: Azure Migrate を使用して Hyper-V VM を Azure に移行する
 
@@ -243,7 +243,10 @@ ms.locfileid: "137907154"
 
    >**注**: ダウンロードが完了するまで待ちます。 これには 5 分ほどかかる場合があります。
 
-1. ダウンロードが完了したら、ダウンロードした .ZIP ファイルの内容を **F:\VMs** フォルダーに抽出します。 
+1. ダウンロードが完了したら、ダウンロードした .ZIP ファイルの内容を **F:\VMs** フォルダーに抽出します。
+
+   >**注**:Microsoft Edge ではプロンプトが既定では表示されないため、.VHD ファイルを F:\VMs フォルダーに手動でコピーする必要がある場合があります。
+
 1. **az801l07a-hv-vm** へのリモート デスクトップ セッション内で、**Hyper-V マネージャー** コンソールに切り替えて、**AZ801L07A-VM1** ノードを選択し、 **[仮想マシンのインポート]** を選択します。 これにより、 **[仮想マシンのインポート]** ウィザードが開始されます。
 1. **[仮想マシンのインポート]** ウィザードの **[開始する前に]** ページで、 **[次へ >]** を選択します。
 1. **[仮想マシンのインポート]** ウィザードの **[フォルダーの検索]** ページで、抽出された **Virtual Machines** フォルダーの場所を指定し、 **[次へ>]** を選択します。
@@ -259,6 +262,7 @@ ms.locfileid: "137907154"
    >**注**: インポートが完了するまで待ちます。
 
 1. **Hyper-V マネージャー** コンソールで、新しくインポートされた仮想マシンを選択し、 **[名前の変更]** を選択し、名前を **az801l07a-vma1** に設定します。
+1. 仮想マシンのメモリ サイズを 4096 GB に増やします。
 1. **Hyper-V マネージャー** コンソールで、新しくインポートされた仮想マシンを選択し、 **[開始]** を選択します。 
 1. **Hyper-V マネージャー** コンソールで、仮想マシンが実行されているのを確認し、 **[接続]** を選択します。 
 1. 仮想アプライアンスの **[仮想マシン接続]** ウィンドウの **[ライセンス条項]** ページで、 **[同意する]** を選択します。 
