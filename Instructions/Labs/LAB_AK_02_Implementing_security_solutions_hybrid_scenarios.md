@@ -3,12 +3,12 @@ lab:
   title: 'ラボ: ハイブリッド シナリオでのセキュリティ ソリューションの実装'
   type: Answer Key
   module: 'Module 2: Implementing Security Solutions in Hybrid Scenarios'
-ms.openlocfilehash: 34c38131c3d92d6250260fd98da506dec1d42cda
-ms.sourcegitcommit: e31cab525d98deeb444bd10846cbb38215bcdb29
+ms.openlocfilehash: 02fcfe79dff809e8ec90690e4a3893be14c02fe4
+ms.sourcegitcommit: dad7571f21a69a2fd2213d91ef7e1d01639df716
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/01/2022
-ms.locfileid: "141347651"
+ms.lasthandoff: 04/27/2022
+ms.locfileid: "144334637"
 ---
 # <a name="lab-answer-key-implementing-security-solutions-in-hybrid-scenarios"></a>ラボ解答キー: ハイブリッド シナリオでのセキュリティ ソリューションの実装
 
@@ -82,8 +82,6 @@ ms.locfileid: "141347651"
 1. **[設定 \| 自動プロビジョニング]** ページに戻り、 **[Azure Arc マシンの Log Analytics エージェント (プレビュー)]** を **オン** に設定します。 これにより、 **[拡張機能のデプロイ構成]** ページが自動的に表示されます。 
 1. **[拡張機能のデプロイ構成]** ページの **[Log Analytics ワークスペースの選択]** ドロップダウン リストで、前の演習で作成したワークスペースを表すエントリを選択し、 **[適用]** を選択します。
 1. **[設定 \| 自動プロビジョニング]** ページに戻り、 **[マシンの脆弱性評価]** を **オン** に設定します。 **[拡張機能のデプロイ構成]** ページで、 **[Microsoft 脅威と脆弱性の管理]** オプションが選択されていることを確認し、 **[適用]** を選択します。
-1. **[設定 \| 自動プロビジョニング]** ページに戻り、 **[Guest Configuration agent (preview)]\(ゲスト構成エージェント (プレビュー)\)** を **オン** に設定します。
-1. **[設定 \| 自動プロビジョニング]** ページで、 **[Microsoft Dependency Agent (プレビュー)]** を **オン** に設定します。
 1. ページの最上部で **[保存]** を選択します。
 1. **[Microsoft Defender for Cloud | 概要]** ページに戻り、左側の垂直メニューの **[管理]** セクションで、 **[環境設定]** を選択します。
 1. **[環境設定]** ページで、Azure サブスクリプションを表すエントリを展開し、前の演習で作成した Log Analytics ワークスペースを表すエントリを選択します。
