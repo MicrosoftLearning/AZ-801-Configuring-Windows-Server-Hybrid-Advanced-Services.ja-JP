@@ -2,12 +2,12 @@
 lab:
   title: 'ラボ: Windows Server でのアップグレードと移行'
   module: 'Module 6: Upgrade and migrate in Windows Server'
-ms.openlocfilehash: 1befc684028b4e361c2d67f5ea01fa59ac02940d
-ms.sourcegitcommit: 9a51ea796ef3806ab9e7ec1ff75034b2f929ed2a
+ms.openlocfilehash: 33f6ea57f4ffc31fb0f7279a9e0df9100039e29b
+ms.sourcegitcommit: fb0d39e25bc0fe182037587b772d217db126d3bb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137907107"
+ms.lasthandoff: 05/07/2022
+ms.locfileid: "144812998"
 ---
 # <a name="lab-upgrade-and-migrate-in-windows-server"></a>ラボ: Windows Server でのアップグレードと移行
 
@@ -30,7 +30,7 @@ Contoso 社では、オンプレミスの Windows Server から Azure 仮想マ�
 
 > **注**: **AZ-801T00A-SEA-DC1**、**AZ-801T00A-SEA-SVR1**、**AZ-801T00A-SEA-SVR2** 仮想マシンは、それぞれ **SEA-DC1**、**SEA-SVR1**、および **SEA-SVR2** のインストールをホストしています。
 
-1. **SEA-SVR2** を選択します。
+1. **[SEA-SVR2]** を選択します。
 1. 次の資格情報を使用してサインインします。
 
    - ユーザー名: **Administrator**
@@ -92,10 +92,10 @@ Contoso 社では、オンプレミスの Windows Server から Azure 仮想マ�
    | サブスクリプション | このラボで使用している Azure サブスクリプションの名前 |
    | リソース グループ | 新しいリソース グループの名前 **AZ801-L0601-RG** |
    | リージョン | Azure VM をプロビジョニングできる Azure リージョンの名前 |
-   | 管理ユーザー名 | **Student** |
+   | 管理ユーザー名 | **学生** |
    | 管理パスワード | **Pa55w.rd1234** |
    | ドメイン名 | **contoso.com** |
-   | VM サイズ | **Standard D2s v3** |
+   | VM サイズ | **Standard_DS2_v2** |
    | 仮想マシン名 | **az801l06a-dc1** |
    | 仮想ネットワーク名 | **az801l06a-vnet** |
    | Virtual Network のアドレス範囲 | **10.6.0.0/16** |
@@ -157,7 +157,7 @@ Contoso 社では、オンプレミスの Windows Server から Azure 仮想マ�
    | Image | **Windows Server 2022 Datacenter - Gen2** |
    | Azure Spot インスタンス | **No** |
    | サイズ | **Standard D2s v3** |
-   | ユーザー名 | **Student** |
+   | ユーザー名 | **学生** |
    | パスワード | **Pa55w.rd1234** |
    | パブリック受信ポート | **なし** |
    | 既存の Windows Server ライセンスを使用しますか? | **No** |
@@ -189,7 +189,7 @@ Contoso 社では、オンプレミスの Windows Server から Azure 仮想マ�
 
    | 設定 | 値 | 
    | --- | --- |
-   | [ユーザー名] |**Student** |
+   | [ユーザー名] |**学生** |
    | パスワード |**Pa55w.rd1234** |
 
 1. **az801l06a-dc2** へのリモート デスクトップ セッション内で、Windows PowerShell セッションを開始します。
@@ -257,7 +257,7 @@ Contoso 社では、オンプレミスの Windows Server から Azure 仮想マ�
 
 #### <a name="task-1-install-windows-admin-center"></a>タスク 1: Windows Admin Center をインストールする
 
-1. **SEA-ADM1** で、管理者として **Windows PowerShell** を起動します。
+1. **SEA-ADM1** で、管理者として **Windows PowerShell** を開始します。
 
    >**注**: **SEA-ADM1** にまだ Windows Admin Center をインストールしていない場合は、次の 2 つの手順を行います。
 

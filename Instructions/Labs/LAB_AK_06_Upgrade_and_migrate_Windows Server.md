@@ -3,12 +3,12 @@ lab:
   title: 'ラボ: Windows Server でのアップグレードと移行'
   type: Answer Key
   module: Module 6 - Upgrade and migrate in Windows Server
-ms.openlocfilehash: b1415ed88b8b97eabfd7849ebabbe291ed383805
-ms.sourcegitcommit: 9a51ea796ef3806ab9e7ec1ff75034b2f929ed2a
+ms.openlocfilehash: 7d666444d9a0be48b6f398474a05a60a0902fee0
+ms.sourcegitcommit: fb0d39e25bc0fe182037587b772d217db126d3bb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137907108"
+ms.lasthandoff: 05/07/2022
+ms.locfileid: "144812995"
 ---
 # <a name="lab-answer-key-upgrade-and-migrate-in-windows-server"></a>ラボ解答キー: Windows Server でのアップグレードと移行
 
@@ -60,7 +60,7 @@ ms.locfileid: "137907108"
    | 管理ユーザー名 | **学生** |
    | 管理パスワード | **Pa55w.rd1234** |
    | ドメイン名 | **contoso.com** |
-   | VM サイズ | **Standard D2s v3** |
+   | VM サイズ | **Standard_DS2_v2** |
    | 仮想マシン名 | **az801l06a-dc1** |
    | 仮想ネットワーク名 | **az801l06a-vnet** |
    | Virtual Network のアドレス範囲 | **10.6.0.0/16** |
@@ -276,7 +276,7 @@ ms.locfileid: "137907108"
    ```powershell
    Start-BitsTransfer -Source https://aka.ms/WACDownload -Destination "$env:USERPROFILE\Downloads\WindowsAdminCenter.msi"
    ```
-1. 次のコマンドを入力し、Enter キーを押して、Windows Admin Center をインストールします。
+1. 次のコマンドを入力してから Enter キーを押して、Windows Admin Center をインストールします。
     
    ```powershell
    Start-Process msiexec.exe -Wait -ArgumentList "/i $env:USERPROFILE\Downloads\WindowsAdminCenter.msi /qn /L*v log.txt REGISTRY_REDIRECT_PORT_80=1 SME_PORT=443 SSL_CERTIFICATE_OPTION=generate"
