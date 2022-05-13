@@ -3,12 +3,12 @@ lab:
   title: 'ラボ: Azure Migrate を使用して Hyper-V VM を Azure に移行する'
   type: Answer Key
   module: 'Module 7: Design for Migration'
-ms.openlocfilehash: f77acac8db0b799c232fae878f04d632ae49447a
-ms.sourcegitcommit: e31cab525d98deeb444bd10846cbb38215bcdb29
+ms.openlocfilehash: 861cac41c48cb6217f9c8737d216054f47d0ac8f
+ms.sourcegitcommit: fb0d39e25bc0fe182037587b772d217db126d3bb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/01/2022
-ms.locfileid: "141347666"
+ms.lasthandoff: 05/07/2022
+ms.locfileid: "144813000"
 ---
 # <a name="lab-answer-key-migrating-hyper-v-vms-to-azure-by-using-azure-migrate"></a>ラボの解答キー: Azure Migrate を使用して Hyper-V VM を Azure に移行する
 
@@ -262,7 +262,7 @@ ms.locfileid: "141347666"
    >**注**: インポートが完了するまで待ちます。
 
 1. **Hyper-V マネージャー** コンソールで、新しくインポートされた仮想マシンを選択し、 **[名前の変更]** を選択し、名前を **az801l07a-vma1** に設定します。
-1. 仮想マシンのメモリ サイズを 4096 GB に増やします。
+1. VM の **[設定]** で、仮想マシンのメモリ サイズを 4096 GB に減らします。
 1. **Hyper-V マネージャー** コンソールで、新しくインポートされた仮想マシンを選択し、 **[開始]** を選択します。 
 1. **Hyper-V マネージャー** コンソールで、仮想マシンが実行されているのを確認し、 **[接続]** を選択します。 
 1. 仮想アプライアンスの **[仮想マシン接続]** ウィンドウの **[ライセンス条項]** ページで、 **[同意する]** を選択します。 

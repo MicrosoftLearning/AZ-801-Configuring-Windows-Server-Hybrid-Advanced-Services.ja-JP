@@ -3,12 +3,12 @@ lab:
   title: 'ラボ: ハイブリッド シナリオでの運用監視の実装'
   type: Answer Key
   module: Module 9 - Implementing operational monitoring in hybrid scenarios
-ms.openlocfilehash: 103013bf6732ecd022c20fac9e64ac25cbb0c1d5
-ms.sourcegitcommit: e31cab525d98deeb444bd10846cbb38215bcdb29
+ms.openlocfilehash: b68d5e88d5a550967a2cba67b57465993299ee22
+ms.sourcegitcommit: fb0d39e25bc0fe182037587b772d217db126d3bb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/01/2022
-ms.locfileid: "141347663"
+ms.lasthandoff: 05/07/2022
+ms.locfileid: "144813010"
 ---
 # <a name="lab-answer-key-implementing-operational-monitoring-in-hybrid-scenarios"></a>ラボの回答キー: ハイブリッド シナリオでの運用監視の実装
 
@@ -199,8 +199,7 @@ ms.locfileid: "141347663"
    >**注**: この設定により、Azure VM Insights 機能が提供されます。 VM Insights は、Azure Monitor のソリューションの 1 つで、これにより、Windows または Linux を実行する Azure VM とオンプレミス コンピューターの両方のパフォーマンスと正常性の監視が容易になります。
 
 1. **SEA-SVR2** で、Azure portal のツールバーにある **[リソース、サービス、ドキュメントの検索]** テキスト ボックスで「**モニター**」を検索して選択します。次に **[モニター\| 概要]** ページの **[分析情報]** で **[VM の分析情報]** を選択します。
-1. **[モニター \| 仮想マシン]** ページで **[パフォーマンス]** タブを選択し、 **[アップグレード]** をクリックします。
-1. **[アップグレード]** ウィンドウで **[アップグレード]** を選択します。
+1. **[モニター \| 仮想マシン]** ページで **[パフォーマンス]** タブを選択し、 **[今すぐ試す]** をクリックします。
 1. **[モニター \| 仮想マシン]** ページで **[マップ]** タブを選択し、 **[今すぐ試す]** をクリックします。
 1. **[カバレッジの管理]** ページで **[ワークスペースの構成]** を選択します。
 1. **[Azure Monitor]** ページの **[Log Analytics ワークスペースの選択]** ボックスの一覧で、このラボで先ほど作成した Log Analytics ワークスペースを選択し、 **[構成]** を選択します。

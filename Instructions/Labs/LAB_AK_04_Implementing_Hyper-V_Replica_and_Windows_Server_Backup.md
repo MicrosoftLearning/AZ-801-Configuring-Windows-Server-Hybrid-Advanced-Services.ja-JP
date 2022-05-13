@@ -3,12 +3,12 @@ lab:
   title: 'ラボ: Hyper-V レプリカおよび Windows Server バックアップの実装'
   type: Answer Key
   module: 'Module 4: Disaster Recovery in Windows Server'
-ms.openlocfilehash: 65c442ed6c2de7650e5ab4888fb080d38e8bc5d2
-ms.sourcegitcommit: 9a51ea796ef3806ab9e7ec1ff75034b2f929ed2a
+ms.openlocfilehash: a28994561ec934a923cb016a8306b934583b39c2
+ms.sourcegitcommit: fb0d39e25bc0fe182037587b772d217db126d3bb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137907103"
+ms.lasthandoff: 05/07/2022
+ms.locfileid: "144813007"
 ---
 # <a name="lab-answer-key-implementing-hyper-v-replica-and-windows-server-backup"></a>ラボ解答キー: Hyper-V レプリカと Windows Server バックアップの実装
 
@@ -123,7 +123,7 @@ ms.locfileid: "137907103"
    Get-VM
    ```
 
-   > **注**: コマンドの出力に **SEA-CORE1** がリストされていることを確認してください。
+   > **注**:コマンドの出力に **SEA-CORE1** がリストアップされており、レプリケーションが完了していることを確認してください。 レプリケートには 5 分から 10 分かかる場合があります。
 
    > **注**: Windows PowerShell のセッションは両方とも開いたままにしておきます。
 
