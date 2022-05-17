@@ -2,12 +2,12 @@
 lab:
   title: 'ラボ: ハイブリッド シナリオでのセキュリティ ソリューションの実装'
   module: 'Module 2: Implementing Security Solutions in Hybrid Scenarios'
-ms.openlocfilehash: e3f19b2b5aa5e7d87505f734b8b403408afc0c48
-ms.sourcegitcommit: bc527a1b1505fe86c1d7421fe407d32364baa52a
+ms.openlocfilehash: 475c539c6792c3a50a41c27ec5c293e895f0f07a
+ms.sourcegitcommit: fb0d39e25bc0fe182037587b772d217db126d3bb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2022
-ms.locfileid: "141579991"
+ms.lasthandoff: 05/07/2022
+ms.locfileid: "144812992"
 ---
 # <a name="lab-implementing-security-solutions-in-hybrid-scenarios"></a>ラボ: ハイブリッド シナリオでのセキュリティ ソリューションの実装
 
@@ -29,7 +29,7 @@ ms.locfileid: "141579991"
 
 ## <a name="lab-setup"></a>ラボのセットアップ
 
-仮想マシン: **AZ-801T00A-SEA-DC1**、 **AZ-801T00A-SEA-SVR1**、 **AZ-801T00A-SEA-SVR2** が実行されている必要があります。 他の VM が実行されていてもかまいませんが、このラボでは必要ありません。
+仮想マシン: **AZ-801T00A-SEA-DC1**、**AZ-801T00A-SEA-SVR1**、**AZ-801T00A-SEA-SVR2** が実行されている必要があります。 他の VM が実行されていてもかまいませんが、このラボでは必要ありません。
 
 > **注**: **AZ-801T00A-SEA-DC1**、**AZ-801T00A-SEA-SVR1**、**AZ-801T00A-SEA-SVR2** 仮想マシンは、それぞれ **SEA-DC1**、**SEA-SVR1**、および **SEA-SVR2** のインストールをホストしています。
 
@@ -131,8 +131,7 @@ ms.locfileid: "141579991"
    - 前の演習で作成した Log Analytics ワークスペースを利用して、**Log Analytics agent for Azure VMs** を有効にする。
    - 前の演習で作成した Log Analytics ワークスペースを利用して、**Log Analytics agent for Azure Arc Machine (プレビュー)** を有効にする。
    - **Microsoft 脅威と脆弱性の管理** オプションを使用して、**マシンの脆弱性評価** を有効にする。
-   - **ゲスト構成エージェント (プレビュー)** を有効にする。
-   - **Microsoft Dependency Agent (プレビュー)** を有効にする。
+
 
 1. Defender for Cloud の **[Cloud Environment settings]\(クラウド環境の設定\)** ページを参照します。
 1. **[環境設定]** ページで、Azure サブスクリプションを表すエントリを展開し、前の演習で作成した Log Analytics ワークスペースを表すエントリを確認します。
