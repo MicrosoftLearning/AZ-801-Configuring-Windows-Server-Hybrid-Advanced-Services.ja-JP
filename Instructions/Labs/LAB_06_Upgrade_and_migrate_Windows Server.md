@@ -54,8 +54,8 @@ Contoso 社では、オンプレミスの Windows Server から Azure 仮想マ�
 #### <a name="task-1-deploy-a-domain-controller-by-using-an-azure-resource-manager-arm-template"></a>タスク 1: Azure Resource Manager (ARM) テンプレートを使用してドメイン コントローラーをデプロイする
 
 1. **SEA-SVR2** で Microsoft Edge を起動し、 **[Azure portal](https://portal.azure.com)** に移動し、このラボで使用するサブスクリプションの所有者ロールをもつユーザー アカウントの資格情報を使用してサインインします。
-1. **SEA-SVR2** で Microsoft Edge を起動し、「 **[Create a new Windows VM and create a new AD Forest, Domain and DC (新しい Windows VM を作成し、新しい AD フォレスト、ドメイン、DC を作成する)](https://github.com/az140mp/azure-quickstart-templates/tree/master/application-workloads/active-directory/active-directory-new-domain)** 」にあるカスタマイズされたバージョンのクイックスタート テンプレートにアクセスします。 
-1. 「**Create a new Windows VM and create a new AD Forest, Domain and DC (新しい Windows VM を作成し、新しい AD フォレスト、ドメイン、DC を作成する)** 」ページで、Azure へのデプロイを始めます。 
+1. **SEA-SVR2** で Microsoft Edge を起動し、「**[Create a new Windows VM and create a new AD Forest, Domain and DC (新しい Windows VM を作成し、新しい AD フォレスト、ドメイン、DC を作成する)](https://github.com/az140mp/azure-quickstart-templates/tree/master/application-workloads/active-directory/active-directory-new-domain)**」にあるカスタマイズされたバージョンのクイックスタート テンプレートにアクセスします。 
+1. 「**Create a new Windows VM and create a new AD Forest, Domain and DC (新しい Windows VM を作成し、新しい AD フォレスト、ドメイン、DC を作成する)**」ページで、Azure へのデプロイを始めます。 
 1. **[Create an Azure VM with a new AD Forest]\(新しい AD フォレストで Azure VM を作成する\)** ページで、 **[テンプレートの編集]** を選びます。
 1. **[Edit template]\(テンプレートの編集\)** ページで、**storageProfile** セクション (**195** 行目以降) を参照し、**sku** (**199** 行目) が **2022-Datacenter** に設定されていて、**dataDisks** **caching** (**213** 行目) が **None** に設定されていることを確認します。
 
@@ -65,8 +65,8 @@ Contoso 社では、オンプレミスの Windows Server から Azure 仮想マ�
 
    > **注**: 次の手順のようにしてスクリプトを確認できます。
 
-   1. **SEA-SVR2** の Microsoft Edge ウィンドウで別のタブを開き、「 **[Create a new Windows VM and create a new AD Forest, Domain and DC (新しい Windows VM を作成し、新しい AD フォレスト、ドメイン、DC を作成する)](https://github.com/az140mp/azure-quickstart-templates/tree/master/application-workloads/active-directory/active-directory-new-domain)** 」にあるカスタマイズされたバージョンのクイックスタート テンプレートにアクセスします。
-   1. 「**Create a new Windows VM and create a new AD Forest, Domain and DC (新しい Windows VM を作成し、新しい AD フォレスト、ドメイン、DC を作成する)** 」 ページのリポジトリの内容の一覧で **DSC** フォルダーを選択し、**CreateADPDC.ps1** ファイルを選択します。
+   1. **SEA-SVR2** の Microsoft Edge ウィンドウで別のタブを開き、「**[Create a new Windows VM and create a new AD Forest, Domain and DC (新しい Windows VM を作成し、新しい AD フォレスト、ドメイン、DC を作成する)](https://github.com/az140mp/azure-quickstart-templates/tree/master/application-workloads/active-directory/active-directory-new-domain)**」にあるカスタマイズされたバージョンのクイックスタート テンプレートにアクセスします。
+   1. 「**Create a new Windows VM and create a new AD Forest, Domain and DC (新しい Windows VM を作成し、新しい AD フォレスト、ドメイン、DC を作成する)**」 ページのリポジトリの内容の一覧で **DSC** フォルダーを選択し、**CreateADPDC.ps1** ファイルを選択します。
    1. **azure-quickstart-templates/application-workloads/active-directory/active-directory-new-domain/DSC/CreateADPDC.ps1** ページで、スクリプトの内容を確認します。Active Directory Domain Services や DNS などの多数のサーバーの役割がインストールされ、NTDS のデータベースとログおよび SYSOVL 共有がドライブ **F** に配置されることに注目してください。 
    1. Microsoft Edge を閉じ、Azure portal の **[テンプレートの編集]** ページが表示されているタブに戻ります。
 
@@ -257,7 +257,7 @@ Contoso 社では、オンプレミスの Windows Server から Azure 仮想マ�
 
 #### <a name="task-1-install-windows-admin-center"></a>タスク 1: Windows Admin Center をインストールする
 
-1. **SEA-ADM1** で、管理者として **Windows PowerShell** を開始します。
+1. **SEA-ADM1** で、管理者として **Windows PowerShell** を起動します。
 
    >**注**: **SEA-ADM1** にまだ Windows Admin Center をインストールしていない場合は、次の 2 つの手順を行います。
 
@@ -357,8 +357,8 @@ Contoso 社では、オンプレミスの Windows Server から Azure 仮想マ�
    | Gateway | **172.16.10.1** |
 
 1. **[Cut over to the new servers]\(新しいサーバーへの切り替え\)** タブの **[Configure cutover from sea-svr1.contoso.com to sea-svr2.contoso.com]\(sea-svr1.contoso.com から sea-svr2.contoso.com への切り替えの構成\)** ペインの **[Destination network adapters]\(移行先ネットワーク アダプター\)** ドロップダウン リストで、**Seattle** を選びます。
-1. **[Cut over to the new servers]\(新しいサーバーへの切り替え\)** タブの **[Configure cutover from sea-svr1.contoso.com to sea-svr2.contoso.com]\(sea-svr1.contoso.com から sea-svr2.contoso.com への切り替えの構成\)** ペインの **[Rename the source device after cutover]\(切り替え後に移行元デバイスの名前を変更する\)** セクションで、 **[Choose a new name]\(新しい名前の選択\)** オプションを選び、 **[New source computer name]\(新しい移行元コンピューター名\)** ダイアログ ボックスで「**SEA-SVR1-OLD**」と入力します。
-1. **[Cut over to the new servers]\(新しいサーバーへの切り替え\)** タブの **[Adjust cutover settings]\(切り替え設定の調整\)** ペインの **[Cutover timeout (minutes)]\(切り替えタイムアウト (分)\)** テキスト ボックスに「**30**」と入力し、 **[Enter AD credentials]\(AD 資格情報の入力\)** セクションの **[Stored credentials]\(保存された資格情報\)** オプションは有効のままにします。
+1. **[Cut over to the new servers]\(新しいサーバーへの切り替え\)** タブの **[Configure cutover from sea-svr1.contoso.com to sea-svr2.contoso.com]\(sea-svr1.contoso.com から sea-svr2.contoso.com への切り替えの構成\)** ペインの **[Rename the source device after cutover]\(切り替え後に移行元デバイスの名前を変更する\)** セクションで、**[Choose a new name]\(新しい名前の選択\)** オプションを選び、**[New source computer name]\(新しい移行元コンピューター名\)** ダイアログ ボックスで「**SEA-SVR1-OLD**」と入力します。
+1. **[Cut over to the new servers]\(新しいサーバーへの切り替え\)** タブの **[Adjust cutover settings]\(切り替え設定の調整\)** ペインの **[Cutover timeout (minutes)]\(切り替えタイムアウト (分)\)** テキスト ボックスに「**30**」と入力し、**[Enter AD credentials]\(AD 資格情報の入力\)** セクションの **[Stored credentials]\(保存された資格情報\)** オプションは有効のままにします。
 1. **[Cut over to the new servers]\(新しいサーバーへの切り替え\)** タブの **[Validate source and destination device]\(移行元と移行先のデバイスの検証\)** ペインで、検証を開始します。
 1. 検証が完了して問題がなければ、 **[Cut over to the new servers]\(新しいサーバーへの切り替え\)** タブで切り替えステージを開始します。
 

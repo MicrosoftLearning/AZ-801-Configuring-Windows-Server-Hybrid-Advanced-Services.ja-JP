@@ -13,7 +13,7 @@ ms.locfileid: "141347654"
 
 ## <a name="lab-scenario"></a>ラボのシナリオ
 
-あなたは、Microsoft Azure の機能を評価して、主に Azure 仮想マシン (VM) に関する Azure リソースのパフォーマンスと構成の分析情報を検討する必要があります。 これを実行するために、Log Analytics といった Azure Monitor の機能を調べる予定です。
+あなたは、Microsoft Azure の機能を評価して、主に Azure 仮想マシン (VM) に関する Azure リソースのパフォーマンスと構成の分析情報を検討する必要があります。 これを実現するために、Log Analytics を含む、Azure Monitor の機能を調べる予定です。
 
 ## <a name="objectives"></a>目標
 
@@ -255,7 +255,7 @@ ms.locfileid: "141347654"
    | 集計の粒度 (期間) | **1 分** |
    | 評価の頻度 | **1 分ごと** |
 
-   >**注**: ゲスト (クラシック) メトリック名前空間のメトリックでは、メトリックからの警告ルールの作成はサポートされていません。 これを実現するには、Azure Resource Manager テンプレートを使用します。ドキュメント「 **[Windows 仮想マシンの Resource Manager テンプレートを使用して Azure Monitor メトリック ストアにゲスト OS メトリックを送信する](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/collect-custom-metrics-guestos-resource-manager-vm)** 」を参照してください。
+   >**注**: ゲスト (クラシック) メトリック名前空間のメトリックでは、メトリックからの警告ルールの作成はサポートされていません。 これを実現するには、Azure Resource Manager テンプレートを使用します。ドキュメント「**[Windows 仮想マシンの Resource Manager テンプレートを使用して Azure Monitor メトリック ストアにゲスト OS メトリックを送信する](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/collect-custom-metrics-guestos-resource-manager-vm)**」を参照してください。
 
 1. 次の設定を使用して新しい警告ルールのアクション グループを作成し (その他は既定値のまま)、 **[次へ: 通知 >]** を選択します。
 

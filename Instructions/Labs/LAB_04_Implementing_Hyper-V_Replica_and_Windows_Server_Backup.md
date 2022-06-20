@@ -26,7 +26,7 @@ ms.locfileid: "137907089"
 
 ## <a name="lab-setup"></a>ラボのセットアップ
 
-仮想マシン: **AZ-801T00A-SEA-DC1**、 **AZ-801T00A-SEA-SVR1**、 **AZ-801T00A-SEA-SVR2** が実行されている必要があります。 他の VM は実行できますが、このラボでは必要ありません。
+仮想マシン: **AZ-801T00A-SEA-DC1**、**AZ-801T00A-SEA-SVR1**、**AZ-801T00A-SEA-SVR2** が実行されている必要があります。 他の VM が実行されていてもかまいませんが、このラボでは必要ありません。
 
 > **注**: **AZ-801T00A-SEA-DC1**、**AZ-801T00A-SEA-SVR1**、**AZ-801T00A-SEA-SVR2** 仮想マシンは、**SEA-DC1**、 **SEA-SVR1**、および **SEA-SVR2** のインストールをホストしています
 
@@ -217,7 +217,7 @@ ms.locfileid: "137907089"
 
 1. 両方の Windows PowerShell ウィンドウを開いたままにします。
 
-   > **注**: グラフィカルツールを使用してこの演習の結果を確認する場合は、 **SEA-SVR2** 上で Hyper-V マネージャーを使用してから、 **SEA-SVR1** および **SEA-SVR2** サーバーを **Hyper-V** コンソールに追加します。 その後、 **SEA-CORE1** VM が **SEA-SVR1** と **SEA-SVR2** の両方に存在し、**SEA-SVR2** から **SEA-SVR1** へレプリケーションが実行されていることを確認できます。
+   > **注**: グラフィカル ツールを使用してこの演習の結果を確認する場合は、**SEA-SVR2** 上で Hyper-V マネージャーを使用してから、**SEA-SVR1** および **SEA-SVR2** サーバーを **Hyper-V** コンソールに追加します。 その後、**SEA-CORE1** VM が **SEA-SVR1** と **SEA-SVR2** の両方に存在し、**SEA-SVR2** から **SEA-SVR1** へレプリケーションが実行されていることを確認できます。
 
 ## <a name="exercise-2-implementing-backup-and-restore-with-windows-server-backup"></a>演習 2: Windows Server バックアップを使用したバックアップと復元の実装
 
