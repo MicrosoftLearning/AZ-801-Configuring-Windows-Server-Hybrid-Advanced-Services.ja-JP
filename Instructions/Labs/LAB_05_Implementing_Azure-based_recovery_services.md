@@ -155,7 +155,7 @@ Azure VM で実行されている VM に Azure をディザスター リカバ�
 1. **[インフラストラクチャの準備]** ブレードの **[ソースの設定]** タブで、 **[Hyper-V サーバーの追加]** リンクを選択します。 
 1. **[サーバーの追加]** ブレードで、オンプレミスの Hyper-V ホストを追加する手順の手順 3 の **[ダウンロード]** リンクを選択して、Microsoft Azure Site Recovery Provider をダウンロードします。
 1. **[Microsoft Update]** オプションを無効にして **AzureSiteRecoveryProvider.exe** をインストールします。 
-1. Azure Portal から、コンテナー登録キーを **[ダウンロード]** フォルダーにダウンロードします。
+1. Azure portal から、コンテナー登録キーを **[ダウンロード]** フォルダーにダウンロードします。
 1. **[プロバイダーのインストール]** ウィザードを完了し、 **[Microsoft Azure Site Recovery 登録] ウィザード** を起動します。
 1. メッセージが表示されたら、 **[Microsoft Azure Site Recovery 登録ウィザード]**  で、コンテナー資格情報ファイルの場所を指定します。
 1. 既定の設定で **[Microsoft Azure Site Recovery 登録ウィザード]** を完了します。 
@@ -207,7 +207,7 @@ Azure VM で実行されている VM に Azure をディザスター リカバ�
 
 #### <a name="task-5-perform-a-failover-of-the-hyper-v-virtual-machine"></a>タスク 5: Hyper-V 仮想マシンのフェールオーバーの実行
 
-1. **SEA-SVR2** 上の Azure Portal を表示しているブラウザー ウィンドウの [**SEA-CORE1** レプリケートされた項目] ブレードで、以下の設定で **[テスト フェールオーバー]** を開始し (他は既定値のままにしておきます)、 **[OK]** を選択します。
+1. **SEA-SVR2** 上の Azure portal を表示しているブラウザー ウィンドウの [**SEA-CORE1** レプリケートされた項目] ブレードで、以下の設定で **[テスト フェールオーバー]** を開始し (他は既定値のままにしておきます)、 **[OK]** を選択します。
 
    |設定|値|
    |---|---|
@@ -342,7 +342,7 @@ Azure 関連の料金を最小限に抑えるため、このラボでプロビ�
    |理由|**使用停止**|
    |説明|**使用停止**|
 
-1. **SEA-SVR2** 上の、Azure Portal を表示している Microsoft Edge で、 **[az801l05a-rsvault | レプリケートされた項目]** ブレードを参照し、 **[SEA-CORE1]** エントリを選択します。
+1. **SEA-SVR2** 上の、Azure portal を表示している Microsoft Edge で、 **[az801l05a-rsvault | レプリケートされた項目]** ブレードを参照し、 **[SEA-CORE1]** エントリを選択します。
 1. **[SEA-CORE1** レプリケートされた項目] ブレードで、レプリケーションを無効にし、フィードバックを提供せずにレプリケートされた項目を削除します。 
 
 #### <a name="task-2-delete-the-lab-resource-groups"></a>タスク 2: ラボ リソース グループを削除する
