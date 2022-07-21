@@ -2,18 +2,18 @@
 lab:
   title: 'ラボ: Hyper-V レプリカおよび Windows Server バックアップの実装'
   module: 'Module 4: Disaster Recovery in Windows Server'
-ms.openlocfilehash: cf313f1971f038711a4164a65d10b8eacc074b55
-ms.sourcegitcommit: 9a51ea796ef3806ab9e7ec1ff75034b2f929ed2a
+ms.openlocfilehash: 9f668ce6b8f9f2c6802de4a03ee0038b3066f34e
+ms.sourcegitcommit: d2e9d886e710729f554d2ba62d1abe3c3f65fcb6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137907089"
+ms.lasthandoff: 07/10/2022
+ms.locfileid: "147046983"
 ---
 # <a name="lab-implementing-hyper-v-replica-and-windows-server-backup"></a>ラボ: Hyper-V レプリカおよび Windows Server バックアップの実装
 
 ## <a name="scenario"></a>シナリオ
 
-あなたは、Contoso 社で管理者として作業しています。 Contoso 社は、新しいディザスター リカバリーおよびバックアップの機能とテクノロジを評価して構成したいと考えています。 システム管理者として、その評価と実装を担当してきました。 **Hyper-V レプリカ** と Windows Server バックアップを評価することに決定しました。
+Contoso, Ltd. で管理者として作業しています。 Contoso 社は、新しいディザスター リカバリーおよびバックアップの機能とテクノロジを評価して構成したいと考えています。 システム管理者として、その評価と実装を担当してきました。 **Hyper-V レプリカ** と Windows Server バックアップを評価することに決定しました。
 
 ## <a name="objectives"></a>目標
 
@@ -70,7 +70,7 @@ ms.locfileid: "137907089"
 
    ```powershell
    New-Item -ItemType Directory -Path C:\ReplicaStorage -Force
-   Set-VMReplicationServer -ReplicationEnabled $true -AllowedAuthenticationType Kerberos -ReplicationAllowedFromAnyServer $true -DefaultStorageLocation C:\ReplicaStorage
+   Set-VMReplicationServer -ReplicationEnabled $true -AllowedAuthenticationType Kerberos -KerberosAuthenticationPort 8080 -ReplicationAllowedFromAnyServer $true -DefaultStorageLocation C:\ReplicaStorage
    ```
 
 1. **Hyper-V レプリカ** のレプリカサーバーとして **SEA-SVR2** が構成されていることを確認するには、次のコマンドを実行します。
@@ -83,7 +83,7 @@ ms.locfileid: "137907089"
 
    - **RepEnabled: True**
    - **AuthType: Kerb**
-   - **KerAuthPort: 80**
+   - **KerAuthPort: 8080**
    - **CertAuthPort: 443**
    - **AllowAnyServer: True**
 
@@ -235,7 +235,7 @@ ms.locfileid: "137907089"
 1. **SEA-SVR2** 上で、エクスプローラーを使用して **SEA-SVR2** に **C:\\ BackupShare** フォルダーを作成します。 **認証されたユーザー** が読み取り/書き込みアクセス許可を持つようにフォルダーを共有します。
 1. **SEA-SVR2** で、**SEA-SVR1** への PowerShell リモート処理セッションを表示している **[管理者: Windows PowerShell]** ウィンドウに切り替えます。
 1. **SEA-SVR1** への PowerShell リモート処理セッションで、 **Install-WindowsFeature** コマンドレットを使用して **Windows-Server-Backup** 機能を **SEA-SVR1** 上にインストールします。
-1. **SEA-SVR1** への PowerShell リモート処理セッションで、**wbadmin /?** 、 および **Get-Command** コマンドを使用して、 **wbadmin** ユーティリティの機能と **WindowsServerBackup** モジュールのコマンドレットを確認します。
+1. **SEA-SVR1** への PowerShell リモート処理セッションで、**wbadmin /?**、 および **Get-Command** コマンドを使用して、 **wbadmin** ユーティリティの機能と **WindowsServerBackup** モジュールのコマンドレットを確認します。
 
 #### <a name="task-2-perform-a-backup-to-a-network-share"></a>タスク 2: ネットワーク共有へのバックアップを実行する
 
