@@ -3,12 +3,12 @@ lab:
   title: 'ラボ: フェールオーバー クラスタリングの実装'
   type: Answer Key
   module: 'Module 3: High availability in Windows Server'
-ms.openlocfilehash: e73075a9d078b109d5bdb4380aaced3ef38de2ee
-ms.sourcegitcommit: d2e9d886e710729f554d2ba62d1abe3c3f65fcb6
+ms.openlocfilehash: e473f48384085f9a861e1887f2f3635ea4e1ef1d
+ms.sourcegitcommit: ecac5958210e9837402ec015bbbac0ebeab48f47
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2022
-ms.locfileid: "147047016"
+ms.lasthandoff: 08/27/2022
+ms.locfileid: "147695192"
 ---
 # <a name="lab-answer-key-implementing-failover-clustering"></a>ラボ応答キー: フェールオーバー クラスタリングの実装
 
@@ -81,7 +81,7 @@ ms.locfileid: "147047016"
 1. **SEA-DC1** 上に Microsoft iSCSI ターゲットを作成するには、**SEA-DC1** への PowerShell リモート処理セッションをホストしている **Windows PowerShell** ウィンドウに切り替え、次のコマンドを入力して、Enter キーを押します。
 
    ```powershell
-   New-IscsiServerTarget iSCSI-L03 –InitiatorIds “IQN:iqn.1991-05.com.microsoft:sea-svr1.contoso.com","IQN:iqn.1991-05.com.microsoft:sea-svr2.contoso.com"
+   New-IscsiServerTarget -TargetName “iSCSI-L03” –InitiatorIds “IQN:iqn.1991-05.com.microsoft:sea-svr1.contoso.com","IQN:iqn.1991-05.com.microsoft:sea-svr2.contoso.com"
    ```
 
 ## <a name="exercise-2-configuring-a-failover-cluster"></a>演習 2: フェールオーバー クラスターの構成
@@ -91,9 +91,9 @@ ms.locfileid: "147047016"
 1. **SEA-SVR2** から **SEA-DC1** 上に iSCSI ディスクをマウントするには、**SEA-DC1** への PowerShell リモート処理セッションをホストしている **Windows PowerShell** ウィンドウで次のコマンドを入力し、各コマンドを入力した後に Enter キーを押します。
 
    ```powershell
-   Add-IscsiVirtualDiskTargetMapping iSCSI-L03 C:\Storage\Disk1.VHDX
-   Add-IscsiVirtualDiskTargetMapping iSCSI-L03 C:\Storage\Disk2.VHDX
-   Add-IscsiVirtualDiskTargetMapping iSCSI-L03 C:\Storage\Disk3.VHDX
+   Add-IscsiVirtualDiskTargetMapping -TargetName “iSCSI-L03” -DevicePath “C:\Storage\Disk1.VHDX”
+   Add-IscsiVirtualDiskTargetMapping -TargetName “iSCSI-L03” -DevicePath “C:\Storage\Disk2.VHDX”
+   Add-IscsiVirtualDiskTargetMapping -TargetName “iSCSI-L03” -DevicePath “C:\Storage\Disk3.VHDX”
    ```
 
 1. **SEA-DC1** 上でホストされている iSCSI ターゲットに **SEA-SVR2** から接続するには、ローカル セッションへのアクセスを提供する **Windows PowerShell** プロンプトに切り替え、次のコマンドを入力します。各コマンドを入力したら、Enter キーを押します。
@@ -130,9 +130,9 @@ ms.locfileid: "147047016"
 
    ```powershell
    Get-Disk | Where OperationalStatus -eq 'Offline' | Initialize-Disk -PartitionStyle MBR
-   New-Partition -DiskNumber 1 -Size 5gb -AssignDriveLetter
    New-Partition -DiskNumber 2 -Size 5gb -AssignDriveLetter
    New-Partition -DiskNumber 3 -Size 5gb -AssignDriveLetter
+   New-Partition -DiskNumber 4 -Size 5gb -AssignDriveLetter
    Format-Volume -DriveLetter E -FileSystem NTFS
    Format-Volume -DriveLetter F -FileSystem NTFS
    Format-Volume -DriveLetter G -FileSystem NTFS
@@ -173,7 +173,7 @@ ms.locfileid: "147047016"
 1. **[高可用性ウィザード]** の **[開始する前に]** ページで、**[次へ]** をクリックします。
 1. **[高可用性ウィザード]** の **[ロールの選択]** ページで、**[ファイル サーバー]** を選択し、**[次へ]** を選択します。
 1. **[高可用性ウィザード]** の **[ファイル サーバーの種類]** ページで、**[汎用のファイル サーバー]** オプションが選択されていることを確認し、**[次へ]** を選択します。
-1. **[高可用性ウィザード]** の **[クライアント アクセス ポイント]** ページの、**[名前]** ボックスに「**FSCluster**」と入力します。
+1. **高可用性ウィザード** の **[クライアント アクセス ポイント]** ページで、**[名前]** ボックスに「**FSCluster**」と入力します。
 1. **[アドレス]** ボックスに「**172.16.10.130**」と入力し、**[次へ]** を選択します。
 1. **[高可用性ウィザード]** の **[ストレージの選択]** ページで、**[クラスター ディスク 1 ]** と **[クラスター ディスク 2]** を選択し、**[次へ]** を選択します。
 1. **[高可用性ウィザード]** の **[確認]** ページで、**[次へ]** を選択します。
@@ -201,7 +201,7 @@ ms.locfileid: "147047016"
 1. **[フェールオーバー]** タブを選択し、**[フェールバックを許可する]** オプションを選択します。
 1. **[Failback between]** \(フェールバック期間\) オプションを選択し、次の値を入力します。
 
-   - 最初のテキスト ボックスには「**4**」を入力します
+   - 最初のテキスト ボックスには「**4**」と入力します
    - 2 つ目のテキスト ボックスには「**5**」と入力します。
 
 1. **[全般]** タブを選びます。
@@ -215,7 +215,7 @@ ms.locfileid: "147047016"
 1. **SEA-SVR2** で、エクスプローラーを開き、 **\\\\FSCluster\\Docs** フォルダーに移動します。
 1. **Docs** フォルダー内で、フォルダーの空の領域にあるコンテキスト メニューを右クリックまたはアクセスして、**[新規作成]** を選択し、**[テキスト ドキュメント]** を選択します。
 1. ドキュメントのデフォルト名 **[New Text Document.txt]** を受け入れるには、Enter キーを押します。
-1. **SEA-SVR2** で、**[フェールオーバー クラスター マネージャー]** コンソールに切り替え、**[FSCluster]** を右クリックしてコンテキスト メニューにアクセスして、**[移動]**、**[ノードの選択]**、**[SEA-SVR2]** の順に選択し、**[OK]** を選択します。
+1. **SEA-SVR2** で、 **[フェールオーバー クラスター マネージャー]** コンソールに切り替え、 **[FSCluster]** を右クリックしてコンテキスト メニューにアクセスして、 **[移動]** 、 **[ノードの選択]** 、 **[SEA-SVR1]** の順に選択し、 **[OK]** を選択します。
 1. **SEA-SVR2** 上で、エクスプローラーに戻り、 **\\\\FSCluster\\Docs** フォルダーの内容に引き続きアクセスできることを確認します。
 
 #### <a name="task-2-validate-the-failover-and-quorum-configuration-for-the-file-server-role"></a>タスク 2: ファイル サーバー ロールのフェールオーバーとクォーラム構成を検証する
