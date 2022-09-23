@@ -2,12 +2,12 @@
 lab:
   title: 'ラボ: ハイブリッド シナリオでのセキュリティ ソリューションの実装'
   module: 'Module 2: Implementing Security Solutions in Hybrid Scenarios'
-ms.openlocfilehash: 33338f32e18797a64f2b6b18dc6d84f559f62276
-ms.sourcegitcommit: 9a51ea796ef3806ab9e7ec1ff75034b2f929ed2a
+ms.openlocfilehash: 475c539c6792c3a50a41c27ec5c293e895f0f07a
+ms.sourcegitcommit: fb0d39e25bc0fe182037587b772d217db126d3bb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137907099"
+ms.lasthandoff: 05/07/2022
+ms.locfileid: "144812992"
 ---
 # <a name="lab-implementing-security-solutions-in-hybrid-scenarios"></a>ラボ: ハイブリッド シナリオでのセキュリティ ソリューションの実装
 
@@ -31,7 +31,7 @@ ms.locfileid: "137907099"
 
 仮想マシン: **AZ-801T00A-SEA-DC1**、**AZ-801T00A-SEA-SVR1**、**AZ-801T00A-SEA-SVR2** が実行されている必要があります。 他の VM が実行されていてもかまいませんが、このラボでは必要ありません。
 
-> **注**: **AZ-801T00A-SEA-DC1**、**AZ-801T00A-SEA-SVR1**、**AZ-801T00A-SEA-SVR2** 仮想マシンは、それぞれ **SEA-DC1**、**SEA-SVR1**、および **SEA-SVR2** のインストールをホストしています
+> **注**: **AZ-801T00A-SEA-DC1**、**AZ-801T00A-SEA-SVR1**、**AZ-801T00A-SEA-SVR2** 仮想マシンは、それぞれ **SEA-DC1**、**SEA-SVR1**、および **SEA-SVR2** のインストールをホストしています。
 
 1. **[SEA-SVR2]** を選択します。
 1. 次の資格情報を使用してサインインします。
@@ -131,8 +131,7 @@ ms.locfileid: "137907099"
    - 前の演習で作成した Log Analytics ワークスペースを利用して、**Log Analytics agent for Azure VMs** を有効にする。
    - 前の演習で作成した Log Analytics ワークスペースを利用して、**Log Analytics agent for Azure Arc Machine (プレビュー)** を有効にする。
    - **Microsoft 脅威と脆弱性の管理** オプションを使用して、**マシンの脆弱性評価** を有効にする。
-   - **ゲスト構成エージェント (プレビュー)** を有効にする。
-   - **Microsoft Dependency Agent (プレビュー)** を有効にする。
+
 
 1. Defender for Cloud の **[Cloud Environment settings]\(クラウド環境の設定\)** ページを参照します。
 1. **[環境設定]** ページで、Azure サブスクリプションを表すエントリを展開し、前の演習で作成した Log Analytics ワークスペースを表すエントリを確認します。
@@ -219,7 +218,7 @@ ms.locfileid: "137907099"
 
 このタスクでは、Log Analytics エージェントの無人インストールを実行します。
 
-1. **SEA-ADM1** で、管理者として **Windows PowerShell** を開始します。
+1. **SEA-SVR2** で、管理者として **Windows PowerShell** を起動します。
 1. **MMASetup-AMD64.exe** ファイルの内容を抽出するために、**Windows PowerShell** コンソールで次のコマンドを実行します。
     
    ```powershell
@@ -318,7 +317,7 @@ Windows Server を実行しているオンプレミスのサーバーと Azure V
 
 1. **SEA-ADM1** で、Azure portal を表示している Microsoft Edge ウィンドウに切り替え、 **[Microsoft Defender for Cloud \| セキュリティ警告]** ページに戻ります。
 1. **[Microsoft Defender for Cloud \| セキュリティ警告]** ページで、**SEA-SVR2** での PowerShell の疑わしい使用を示す重大度の高いアラートに注目します。
-1. セキュリティ警告を選択し、 **[セキュリティ警告]** ページで **[アクションの実行]** を選択し、実行可能なアクションを確認します。
+1. セキュリティ アラートを選択し、 **[セキュリティ アラート]** ページで **[アクションの実行]** を選択し、実行可能なアクションを確認します。
 
    > **注:** 今後の攻撃の可能性を最小限に抑えるために、セキュリティに関する推奨事項の実装を検討してください。
 

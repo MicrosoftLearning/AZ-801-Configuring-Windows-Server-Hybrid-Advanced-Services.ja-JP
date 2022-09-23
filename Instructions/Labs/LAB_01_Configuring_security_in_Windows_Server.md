@@ -2,12 +2,12 @@
 lab:
   title: 'ラボ: Windows Server でのセキュリティの構成'
   module: 'Module 1: Windows Server security'
-ms.openlocfilehash: ed3fd5da4164e3fd48c9af7b6b37074c582618e0
-ms.sourcegitcommit: 9a51ea796ef3806ab9e7ec1ff75034b2f929ed2a
+ms.openlocfilehash: e3ff4a435b249f1688749a3992cb3375136f046c
+ms.sourcegitcommit: d2e9d886e710729f554d2ba62d1abe3c3f65fcb6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137907101"
+ms.lasthandoff: 07/10/2022
+ms.locfileid: "147046998"
 ---
 # <a name="lab-configuring-security-in-windows-server"></a>ラボ: Windows Server でのセキュリティの構成
 
@@ -57,17 +57,17 @@ Windows Defender Credential Guard をサーバーと管理ワークステーシ�
 
 #### <a name="task-1-enable-windows-defender-credential-guard-using-group-policy"></a>タスク 1: グループ ポリシーを使用して Windows Defender Credential Guard を有効にする
 
-1. *SEA-SVR2** で、**グループ ポリシー管理コンソール** を開きます。
-1. **グループポリシー管理コンソール** で、 **[フォレスト: Contoso.com]** 、 **[ドメイン]** 、 **[Contoso.com]** の順に参照し、**IT** 組織単位 (OU) にリンクされた **CredentialGuard_GPO** という名前のグループ ポリシー オブジェクト (GPO) を作成します。
+1. **SEA-SVR2** で、 **[グループ ポリシー管理]** コンソールを開きます。
+1. **[グループ ポリシー管理]** コンソールで、 **[フォレスト: contoso.com]** 、 **[ドメイン]** 、**contoso.com** の順に参照し、**IT** 組織単位 (OU) にリンクされた **CredentialGuard_GPO** という名前のグループ ポリシー オブジェクト (GPO) を作成します。
 1. グループポリシー管理エディターで **CredentialGuard_GPO** を開き、 **[コンピューターの構成]\\[ポリシー]\\[管理用テンプレート]\\[システム]\\[デバイスの保護]** ノード を参照します。
-1. 次の設定を使用して、 **[仮想化ベースのセキュリティを有効にする]** オプションを有効にします。
+1. 次の設定を使用して、**[仮想化ベースのセキュリティを有効にする]** オプションを有効にします。
 
    - プラットフォームのセキュリティ レベルを選択する: **[Secure Boot and DMA Protection] \(セキュアブートと DMA 保護\)**
    - Credential Guard の構成: **UEFI ロックで有効化**
    - Secure Launch Configuration \(セキュア起動の構成\): **有効**
 
 1. **[グループ ポリシー管理エディター]** ウィンドウを閉じます。
-1. **[グループ ポリシー管理コンソール]** ウィンドウを閉じます。
+1. **[グループ ポリシー管理]** コンソール ウィンドウを閉じます。
 
 #### <a name="task-2-enable-windows-defender-credential-guard-using-the-hvci-and-windows-defender-credential-guard-hardware-readiness-tool"></a>タスク 2: HVCI と Windows Defender Credential Guard ハードウェア準備ツールを使用して Windows Defender Credential Guard を有効にする
 
@@ -165,8 +165,8 @@ Windows Defender Credential Guard をサーバーと管理ワークステーシ�
    Msiexec /i C:\Labfiles\Lab01\LAPS.x64.msi
    ```
 
-1. ダイアログが表示されたら、 **[Welcome to the Local Administrator Password Solution Setup Wizard]** の既定の設定を使用して、 **[Custom Setup]** ページまで進みます。
-1. **Local Administrator Password Solution Setup** ウィザードの **[Custom Setup]** ページで、 **[Management Tools]** の横にあるドロップダウン メニューで **[Entire feature will be installed on the local hard drive]** を選択し、既定値を受け入れてセットアップを起動して、ウィザードを終了します。 
+1. ダイアログが表示されたら、**[Welcome to the Local Administrator Password Solution Setup Wizard]** の既定の設定を使用して、**[Custom Setup]** ページまで進みます。
+1. **Local Administrator Password Solution Setup** ウィザードの **[Custom Setup]** ページで、**[Management Tools]** の横にあるドロップダウン メニューで **[Entire feature will be installed on the local hard drive]** を選択し、既定値を受け入れてセットアップを起動して、ウィザードを終了します。 
 1. セットアップが完了するまで待ちます。 
 1. Windows Defender ファイアウォールで他のドメイン参加サーバーからの受信サーバー メッセージ ブロック (SMB) 接続を許可する高度なセキュリティ規則を有効にするために、Windows PowerShell コマンド プロンプトで次のコマンドを入力し、それぞれの後で Enter キーを押します。
 
@@ -188,11 +188,11 @@ Windows Defender Credential Guard をサーバーと管理ワークステーシ�
    Set-AdmPwdComputerSelfPermission -Identity "Seattle_Servers"
    ```
 
-1. *SEA-SVR2** で、**グループ ポリシー管理コンソール** を開きます。
-1. **グループポリシー管理コンソール** で、 **[フォレスト: Contoso.com]** 、 **[ドメイン]** 、 **[Contoso.com]** の順に参照し、**Seattle_Servers** OU にリンクされた **LAPS_GPO** という名前のグループ ポリシー オブジェクト (GPO) を作成します。
+1. *SEA-SVR2* で、 **[グループ ポリシー管理]** コンソールを開きます。
+1. **[グループ ポリシー管理]** コンソールで、 **[フォレスト: contoso.com]** 、 **[ドメイン]** 、**contoso.com** の順に参照し、**Seattle_Servers** OU にリンクされた **LAPS_GPO** という名前のグループ ポリシー オブジェクト (GPO) を作成します。
 1. グループポリシー管理エディターで **LAPS_GPO** を開き、 **[コンピューターの構成]\\[ポリシー]\\[管理用テンプレート]\\[LAPS]** ノードを参照します。
 1. **[ローカル管理者のパスワードの管理を有効にする]** オプションを有効にします。
-1. 次の設定を使用して、 **[パスワードの設定]** オプションを構成します。
+1. 次の設定を使用して、**[パスワードの設定]** オプションを構成します。
 
    - プラットフォームのセキュリティ レベルを選択する: **[Secure Boot and DMA Protection] \(セキュアブートと DMA 保護\)**
    - Credential Guard の構成: **UEFI ロックで有効化**
@@ -204,7 +204,7 @@ Windows Defender Credential Guard をサーバーと管理ワークステーシ�
    - パスワードの有効期間 (日数): **30**
 
 1. グループ ポリシー管理エディターを閉じます。
-1. **[グループ ポリシー管理コンソール]** ウィンドウを閉じます。
+1. **[グループ ポリシー管理]** コンソール ウィンドウを閉じます。
 
 #### <a name="task-3-deploy-laps-client-side-extension"></a>タスク 3: LAPS クライアント側拡張をデプロイする
 
@@ -229,8 +229,8 @@ Windows Defender Credential Guard をサーバーと管理ワークステーシ�
 
 1. **SEA-SVR2** のコンソール セッションに切り替えます。
 1. **[スタート]** メニューから、**LAPS UI** を起動します。
-1. **[LAPS UI]** ダイアログボックスの **[ComputerName]** ボックスに「**SEA-SVR1**」と入力し、 **[検索]** を選択します。
-1. **[パスワード]** と **[パスワードの有効期限]** の値を確認し、 **[終了]** を選択します。
+1. **[LAPS UI]** ダイアログ ボックスの **[ComputerName]** ボックスに「**SEA-SVR1**」と入力し、**[検索]** を選択します。
+1. **[パスワード]** と **[パスワードの有効期限]** の値を確認し、**[終了]** を選択します。
 1. **Windows PowerShell** コンソールに切り替えてから、パスワードの値を確認するために、Windows PowerShell コマンド プロンプトで次のコマンドを実行します。
 
    ```powershell

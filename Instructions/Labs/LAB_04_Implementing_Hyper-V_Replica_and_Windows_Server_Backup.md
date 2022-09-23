@@ -2,12 +2,12 @@
 lab:
   title: 'ラボ: Hyper-V レプリカおよび Windows Server バックアップの実装'
   module: 'Module 4: Disaster Recovery in Windows Server'
-ms.openlocfilehash: cf313f1971f038711a4164a65d10b8eacc074b55
-ms.sourcegitcommit: 9a51ea796ef3806ab9e7ec1ff75034b2f929ed2a
+ms.openlocfilehash: 9f668ce6b8f9f2c6802de4a03ee0038b3066f34e
+ms.sourcegitcommit: d2e9d886e710729f554d2ba62d1abe3c3f65fcb6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137907089"
+ms.lasthandoff: 07/10/2022
+ms.locfileid: "147046983"
 ---
 # <a name="lab-implementing-hyper-v-replica-and-windows-server-backup"></a>ラボ: Hyper-V レプリカおよび Windows Server バックアップの実装
 
@@ -26,7 +26,7 @@ Contoso, Ltd. で管理者として作業しています。 Contoso 社は、新
 
 ## <a name="lab-setup"></a>ラボのセットアップ
 
-仮想マシン: **AZ-801T00A-SEA-DC1**、 **AZ-801T00A-SEA-SVR1**、 **AZ-801T00A-SEA-SVR2** が実行されている必要があります。 他の VM は実行できますが、このラボでは必要ありません。
+仮想マシン: **AZ-801T00A-SEA-DC1**、**AZ-801T00A-SEA-SVR1**、**AZ-801T00A-SEA-SVR2** が実行されている必要があります。 他の VM が実行されていてもかまいませんが、このラボでは必要ありません。
 
 > **注**: **AZ-801T00A-SEA-DC1**、**AZ-801T00A-SEA-SVR1**、**AZ-801T00A-SEA-SVR2** 仮想マシンは、**SEA-DC1**、 **SEA-SVR1**、および **SEA-SVR2** のインストールをホストしています
 
@@ -70,7 +70,7 @@ Contoso, Ltd. で管理者として作業しています。 Contoso 社は、新
 
    ```powershell
    New-Item -ItemType Directory -Path C:\ReplicaStorage -Force
-   Set-VMReplicationServer -ReplicationEnabled $true -AllowedAuthenticationType Kerberos -ReplicationAllowedFromAnyServer $true -DefaultStorageLocation C:\ReplicaStorage
+   Set-VMReplicationServer -ReplicationEnabled $true -AllowedAuthenticationType Kerberos -KerberosAuthenticationPort 8080 -ReplicationAllowedFromAnyServer $true -DefaultStorageLocation C:\ReplicaStorage
    ```
 
 1. **Hyper-V レプリカ** のレプリカサーバーとして **SEA-SVR2** が構成されていることを確認するには、次のコマンドを実行します。
@@ -83,7 +83,7 @@ Contoso, Ltd. で管理者として作業しています。 Contoso 社は、新
 
    - **RepEnabled: True**
    - **AuthType: Kerb**
-   - **KerAuthPort: 80**
+   - **KerAuthPort: 8080**
    - **CertAuthPort: 443**
    - **AllowAnyServer: True**
 
@@ -217,7 +217,7 @@ Contoso, Ltd. で管理者として作業しています。 Contoso 社は、新
 
 1. 両方の Windows PowerShell ウィンドウを開いたままにします。
 
-   > **注**: グラフィカルツールを使用してこの演習の結果を確認する場合は、 **SEA-SVR2** 上で Hyper-V マネージャーを使用してから、 **SEA-SVR1** および **SEA-SVR2** サーバーを **Hyper-V** コンソールに追加します。 その後、 **SEA-CORE1** VM が **SEA-SVR1** と **SEA-SVR2** の両方に存在し、**SEA-SVR2** から **SEA-SVR1** へレプリケーションが実行されていることを確認できます。
+   > **注**: グラフィカル ツールを使用してこの演習の結果を確認する場合は、**SEA-SVR2** 上で Hyper-V マネージャーを使用してから、**SEA-SVR1** および **SEA-SVR2** サーバーを **Hyper-V** コンソールに追加します。 その後、**SEA-CORE1** VM が **SEA-SVR1** と **SEA-SVR2** の両方に存在し、**SEA-SVR2** から **SEA-SVR1** へレプリケーションが実行されていることを確認できます。
 
 ## <a name="exercise-2-implementing-backup-and-restore-with-windows-server-backup"></a>演習 2: Windows Server バックアップを使用したバックアップと復元の実装
 
@@ -235,7 +235,7 @@ Contoso, Ltd. で管理者として作業しています。 Contoso 社は、新
 1. **SEA-SVR2** 上で、エクスプローラーを使用して **SEA-SVR2** に **C:\\ BackupShare** フォルダーを作成します。 **認証されたユーザー** が読み取り/書き込みアクセス許可を持つようにフォルダーを共有します。
 1. **SEA-SVR2** で、**SEA-SVR1** への PowerShell リモート処理セッションを表示している **[管理者: Windows PowerShell]** ウィンドウに切り替えます。
 1. **SEA-SVR1** への PowerShell リモート処理セッションで、 **Install-WindowsFeature** コマンドレットを使用して **Windows-Server-Backup** 機能を **SEA-SVR1** 上にインストールします。
-1. **SEA-SVR1** への PowerShell リモート処理セッションで、**wbadmin /?** 、 および **Get-Command** コマンドを使用して、 **wbadmin** ユーティリティの機能と **WindowsServerBackup** モジュールのコマンドレットを確認します。
+1. **SEA-SVR1** への PowerShell リモート処理セッションで、**wbadmin /?**、 および **Get-Command** コマンドを使用して、 **wbadmin** ユーティリティの機能と **WindowsServerBackup** モジュールのコマンドレットを確認します。
 
 #### <a name="task-2-perform-a-backup-to-a-network-share"></a>タスク 2: ネットワーク共有へのバックアップを実行する
 

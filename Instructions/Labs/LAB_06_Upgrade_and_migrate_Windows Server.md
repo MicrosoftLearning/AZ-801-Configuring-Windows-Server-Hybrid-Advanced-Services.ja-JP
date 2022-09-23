@@ -2,12 +2,12 @@
 lab:
   title: 'ラボ: Windows Server でのアップグレードと移行'
   module: 'Module 6: Upgrade and migrate in Windows Server'
-ms.openlocfilehash: 1befc684028b4e361c2d67f5ea01fa59ac02940d
-ms.sourcegitcommit: 9a51ea796ef3806ab9e7ec1ff75034b2f929ed2a
+ms.openlocfilehash: 6cfa6d05941436b9a90c3196ff882839eb8ced9b
+ms.sourcegitcommit: d2e9d886e710729f554d2ba62d1abe3c3f65fcb6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137907107"
+ms.lasthandoff: 07/10/2022
+ms.locfileid: "147046986"
 ---
 # <a name="lab-upgrade-and-migrate-in-windows-server"></a>ラボ: Windows Server でのアップグレードと移行
 
@@ -53,10 +53,10 @@ Contoso は、オンプレミスの Windows Server から Azure 仮想マシン 
 
 #### <a name="task-1-deploy-a-domain-controller-by-using-an-azure-resource-manager-arm-template"></a>タスク 1: Azure Resource Manager (ARM) テンプレートを使用してドメイン コントローラーをデプロイする
 
-1. **SEA-SVR2** で Microsoft Edge を起動し、 **[Azure portal](https://portal.azure.com)** に移動し、このラボで使用するサブスクリプションの所有者ロールをもつユーザー アカウントの資格情報を使用してサインインします。
-1. **SEA-SVR2** で Microsoft Edge を起動し、「 **[Create a new Windows VM and create a new AD Forest, Domain and DC (新しい Windows VM を作成し、新しい AD フォレスト、ドメイン、DC を作成する)](https://github.com/az140mp/azure-quickstart-templates/tree/master/application-workloads/active-directory/active-directory-new-domain)** 」にあるカスタマイズされたバージョンのクイックスタート テンプレートにアクセスします。 
-1. 「**Create a new Windows VM and create a new AD Forest, Domain and DC (新しい Windows VM を作成し、新しい AD フォレスト、ドメイン、DC を作成する)** 」ページで、Azure へのデプロイを始めます。 
-1. **[Create an Azure VM with a new AD Forest]\(新しい AD フォレストで Azure VM を作成する\)** ページで、 **[テンプレートの編集]** を選びます。
+1. **SEA-SVR2** で Microsoft Edge を起動し、**[Azure portal](https://portal.azure.com)** に移動し、このラボで使用するサブスクリプションの所有者ロールをもつユーザー アカウントの資格情報を使用してサインインします。
+1. **SEA-SVR2** で Microsoft Edge を起動し、「**[新しい Windows VM を作成し、新しい AD フォレスト、ドメイン、DC を作成する](https://github.com/az140mp/azure-quickstart-templates/tree/master/application-workloads/active-directory/active-directory-new-domain)**」にあるカスタマイズされたバージョンのクイックスタート テンプレートにアクセスします。 
+1. 「**新しい Windows VM を作成し、新しい AD フォレスト、ドメイン、DC を作成する**」ページで、Azure へのデプロイを始めます。 
+1. **[Create an Azure VM with a new AD Forest]\(新しい AD フォレストで Azure VM を作成する\)** ページで、**[テンプレートの編集]** を選びます。
 1. **[Edit template]\(テンプレートの編集\)** ページで、**storageProfile** セクション (**195** 行目以降) を参照し、**sku** (**199** 行目) が **2022-Datacenter** に設定されていて、**dataDisks** **caching** (**213** 行目) が **None** に設定されていることを確認します。
 
    > **注**: AD DS のデータベース ファイルとログ ファイルがホストされているディスクでは、キャッシュを **None** に設定する必要があります。
@@ -65,8 +65,8 @@ Contoso は、オンプレミスの Windows Server から Azure 仮想マシン 
 
    > **注**: 次の手順のようにしてスクリプトを確認できます。
 
-   1. **SEA-SVR2** の Microsoft Edge ウィンドウで別のタブを開き、「 **[Create a new Windows VM and create a new AD Forest, Domain and DC (新しい Windows VM を作成し、新しい AD フォレスト、ドメイン、DC を作成する)](https://github.com/az140mp/azure-quickstart-templates/tree/master/application-workloads/active-directory/active-directory-new-domain)** 」にあるカスタマイズされたバージョンのクイックスタート テンプレートにアクセスします。
-   1. 「**Create a new Windows VM and create a new AD Forest, Domain and DC (新しい Windows VM を作成し、新しい AD フォレスト、ドメイン、DC を作成する)** 」 ページのリポジトリの内容の一覧で **DSC** フォルダーを選択し、**CreateADPDC.ps1** ファイルを選択します。
+   1. **SEA-SVR2** の Microsoft Edge ウィンドウで別のタブを開き、「**[新しい Windows VM を作成し、新しい AD フォレスト、ドメイン、DC を作成する](https://github.com/az140mp/azure-quickstart-templates/tree/master/application-workloads/active-directory/active-directory-new-domain)**」にあるカスタマイズされたバージョンのクイックスタート テンプレートにアクセスします。
+   1. 「**新しい Windows VM を作成し、新しい AD フォレスト、ドメイン、DC を作成する**」 ページのリポジトリの内容の一覧で **DSC** フォルダーを選択し、**CreateADPDC.ps1** ファイルを選択します。
    1. **azure-quickstart-templates/application-workloads/active-directory/active-directory-new-domain/DSC/CreateADPDC.ps1** ページで、スクリプトの内容を確認します。Active Directory Domain Services や DNS などの多数のサーバーの役割がインストールされ、NTDS のデータベースとログおよび SYSOVL 共有がドライブ **F** に配置されることに注目してください。 
    1. Microsoft Edge を閉じ、Azure portal の **[テンプレートの編集]** ページが表示されているタブに戻ります。
 
@@ -82,8 +82,8 @@ Contoso は、オンプレミスの Windows Server から Azure 仮想マシン 
 
    > **注**: DNS サーバーの役割を使用してドメイン コントローラーを実行している Azure VM を指すカスタム DNS サーバー仮想ネットワークの設定を構成すると、それ以降に同じ仮想ネットワークにデプロイされるすべての Azure VM で、名前解決にその DNS サーバーが自動的に使用されるようになり、ドメイン参加機能が効果的に提供されます。
 
-1. テンプレートに変更を適用せずに、 **[テンプレートの編集]** ページを閉じます。
-1. **[Create an Azure VM with a new AD Forest]\(新しい AD フォレストで Azure VM を作成する\)** ページに戻り、 **[パラメーターの編集]** を選びます。
+1. テンプレートに変更を適用せずに、**[テンプレートの編集]** ページを閉じます。
+1. **[Create an Azure VM with a new AD Forest]\(新しい AD フォレストで Azure VM を作成する\)** ページに戻り、**[パラメーターの編集]** を選びます。
 1. **[パラメーターの編集]** ページで、**C:\\Labfiles\\Lab06\\L06-rg_template.parameters.json** ファイルをアップロードして、既定のパラメーターを置き換えます。
 1. 次の設定でデプロイを始めます (その他は既定値のままにします)。
 
@@ -95,7 +95,7 @@ Contoso は、オンプレミスの Windows Server から Azure 仮想マシン 
    | 管理ユーザー名 | **学生** |
    | 管理パスワード | **Pa55w.rd1234** |
    | ドメイン名 | **contoso.com** |
-   | VM サイズ | **Standard D2s v3** |
+   | VM サイズ | **Standard_DS2_v2** |
    | 仮想マシン名 | **az801l06a-dc1** |
    | 仮想ネットワーク名 | **az801l06a-vnet** |
    | Virtual Network のアドレス範囲 | **10.6.0.0/16** |
@@ -154,7 +154,7 @@ Contoso は、オンプレミスの Windows Server から Azure 仮想マシン 
    | リージョン | この演習で前に最初の仮想マシンをデプロイしたのと同じ Azure リージョンを選択します |
    | 可用性のオプション | **可用性セット** |
    | 可用性セット | **adAvailabilitySet** |
-   | Image | **Windows Server 2022 Datacenter - Gen2** |
+   | Image | **Windows Server 2022 Datacenter: Azure Edition - Gen2** |
    | Azure Spot インスタンス | **No** |
    | サイズ | **Standard D2s v3** |
    | ユーザー名 | **学生** |
@@ -189,14 +189,14 @@ Contoso は、オンプレミスの Windows Server から Azure 仮想マシン 
 
    | 設定 | 値 | 
    | --- | --- |
-   | [ユーザー名] |**学生** |
+   | ユーザー名 |**学生** |
    | パスワード |**Pa55w.rd1234** |
 
 1. **az801l06a-dc2** へのリモート デスクトップ セッション内で、Windows PowerShell セッションを開始します。
 1. AD DS と DNS サーバーの役割をインストールするには、Windows PowerShell プロンプトで次のコマンドを実行します。
     
    ```powershell
-   Install-WindowsFeature -Name AD-Domain-Services,DNS -IncludeManagementFeatures
+   Install-WindowsFeature -Name AD-Domain-Services,DNS -IncludeManagementTools
    ```
 
    > **注**: インストールが完了するまで待ちます。 これには 3 分ほどかかる場合があります。
@@ -212,7 +212,7 @@ Contoso は、オンプレミスの Windows Server から Azure 仮想マシン 
 1. **az801l06a-dc2** へのリモート デスクトップ セッション内で、**サーバー マネージャー** ウィンドウに切り替えます。
 1. **サーバー マネージャー** から **Active Directory Domain Services 構成ウィザード** を開始して、ドメイン コントローラーの昇格を実行します。
 1. **Active Directory Domain Services 構成ウィザード** で、 **[既存のドメインにドメイン コントローラーを追加する]** オプションを選び、ターゲット ドメインとして **contoso.com** を指定します。
-1. 昇格を実行するための資格情報として、ユーザー名 **CONTOSO\\Student** とパスワード **Pa55w.rd1234** を使用します。
+1. 昇格を実行するための資格情報として、ユーザー名 **Student@contoso.com** とパスワード **Pa55w.rd1234** を使用します。
 1. 新しいドメイン コントローラーを書き込み可能として指定し、**ドメイン ネーム システム (DNS) サーバー** および **グローバル カタログ (GC)** コンポーネントを含めるオプションを指定します。
 1. **ディレクトリ サービス復元モード (DSRM) のパスワード** を **Pa55w.rd1234** に設定します。
 1. AD DS のデータベース、ログ ファイル、SYSVOL をホストするフォルダーがホストされているドライブを、ドライブ **C** からドライブ **F** に変更します。
@@ -244,7 +244,7 @@ Contoso は、オンプレミスの Windows Server から Azure 仮想マシン 
    Get-AzResourceGroup -Name 'AZ801-L060*' | Remove-AzResourceGroup -Force -AsJob
    ```
 
-   > **注:** このコマンドは非同期で実行されるため ( *-AsJob* パラメーターによって決定されます)、同じ PowerShell セッション内で別の PowerShell コマンドをすぐに実行できますが、リソース グループが実際に削除されるまでに数分かかります。
+   > **注:** このコマンドは非同期で実行されるため (*-AsJob* パラメーターによって決定されます)、同じ PowerShell セッション内で別の PowerShell コマンドをすぐに実行できますが、リソース グループが実際に削除されるまでに数分かかります。
 
 ## <a name="exercise-2-migrating-file-servers-by-using-storage-migration-service"></a>演習 2: 記憶域移行サービスを使用してファイル サーバーを移行する
 
@@ -285,7 +285,7 @@ Contoso は、オンプレミスの Windows Server から Azure 仮想マシン 
 
 #### <a name="task-3-perform-migration-by-using-storage-migration-service"></a>タスク 3: 記憶域移行サービスを使用して移行を実行する
 
-1. **SEA-ADM1** で Microsoft Edge を起動し、 **https://SEA-ADM1.contoso.com** で Windows Admin Center のローカル インスタンスに接続します。 
+1. **SEA-ADM1** で Microsoft Edge を起動し、**https://SEA-ADM1.contoso.com** で Windows Admin Center のローカル インスタンスに接続します。 
 1. メッセージが表示されたら、次の資格情報を使用して認証を行います。
 
    - ユーザー名: **CONTOSO\\Administrator**
@@ -293,17 +293,17 @@ Contoso は、オンプレミスの Windows Server から Azure 仮想マシン 
 
 1. **SEA-ADM1** の Windows Admin Center で、インストールされている拡張機能を確認し、一覧に **記憶域移行サービス** 拡張機能が含まれることを確認します。
 
-   >**注:** 利用可能な更新プログラムがある場合は、**記憶域移行サービス** 拡張機能のエントリを選び、 **[更新]** を選びます。
+   >**注:** 利用可能な更新プログラムがある場合は、**記憶域移行サービス** 拡張機能のエントリを選び、**[更新]** を選びます。
 
 1. **[すべての接続]** ペインから、**sea-svr2.contoso.com** に接続します。
-1. **sea-svr2.contoso.com** ページの **[ツール]** メニューから **記憶域移行サービス** を開始し、 **[インストール]** 操作を呼び出します。
+1. **sea-svr2.contoso.com** ページの **[ツール]** メニューから **記憶域移行サービス** を開始し、**[インストール]** 操作を呼び出します。
 
    >**注:** これにより、記憶域移行サービスとその必要なコンポーネントが自動的にインストールされます。
 
 1. **[Migrate storage in three steps]\(3 つのステップで記憶域を移行する\)** ペインを閉じます。
-1. **[記憶域移行サービス]** ペインで、**SVR1toSVR2** という名前の移行ジョブを作成し、 **[ソース デバイス]** を **[Windows servers and clusters]\(Windows サーバーとクラスター\)** に設定します。
-1. **[記憶域移行サービス > SVR1toSVR2]** ペインの **[Inventory servers]\(インベントリ サーバー\)** タブで、 **[Check the prerequisites]\(前提条件の確認\)** ペインを確認します。
-1. **[Inventory servers]\(インベントリ サーバー\)** タブの **[資格情報の入力]** ペインで、必要に応じて、**CONTOSO\\Administrator** ユーザー アカウントの資格情報を入力し、 **[Migrate from failover clusters]\(フェールオーバー クラスターから移行する\)** チェック ボックスをオフにします。
+1. **[記憶域移行サービス]** ペインで、**SVR1toSVR2** という名前の移行ジョブを作成し、**[ソース デバイス]** を **[Windows servers and clusters]\(Windows サーバーとクラスター\)** に設定します。
+1. **[記憶域移行サービス > SVR1toSVR2]** ペインの **[Inventory servers]\(インベントリ サーバー\)** タブで、**[Check the prerequisites]\(前提条件の確認\)** ペインを確認します。
+1. **[Inventory servers]\(インベントリ サーバー\)** タブの **[資格情報の入力]** ペインで、必要に応じて、**CONTOSO\\Administrator** ユーザー アカウントの資格情報を入力し、**[Migrate from failover clusters]\(フェールオーバー クラスターから移行する\)** チェック ボックスをオフにします。
 1. **[Inventory servers]\(インベントリ サーバー\)** タブの **[Add and scan devices]\(デバイスの追加とスキャン\)** ペインで、次の資格情報を使用して **SEA-SVR1.contoso.com** サーバーを追加します。
 
    - ユーザー名: **CONTOSO\\Administrator**
@@ -315,17 +315,17 @@ Contoso は、オンプレミスの Windows Server から Azure 仮想マシン 
 
    >**注:** スキャンが正常に完了するまで待ちます。 これには 1 分ほどかかります。
 
-   >**注:** スキャンが完了したら、 **[記憶域移行サービス > SVR1toSVR2]** ペインの **[Transfer data]\(データの転送\)** タブからアクセスできる移行ジョブの 2 番目のステージに進みます。
+   >**注:** スキャンが完了したら、**[記憶域移行サービス > SVR1toSVR2]** ペインの **[Transfer data]\(データの転送\)** タブからアクセスできる移行ジョブの 2 番目のステージに進みます。
 
 1. **CONTOSO\\Administrator** ユーザー アカウントがデータ転送に使用されていることを確認します。
 1. 転送先のデバイスを **SEA-SVR2.contoso.com** に設定します。
 
    >**注:** スキャンが正常に完了するまで待ちます。 これには 1 分ほどかかります。
 
-   >**注:**  ハイブリッド シナリオでは、移行ジョブの移行先になる Azure VM を自動的に作成することもできます。
+   >**注:** ハイブリッド シナリオでは、移行ジョブの移行先になる Azure VM を自動的に作成することもできます。
 
-1. スキャンが完了したら、 **[Specify the destination for: sea-svr1.contoso.com]\(転送先の指定先: sea-svr1.contoso.com\)** ペインで、 **[Map each source volume to a destination volume]\(各転送元ボリュームを転送先ボリュームにマップする\)** セクションを調べて、**S:** 転送元ボリュームが **S:** 転送先ボリュームにマップされていることを確認します。
-1. **[Specify the destination for: sea-svr1.contoso.com]\(転送先の指定先: sea-svr1.contoso.com\)** ペインで、 **[Select the shares to transfer]\(転送する共有の選択\)** セクションを調べて、 **[データ]** 転送元共有が転送に含まれていることを確認します。
+1. スキャンが完了したら、**[Specify the destination for: sea-svr1.contoso.com]\(転送先の指定先: sea-svr1.contoso.com\)** ペインで、**[Map each source volume to a destination volume]\(各転送元ボリュームを転送先ボリュームにマップする\)** セクションを調べて、**S:** 転送元ボリュームが **S:** 転送先ボリュームにマップされていることを確認します。
+1. **[Specify the destination for: sea-svr1.contoso.com]\(転送先の指定先: sea-svr1.contoso.com\)** ペインで、**[Select the shares to transfer]\(転送する共有の選択\)** セクションを調べて、**[データ]** 転送元共有が転送に含まれていることを確認します。
 1. **[Transfer data]\(データの転送\)** タブの **[Adjust transfer settings]\(転送設定の調整\)** ペインで、次の設定を指定します (他の設定は既定値のままにします)。
 
    | 設定 | 値 | 
@@ -339,12 +339,12 @@ Contoso は、オンプレミスの Windows Server から Azure 仮想マシン 
 
    >**注:** **[Transfer data]\(データの転送\)** タブの **[Install required features]\(必要な機能のインストール\)** ペインで、**SEA-SVR2.contoso.com** への **SMS-Proxy** のインストールが完了するまで待ちます。
 
-1. スキャンが完了したら、 **[Transfer data]\(データの転送\)** タブの **[Validate source and destination device]\(転送元と転送先のデバイスの検証\)** ペインで検証を開始し、正常に完了するまで待ちます。
+1. スキャンが完了したら、**[Transfer data]\(データの転送\)** タブの **[Validate source and destination device]\(転送元と転送先のデバイスの検証\)** ペインで検証を開始し、正常に完了するまで待ちます。
 1. **[Transfer data]\(データの転送\)** タブの **[Start the transfer]\(転送の開始\)** ペインで、データの転送を開始します。
 
    >**注:** 転送が正常に完了するまで待ちます。 これにかかる時間は 1 分未満です。
 
-   >**注:** これにより、 **[記憶域移行サービス > SVR1toSVR2]** ペインの **[Cut over to the new servers]\(新しいサーバーへの切り替え\)** タブからアクセスできる移行ジョブの 3 番目のステージに移ります。
+   >**注:** これにより、**[記憶域移行サービス > SVR1toSVR2]** ペインの **[Cut over to the new servers]\(新しいサーバーへの切り替え\)** タブからアクセスできる移行ジョブの 3 番目のステージに移ります。
 
 1. **[Cut over to the new servers]\(新しいサーバーへの切り替え\)** タブの **[Enter credentials for the source devices]\(移行元デバイスの資格情報の入力\)** セクションと **[Enter credentials for the destination devices]\(移行先デバイスの資格情報の入力\)** セクションで、**CONTOSO\\Administrator** ユーザー アカウントの保存されている資格情報を受け入れます。
 1. **[Cut over to the new servers]\(新しいサーバーへの切り替え\)** タブの **[Configure cutover from sea-svr1.contoso.com to sea-svr2.contoso.com]\(sea-svr1.contoso.com から sea-svr2.contoso.com への切り替えの構成\)** ペインの **[Source network adapters]\(移行元ネットワーク アダプター\)** セクションで、次の設定を指定します。
@@ -357,9 +357,9 @@ Contoso は、オンプレミスの Windows Server から Azure 仮想マシン 
    | Gateway | **172.16.10.1** |
 
 1. **[Cut over to the new servers]\(新しいサーバーへの切り替え\)** タブの **[Configure cutover from sea-svr1.contoso.com to sea-svr2.contoso.com]\(sea-svr1.contoso.com から sea-svr2.contoso.com への切り替えの構成\)** ペインの **[Destination network adapters]\(移行先ネットワーク アダプター\)** ドロップダウン リストで、**Seattle** を選びます。
-1. **[Cut over to the new servers]\(新しいサーバーへの切り替え\)** タブの **[Configure cutover from sea-svr1.contoso.com to sea-svr2.contoso.com]\(sea-svr1.contoso.com から sea-svr2.contoso.com への切り替えの構成\)** ペインの **[Rename the source device after cutover]\(切り替え後に移行元デバイスの名前を変更する\)** セクションで、 **[Choose a new name]\(新しい名前の選択\)** オプションを選び、 **[New source computer name]\(新しい移行元コンピューター名\)** ダイアログ ボックスで「**SEA-SVR1-OLD**」と入力します。
-1. **[Cut over to the new servers]\(新しいサーバーへの切り替え\)** タブの **[Adjust cutover settings]\(切り替え設定の調整\)** ペインの **[Cutover timeout (minutes)]\(切り替えタイムアウト (分)\)** テキスト ボックスに「**30**」と入力し、 **[Enter AD credentials]\(AD 資格情報の入力\)** セクションの **[Stored credentials]\(保存された資格情報\)** オプションは有効のままにします。
-1. **[Cut over to the new servers]\(新しいサーバーへの切り替え\)** タブの **[Validate source and destination device]\(移行元と移行先のデバイスの検証\)** ペインで、検証を開始します。
+1. **[Cut over to the new servers]\(新しいサーバーへの切り替え\)** タブの **[Configure cutover from sea-svr1.contoso.com to sea-svr2.contoso.com]\(sea-svr1.contoso.com から sea-svr2.contoso.com への切り替えの構成\)** ペインの **[Rename the source device after cutover]\(切り替え後に移行元デバイスの名前を変更する\)** セクションで、**[Choose a new name]\(新しい名前の選択\)** オプションを選び、**[New source computer name]\(新しい移行元コンピューター名\)** ダイアログ ボックスで「**SEA-SVR1-OLD**」と入力します。
+1. **[Cut over to the new servers]\(新しいサーバーへの切り替え\)** タブの **[Adjust cutover settings]\(切り替え設定の調整\)** ペインの **[Cutover timeout (minutes)]\(切り替えタイムアウト (分)\)** テキスト ボックスに「**30**」と入力し、**[Enter AD credentials]\(AD 資格情報の入力\)** セクションの **[Stored credentials]\(保存された資格情報\)** オプションは有効のままにします。
+1. **[Cut over to the new servers]\(新しいサーバーへの切り替え\)** タブの **[Validate source and destination devices]\(移行元と移行先のデバイスの検証\)** ペインで、検証を開始します。
 1. 検証が完了して問題がなければ、 **[Cut over to the new servers]\(新しいサーバーへの切り替え\)** タブで切り替えステージを開始します。
 
    >**注:** 切り替えによって、**SEA-SVR1** と **SEA-SVR2** 両方 の 2 回連続した再起動がトリガーされます。

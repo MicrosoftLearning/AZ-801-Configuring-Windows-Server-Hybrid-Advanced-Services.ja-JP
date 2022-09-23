@@ -3,14 +3,14 @@ lab:
   title: 'ラボ: ハイブリッド シナリオでのセキュリティ ソリューションの実装'
   type: Answer Key
   module: 'Module 2: Implementing Security Solutions in Hybrid Scenarios'
-ms.openlocfilehash: b1f88c69277a241f8d27a68fb88ef1652232453a
-ms.sourcegitcommit: 9a51ea796ef3806ab9e7ec1ff75034b2f929ed2a
+ms.openlocfilehash: 02fcfe79dff809e8ec90690e4a3893be14c02fe4
+ms.sourcegitcommit: dad7571f21a69a2fd2213d91ef7e1d01639df716
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137907105"
+ms.lasthandoff: 04/27/2022
+ms.locfileid: "144334637"
 ---
-# <a name="lab-answer-key-implementing-security-solutions-in-hybrid-scenarios"></a>ラボ回答キー: ハイブリッド シナリオでのセキュリティ ソリューションの実装
+# <a name="lab-answer-key-implementing-security-solutions-in-hybrid-scenarios"></a>ラボ解答キー: ハイブリッド シナリオでのセキュリティ ソリューションの実装
 
 ## <a name="exercise-1-creating-an-azure-log-analytics-workspace-and-an-azure-automation-account"></a>演習 1: Azure Log Analytics ワークスペースと Azure Automation アカウントの作成
 
@@ -26,7 +26,7 @@ ms.locfileid: "137907105"
    | サブスクリプション | このラボで使用している Azure サブスクリプションの名前 |
    | リソース グループ | 新しいリソース グループの名前 **AZ801-L0201-RG** |
    | Log Analytics ワークスペース | 任意の一意の名前 |
-   | リージョン | 前のタスクで仮想マシンをデプロイした Azure リージョンの名前 |
+   | リージョン | 最寄りのリージョンを選択します |
 
    >**注**: デプロイが完了するまで待ちます。 デプロイには約 1 分かかります。
 
@@ -82,8 +82,6 @@ ms.locfileid: "137907105"
 1. **[設定 \| 自動プロビジョニング]** ページに戻り、 **[Azure Arc マシンの Log Analytics エージェント (プレビュー)]** を **オン** に設定します。 これにより、 **[拡張機能のデプロイ構成]** ページが自動的に表示されます。 
 1. **[拡張機能のデプロイ構成]** ページの **[Log Analytics ワークスペースの選択]** ドロップダウン リストで、前の演習で作成したワークスペースを表すエントリを選択し、 **[適用]** を選択します。
 1. **[設定 \| 自動プロビジョニング]** ページに戻り、 **[マシンの脆弱性評価]** を **オン** に設定します。 **[拡張機能のデプロイ構成]** ページで、 **[Microsoft 脅威と脆弱性の管理]** オプションが選択されていることを確認し、 **[適用]** を選択します。
-1. **[設定 \| 自動プロビジョニング]** ページに戻り、 **[Guest Configuration agent (preview)]\(ゲスト構成エージェント (プレビュー)\)** を **オン** に設定します。
-1. **[設定 \| 自動プロビジョニング]** ページで、 **[Microsoft Dependency Agent (プレビュー)]** を **オン** に設定します。
 1. ページの最上部で **[保存]** を選択します。
 1. **[Microsoft Defender for Cloud | 概要]** ページに戻り、左側の垂直メニューの **[管理]** セクションで、 **[環境設定]** を選択します。
 1. **[環境設定]** ページで、Azure サブスクリプションを表すエントリを展開し、前の演習で作成した Log Analytics ワークスペースを表すエントリを選択します。
