@@ -2,13 +2,8 @@
 lab:
   title: 'ラボ: Windows Server の監視とトラブルシューティング'
   module: 'Module 8: Monitoring, performance, and troubleshooting'
-ms.openlocfilehash: be85a4a949d34c194ba76cd56cbb81f350707685
-ms.sourcegitcommit: 9a51ea796ef3806ab9e7ec1ff75034b2f929ed2a
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137907095"
 ---
+
 # <a name="lab-monitoring-and-troubleshooting-windows-server"></a>ラボ: Windows Server の監視とトラブルシューティング
 
 ## <a name="scenario"></a>シナリオ
@@ -67,7 +62,7 @@ Contoso 社 は、米国ワシントン州シアトルに本社を置くグロ�
    - パフォーマンス カウンター (既定のインスタンスオプションを使用):
 
       - **メモリー\\ページ/秒**
-      - **ネットワーク インターフェイス\\バイト Total/sec**
+      - **Network Interface\\Bytes Total/sec**
       - **PhysicalDisk\\% Disk Time**
       - **PhysicalDisk\\Avg. Disk Queue Length**
       - **Processor\\% Processor Time**
@@ -101,7 +96,7 @@ Contoso 社 は、米国ワシントン州シアトルに本社を置くグロ�
 1. レポートに一覧表示される値を記録して、後で分析できるようにします。 記録される値は次のとおりです。
 
    - **メモリー\\ページ/秒**
-   - **ネットワーク インターフェイス\\バイト Total/sec**
+   - **Network Interface\\Bytes Total/sec**
    - **PhysicalDisk\\% Disk Time**
    - **PhysicalDisk\\Avg. Disk Queue Length**
    - **Processor\\% Processor Time**
@@ -147,7 +142,7 @@ Contoso 社 は、米国ワシントン州シアトルに本社を置くグロ�
 1. レポートに一覧表示される値を記録します。
 
    - **メモリー\\ページ/秒**
-   - **ネットワーク インターフェイス\\バイト Total/sec**
+   - **Network Interface\\Bytes Total/sec**
    - **PhysicalDisk\\% Disk Time**
    - **PhysicalDisk\\Avg. Disk Queue Length**
    - **Processor\\% Processor Time**
@@ -203,7 +198,7 @@ Contoso 社 は、米国ワシントン州シアトルに本社を置くグロ�
 
    > **注**: WinRM サービスが既に実行されていて、リモート管理用に設定されていることを確認してください。
 
-1. **SEA-DC1** で、高度なセキュリティ規則を備えた関連する Windows Defender ファイアウォールが有効になっていることを確認するには、次のコマンドを実行します。
+1. **SEA-DC1**で、高度なセキュリティ規則を備えた関連する Windows Defender ファイアウォールが有効になっていることを確認するには、次のコマンドを実行します。
 
    ```powershell
    Set-NetFirewallRule -DisplayGroup 'Remote Event Log Management' -Enabled True -Profile Domain -PassThru
@@ -212,11 +207,11 @@ Contoso 社 は、米国ワシントン州シアトルに本社を置くグロ�
    > **注**: Windows PowerShell ウィンドウは開いたままにしておきます。
 
 1. **SEA-SVR2** 上で、 **[Active Directory ユーザーとコンピューター]** を開きます。
-1. **[Active Directory ユーザーとコンピューター]** コンソールで、**SEA-SVR2** コンピューター アカウントを **イベント ログ閲覧者** グループに追加します。
+1. **[Active Directory ユーザーとコンピューター]** コンソールで、**SEA-SVR2** コンピューター アカウントを **イベント ログ閲覧者**グループに追加します。
 
 #### <a name="task-2-create-a-subscription-and-verify-the-results"></a>タスク 2: サブスクリプションを作成し、結果を確認する
 
-1. **SEA-SVR2** 上で **イベント ビューアー** を開きます。
+1. **SEA-SVR2** 上で **イベント ビューアー**を開きます。
 1. 次のプロパティを使用して、新しいサブスクリプションを作成します。
 
    - 名前: **SEA-DC1 イベント**
@@ -224,7 +219,7 @@ Contoso 社 は、米国ワシントン州シアトルに本社を置くグロ�
    - コレクター: **開始済み**
    - イベント: **クリティカル**、**警告**、**情報**、**エラー**
    - ログ記録済み: **過去 24 時間**
-   - ログ:**アプリケーション** と **システム** の **Windows ログ**
+   - ログ:**アプリケーション**と**システム**の **Windows ログ**
 
 1. **SEA-SVR2** で、 **[イベント ビューアー]** ウィンドウに切り替え、ナビゲーションウィンドウで **[Windows のログ]** を展開します。
 1. **[転送済みイベント]** を選択し、転送されたイベントに、**SEA-DC1** 上で生成されたイベントが含まれることを確認します。

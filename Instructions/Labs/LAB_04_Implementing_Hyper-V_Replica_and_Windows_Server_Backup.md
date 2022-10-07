@@ -2,24 +2,19 @@
 lab:
   title: 'ラボ: Hyper-V レプリカおよび Windows Server バックアップの実装'
   module: 'Module 4: Disaster Recovery in Windows Server'
-ms.openlocfilehash: 9f668ce6b8f9f2c6802de4a03ee0038b3066f34e
-ms.sourcegitcommit: d2e9d886e710729f554d2ba62d1abe3c3f65fcb6
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2022
-ms.locfileid: "147046983"
 ---
+
 # <a name="lab-implementing-hyper-v-replica-and-windows-server-backup"></a>ラボ: Hyper-V レプリカおよび Windows Server バックアップの実装
 
 ## <a name="scenario"></a>シナリオ
 
-Contoso, Ltd. で管理者として作業しています。 Contoso 社は、新しいディザスター リカバリーおよびバックアップの機能とテクノロジを評価して構成したいと考えています。 システム管理者として、その評価と実装を担当してきました。 **Hyper-V レプリカ** と Windows Server バックアップを評価することに決定しました。
+あなたは、Contoso 社で管理者として作業しています。 Contoso 社は、新しいディザスター リカバリーおよびバックアップの機能とテクノロジを評価して構成したいと考えています。 システム管理者として、その評価と実装を担当してきました。 **Hyper-V レプリカ**と Windows Server バックアップを評価することに決定しました。
 
 ## <a name="objectives"></a>目標
 
 このラボを完了すると、次のことができるようになります。
 
-- **Hyper-V レプリカ** を構成して実装する。
+- **Hyper-V レプリカ**を構成して実装する。
 - Windows Server バックアップを使用してバックアップを構成し、実装する。
 
 ## <a name="estimated-time-45-minutes"></a>予想所要時間: 45 分
@@ -66,14 +61,14 @@ Contoso, Ltd. で管理者として作業しています。 Contoso 社は、新
    Enable-NetFirewallRule -DisplayName 'Hyper-V Replica HTTP Listener (TCP-In)'
    ```
 
-1. **Hyper-V レプリカ** のレプリカサーバーとして **SEA-SVR2** を構成するには、次のコマンドを実行します。
+1. **Hyper-V レプリカ**のレプリカサーバーとして **SEA-SVR2** を構成するには、次のコマンドを実行します。
 
    ```powershell
    New-Item -ItemType Directory -Path C:\ReplicaStorage -Force
    Set-VMReplicationServer -ReplicationEnabled $true -AllowedAuthenticationType Kerberos -KerberosAuthenticationPort 8080 -ReplicationAllowedFromAnyServer $true -DefaultStorageLocation C:\ReplicaStorage
    ```
 
-1. **Hyper-V レプリカ** のレプリカサーバーとして **SEA-SVR2** が構成されていることを確認するには、次のコマンドを実行します。
+1. **Hyper-V レプリカ**のレプリカサーバーとして **SEA-SVR2** が構成されていることを確認するには、次のコマンドを実行します。
 
    ```powershell
    Get-VMReplicationServer
@@ -112,7 +107,7 @@ Contoso, Ltd. で管理者として作業しています。 Contoso 社は、新
    Get-NetFirewallRule -DisplayName 'Hyper-V Replica HTTP Listener (TCP-In)'
    ```
 
-   > **注**: 出力を確認し、 **Enabled** プロパティが **False** に設定されていることを確認します。 **Hyper-V レプリカ** を使用するには、このファイアウォール規則を有効にする必要があります。
+   > **注**: 出力を確認し、 **Enabled** プロパティが **False** に設定されていることを確認します。 **Hyper-V レプリカ**を使用するには、このファイアウォール規則を有効にする必要があります。
 
 1. **SEA-SVR1** のセキュリティが強化された **Hyper-V レプリカ HTTP Listener (TCP-In)** 規則のある Windows Defender ファイアウォールを有効にするには、**SEA-SVR1** への PowerShell リモート処理セッションをホストしている Windows PowerShell ウィンドウで、次のコマンドを実行します。
 
@@ -120,7 +115,7 @@ Contoso, Ltd. で管理者として作業しています。 Contoso 社は、新
    Enable-NetFirewallRule -DisplayName 'Hyper-V Replica HTTP Listener (TCP-In)'
    ```
 
-1. **SEA-SVR1** を **Hyper-V レプリカ** のレプリカ サーバーとして構成するには、**SEA-SVR1** への PowerShell リモート処理セッションをホストしている Windows PowerShell ウィンドウで、次のコマンドを実行します。
+1. **SEA-SVR1** を **Hyper-V レプリカ**のレプリカ サーバーとして構成するには、**SEA-SVR1** への PowerShell リモート処理セッションをホストしている Windows PowerShell ウィンドウで、次のコマンドを実行します。
 
    ```powershell
    New-Item -ItemType Directory -Path C:\ReplicaStorage -Force
@@ -150,7 +145,7 @@ Contoso, Ltd. で管理者として作業しています。 Contoso 社は、新
    Get-VMReplication
    ```
 
-   > **注**: コマンドの出力で、 **状態** の値を特定し、その値が **InitialReplicationInProgress** として表示されていることを確認します。 約 5 分間待ってから、同じコマンドを再実行し、**状態** の値が **[レプリケート中]** に変更されたことを確認します。 これが発生するまで待ってから、次の手順に進みます。 また、 **プライマリサーバー** が **SEA-SVR2** として表示され、 **ReplicaServer** が **SEA-SVR1** として表示されていることを確認します。
+   > **注**: コマンドの出力で、 **状態** の値を特定し、その値が **InitialReplicationInProgress** として表示されていることを確認します。 約 5 分間待ってから、同じコマンドを再実行し、**状態** の値が **[レプリケート中]** に変更されたことを確認します。 これが発生するまで待ってから、次の手順に進みます。 また、 **プライマリサーバー**が **SEA-SVR2** として表示され、 **ReplicaServer** が **SEA-SVR1** として表示されていることを確認します。
 
 1. **SEA-SVR2** で、**SEA-SVR1** への PowerShell リモート処理セッションを表示している **[管理者: Windows PowerShell]** ウィンドウに切り替えます。
 1. **SEA-CORE1** のレプリカが **SEA-SVR1** に存在することを確認するには、**SEA-SVR1** への PowerShell リモート処理セッションをホストしている Windows PowerShell ウィンドウで、次のコマンドを実行します。
@@ -207,7 +202,7 @@ Contoso, Ltd. で管理者として作業しています。 Contoso 社は、新
    Get-VMReplication
    ```
 
-   > **注**: コマンドの出力で、 **状態** の値を特定し、その値が **[レプリケート中]** として表示されていることを確認します。 また、 **プライマリサーバー** が **SEA-SVR1** として表示され、 **ReplicaServer** が **SEA-SVR2** として表示されていることを確認します。
+   > **注**: コマンドの出力で、 **状態** の値を特定し、その値が **[レプリケート中]** として表示されていることを確認します。 また、 **プライマリサーバー**が **SEA-SVR1** として表示され、 **ReplicaServer** が **SEA-SVR2** として表示されていることを確認します。
 
 1. **SEA-SVR2** 上のプライマリ サーバーで VM のレプリケートを停止するには、**SEA-SVR1** への PowerShell リモート処理セッションを ホストしている Windows PowerShell ウィンドウで、次のコマンドを実行します。
 

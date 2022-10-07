@@ -3,13 +3,8 @@ lab:
   title: 'ラボ: ハイブリッド シナリオでのセキュリティ ソリューションの実装'
   type: Answer Key
   module: 'Module 2: Implementing Security Solutions in Hybrid Scenarios'
-ms.openlocfilehash: 02fcfe79dff809e8ec90690e4a3893be14c02fe4
-ms.sourcegitcommit: dad7571f21a69a2fd2213d91ef7e1d01639df716
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 04/27/2022
-ms.locfileid: "144334637"
 ---
+
 # <a name="lab-answer-key-implementing-security-solutions-in-hybrid-scenarios"></a>ラボ解答キー: ハイブリッド シナリオでのセキュリティ ソリューションの実装
 
 ## <a name="exercise-1-creating-an-azure-log-analytics-workspace-and-an-azure-automation-account"></a>演習 1: Azure Log Analytics ワークスペースと Azure Automation アカウントの作成
@@ -75,13 +70,13 @@ ms.locfileid: "144334637"
 
    > **注:** 同じページに記載されている個々の Microsoft Defender プランを選択的に無効にできることに注意してください。
 
-1. **Microsoft Defender for Servers** を表す最初のプランを除き、すべてのプランを **オフ** に設定し、 **[保存]** を選択します。
+1. **Microsoft Defender for Servers** を表す最初のプランを除き、すべてのプランを**オフ**に設定し、 **[保存]** を選択します。
 1. **[設定 \| Defender プラン]** ページの左側にある垂直メニューの **[設定]** セクションで、 **[自動プロビジョニング]** を選択します。
 1. **[設定 \| 自動プロビジョニング]** ページの拡張機能の一覧で、 **[Log Analytics agent for Azure VMs]\(Azure VM の Log Analytics エージェント\)** エントリの右側にある **[構成の編集]** リンクを選択します。
 1. **[拡張機能のデプロイ構成]** ページの **[ワークスペースの構成]** セクションで、 **[Azure VM を別のワークスペースに接続する]** オプションを選択します。 ドロップダウン メニューで、前の演習で作成したワークスペースを表すエントリを選択し、 **[適用]** を選択します。
-1. **[設定 \| 自動プロビジョニング]** ページに戻り、 **[Azure Arc マシンの Log Analytics エージェント (プレビュー)]** を **オン** に設定します。 これにより、 **[拡張機能のデプロイ構成]** ページが自動的に表示されます。 
+1. **[設定 \| 自動プロビジョニング]** ページに戻り、 **[Azure Arc マシンの Log Analytics エージェント (プレビュー)]** を**オン**に設定します。 これにより、 **[拡張機能のデプロイ構成]** ページが自動的に表示されます。 
 1. **[拡張機能のデプロイ構成]** ページの **[Log Analytics ワークスペースの選択]** ドロップダウン リストで、前の演習で作成したワークスペースを表すエントリを選択し、 **[適用]** を選択します。
-1. **[設定 \| 自動プロビジョニング]** ページに戻り、 **[マシンの脆弱性評価]** を **オン** に設定します。 **[拡張機能のデプロイ構成]** ページで、 **[Microsoft 脅威と脆弱性の管理]** オプションが選択されていることを確認し、 **[適用]** を選択します。
+1. **[設定 \| 自動プロビジョニング]** ページに戻り、 **[マシンの脆弱性評価]** を**オン**に設定します。 **[拡張機能のデプロイ構成]** ページで、 **[Microsoft 脅威と脆弱性の管理]** オプションが選択されていることを確認し、 **[適用]** を選択します。
 1. ページの最上部で **[保存]** を選択します。
 1. **[Microsoft Defender for Cloud | 概要]** ページに戻り、左側の垂直メニューの **[管理]** セクションで、 **[環境設定]** を選択します。
 1. **[環境設定]** ページで、Azure サブスクリプションを表すエントリを展開し、前の演習で作成した Log Analytics ワークスペースを表すエントリを選択します。
@@ -143,7 +138,7 @@ ms.locfileid: "144334637"
 1. **Microsoft Monitoring Agent セットアップ** ウィザードの、 **[Microsoft Monitoring Agent セットアップ ウィザードへようこそ]** ページで、 **[次へ]** を選択します。
 1. **Microsoft Monitoring Agent セットアップ** ウィザードの **[重要な通知]** ページで、 **[同意する]** を選択します。
 1. **Microsoft Monitoring Agent セットアップ** ウィザードの **[インストール先フォルダー]** ページで、 **[次へ]** を選択します。
-1. **Microsoft Monitoring Agent のセットアップ ウィザード** の **[エージェントのセットアップ オプション]** ページで、 **[Connect the agent to Azure Log Analytics (OMS)]\(エージェントを Azure Log Analytics (OMS) に接続する\)** チェックボックスをオンにし、 **[次へ]** を選択します。
+1. **Microsoft Monitoring Agent のセットアップ ウィザード**の **[エージェントのセットアップ オプション]** ページで、 **[Connect the agent to Azure Log Analytics (OMS)]\(エージェントを Azure Log Analytics (OMS) に接続する\)** チェックボックスをオンにし、 **[次へ]** を選択します。
 1. **Microsoft Monitoring Agent セットアップ** ウィザードの **[Azure Log Analytics]** ページで、このタスクで前に記録した **[ワークスペース ID]** と **[ワークスペース キー]** の値を入力し、 **[次へ]** を選択します。
 1. **Microsoft Monitoring Agent セットアップ** ウィザードの **[Microsoft Update]** ページで、 **[次へ]** を選択します。
 1. **Microsoft Monitoring Agent セットアップ** ウィザードの **[インストールの準備完了]** ページで、 **[インストール]** を選択します。
@@ -169,7 +164,7 @@ ms.locfileid: "144334637"
    Copy-Item -Path 'C:\Labfiles\L02\*' -Destination '\\SEA-SVR1\c$\Labfiles\L02' -Recurse -Force
    ```
 
-1. **SEA-SVR1** で Log Analytics エージェントのインストールを実行するために、**Windows PowerShell** コンソールで次のコマンドを入力し、Enter キーを押します (`<WorkspaceID>` と `<PrimaryKey>` の各プレースホルダーを、この演習の前のタスクで記録した **ワークスペース ID** と **ワークスペース キー** の値に置き換えます)。
+1. **SEA-SVR1** で Log Analytics エージェントのインストールを実行するために、**Windows PowerShell** コンソールで次のコマンドを入力し、Enter キーを押します (`<WorkspaceID>` と `<PrimaryKey>` の各プレースホルダーを、この演習の前のタスクで記録した**ワークスペース ID** と**ワークスペース キー**の値に置き換えます)。
 
    ```powershell
    Invoke-Command -ComputerName SEA-SVR1.contoso.com -ScriptBlock { Start-Process -FilePath C:\Labfiles\L02\setup.exe -ArgumentList '/qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=0 OPINSIGHTS_WORKSPACE_ID="<WorkspaceID>" OPINSIGHTS_WORKSPACE_KEY="<PrimaryKey>" AcceptEndUserLicenseAgreement=1' -Wait }
@@ -211,7 +206,7 @@ ms.locfileid: "144334637"
 #### <a name="task-1-validate-threat-detection-capabilities-for-azure-vms"></a>タスク 1: Azure VM の脅威検出機能を検証する
 
 1. **SEA-SVR2** で、Azure portal が表示されている Microsoft Edge ウィンドウに切り替えます。 
-1. Azure portal のツール バーにある **[リソース、サービス、ドキュメントの検索]** テキスト ボックスで、**仮想マシン** を検索して選択します。
+1. Azure portal のツール バーにある **[リソース、サービス、ドキュメントの検索]** テキスト ボックスで、**仮想マシン**を検索して選択します。
 1. **[仮想マシン]** ページで、 **[az801l02-vm0]** を選択します。
 1. **az801l02-vm0** ページの **[操作]** セクションで **[コマンドの実行]** を選択し、 **[RunPowerShellScript]** を選択します。
 1. **[コマンド スクリプトの実行]** ページの **[PowerShell スクリプト]** セクションで次のコマンドを入力し、 **[実行]** を選択して脅威検出アラートをトリガーします。
@@ -294,7 +289,7 @@ ms.locfileid: "144334637"
    Get-AzResourceGroup -Name 'AZ801-L02*'
    ```
 
-   > **メモ**: 出力に、このラボで作成したリソース グループのみが含まれていることを確認してください。 このグループは、このタスクで削除されます。
+   > **注**: 出力に含まれているのが、このラボで作成したリソース グループのみであることを確認してください。 このグループは、このタスクで削除されます。
 
 1. 次のコマンドを実行して、このラボで作成したすべてのリソース グループを削除します。
 

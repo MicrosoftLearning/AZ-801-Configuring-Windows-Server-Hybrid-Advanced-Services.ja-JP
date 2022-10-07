@@ -3,20 +3,15 @@ lab:
   title: 'ラボ: フェールオーバー クラスタリングの実装'
   type: Answer Key
   module: 'Module 3: High availability in Windows Server'
-ms.openlocfilehash: e473f48384085f9a861e1887f2f3635ea4e1ef1d
-ms.sourcegitcommit: ecac5958210e9837402ec015bbbac0ebeab48f47
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2022
-ms.locfileid: "147695192"
 ---
+
 # <a name="lab-answer-key-implementing-failover-clustering"></a>ラボ応答キー: フェールオーバー クラスタリングの実装
 
 ## <a name="exercise-1-configuring-iscsi-storage"></a>演習 1: iSCSI ストレージの構成
 
 #### <a name="task-1-install-failover-clustering"></a>タスク 1: フェールオーバー クラスタリングをインストールする
 
-1. **SEA-SVR2** に接続し、必要であればパスワード **Pa55w.rd** を使用して **Contoso\\管理者** としてサインインします。
+1. **SEA-SVR2** に接続し、必要であればパスワード **Pa55w.rd** を使用して **Contoso\\管理者**としてサインインします。
 1. **SEA-SVR2** 上で **[スタート]** を選択し、**[Windows PowerShell (管理者)]** を選択します。
 1. **SEA-SVR1** と **SEA-SVR2** 上に、管理ツールを含むフェールオーバー クラスタリング サーバー機能をインストールするには、Windows PowerShell コマンド プロンプトで次のコマンドを入力し、各コマンドを入力した後、Enter キーを押します。
 
@@ -62,7 +57,7 @@ ms.locfileid: "147695192"
    Enter-PSSession -ComputerName SEA-SVR1.contoso.com
    ```
 
-   > **注:** この時点で、3 つの **Windows PowerShell** ウィンドウが開いている必要があります。 最初のウィンドウを使用して **SEA-SVR2** 上でローカルにコマンドを実行し、他の 2 つを使用して **SEA-DC1** および **SEA-SVR1** と対話します。 PowerShell プロンプトを識別することで、それぞれを簡単に認識できます (2 番目と 3番目のプロンプトでは、プロンプトにはそれぞれ **[SEA-DC1.contoso.com]** と **[SEA-SVR1.contoso.com]** のプレフィックスが含まれます)。
+   > **注:** この時点で、3 つの**Windows PowerShell** ウィンドウが開いている必要があります。 最初のウィンドウを使用して **SEA-SVR2** 上でローカルにコマンドを実行し、他の 2 つを使用して **SEA-DC1** および **SEA-SVR1** と対話します。 PowerShell プロンプトを識別することで、それぞれを簡単に認識できます (2 番目と 3番目のプロンプトでは、プロンプトにはそれぞれ **[SEA-DC1.contoso.com]** と **[SEA-SVR1.contoso.com]** のプレフィックスが含まれます)。
 
 1. **SEA-SVR2** で Microsoft iSCSI イニシエーター サービスを開始するには、ローカル セッションへのアクセスを提供する **Windows PowerShell** プロンプトで次のコマンドを入力し、各コマンドを入力したら Enter キーを押します。
 
@@ -71,7 +66,7 @@ ms.locfileid: "147695192"
    Set-Service -ServiceName MSiSCSI -StartupType Automatic
    ```
 
-1. **SEA-SVR1** 上で Microsoft iSCSI イニシエーター サービスを開始するには、**SEA-SVR1** への PowerShell リモート処理セッションをホストしている **Windows PowerShell** ウィンドウに切り替え、次のコマンドを入力します。各コマンドを入力したら、Enter キーを押します。
+1. **SEA-SVR1** 上で Microsoft iSCSI イニシエーター サービスを開始するには、**SEA-SVR1** への PowerShell リモート処理セッションをホストしている**Windows PowerShell** ウィンドウに切り替え、次のコマンドを入力します。各コマンドを入力したら、Enter キーを押します。
 
    ```powershell
    Start-Service -ServiceName MSiSCSI
@@ -185,7 +180,7 @@ ms.locfileid: "147695192"
 
 1. **SEA-SVR2** 上の **[フェールオーバー クラスター マネージャー]** で、**[ロール]** を選択し、**[FSCluster]** を選択します。次に、操作ウィンドウで **[ファイル共有の追加]** を選択します。 
 
-   > **注:** これにより、**新しい共有ウィザード** が開始されます。
+   > **注:** これにより、**新しい共有ウィザード**が開始されます。
 
 1. **[プロファイルの選択]** ページで、**[SMB 共有 - クイック]** プロファイルが選択されていることを確認し、**[次へ]** を選択します。
 1. **[共有の場所]** ページで、**[次へ]** を選択します。
@@ -212,7 +207,7 @@ ms.locfileid: "147695192"
 
 #### <a name="task-1-validate-the-highly-available-file-server-deployment"></a>タスク 1: 高可用性ファイル サーバーのデプロイを検証する
 
-1. **SEA-SVR2** で、エクスプローラーを開き、 **\\\\FSCluster\\Docs** フォルダーに移動します。
+1. **SEA-SVR2** で、エクスプローラーを開き、 **\\\\FSCluster\\Docs**フォルダーに移動します。
 1. **Docs** フォルダー内で、フォルダーの空の領域にあるコンテキスト メニューを右クリックまたはアクセスして、**[新規作成]** を選択し、**[テキスト ドキュメント]** を選択します。
 1. ドキュメントのデフォルト名 **[New Text Document.txt]** を受け入れるには、Enter キーを押します。
 1. **SEA-SVR2** で、 **[フェールオーバー クラスター マネージャー]** コンソールに切り替え、 **[FSCluster]** を右クリックしてコンテキスト メニューにアクセスして、 **[移動]** 、 **[ノードの選択]** 、 **[SEA-SVR1]** の順に選択し、 **[OK]** を選択します。

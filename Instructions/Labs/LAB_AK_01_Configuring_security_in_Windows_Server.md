@@ -3,13 +3,8 @@ lab:
   title: 'ラボ: Windows Server でのセキュリティの構成'
   type: Answer Key
   module: 'Module 1: Windows Server security'
-ms.openlocfilehash: 42202d9eb5bf7c9a371c3215120ec8b7f6da0d46
-ms.sourcegitcommit: d2e9d886e710729f554d2ba62d1abe3c3f65fcb6
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2022
-ms.locfileid: "147046978"
 ---
+
 # <a name="lab-answer-key-configuring-security-in-windows-server"></a>ラボの解答集: Windows Server でのセキュリティの構成
 
 ## <a name="exercise-1-configuring-windows-defender-credential-guard"></a>演習 1: Windows Defender Credential Guard の構成
@@ -21,10 +16,10 @@ ms.locfileid: "147046978"
 1. **SEA-SVR2** に接続し、必要であればパスワード **Pa55w.rd** を使用して **CONTOSO\\Administrator** としてサインインします。
 1. **[スタート]** ボタンの横にある **[ここに入力して検索]** テキスト ボックスに、「**グループ ポリシーの管理**」と入力します。
 1. 結果の一覧で **[グループ ポリシーの管理]** を選択します。
-1. **グループ ポリシー管理コンソール** で、 **[フォレスト: contoso.com]** を展開し、 **[ドメイン]** を展開し、**contoso.com** を展開します。 **[IT]** 組織単位 (OU) を右クリックして **コンテキスト** メニューにアクセスして、 **[このドメインに GPO を作成し、このコンテナーにリンクする]** を選択します。
+1. **グループ ポリシー管理コンソール**で、 **[フォレスト: contoso.com]** を展開し、 **[ドメイン]** を展開し、**contoso.com** を展開します。 **[IT]** 組織単位 (OU) を右クリックして**コンテキスト** メニューにアクセスして、 **[このドメインに GPO を作成し、このコンテナーにリンクする]** を選択します。
 1. **[新しい GPO]** ダイアログ ボックスの **[名前]** テキスト ボックスに「**CredentialGuard_GPO**」と入力し、**[OK]** をクリックします。
-1. **[グループ ポリシーの管理]** ウィンドウの **[IT]** の下にある **[CredentialGuard_GPO]** を右クリックして **コンテキスト** メニューにアクセスして、 **[編集]** を選択します。
-1. **グループ ポリシー管理エディター** で、 **[コンピューターの構成]\\[ポリシー]\\[管理用テンプレート]\\[システム]\\[Device Guard]** を参照します。
+1. **[グループ ポリシーの管理]** ウィンドウの **[IT]** の下にある **[CredentialGuard_GPO]** を右クリックして**コンテキスト** メニューにアクセスして、 **[編集]** を選択します。
+1. **グループ ポリシー管理エディター**で、 **[コンピューターの構成]\\[ポリシー]\\[管理用テンプレート]\\[システム]\\[Device Guard]** を参照します。
 1. **[仮想化ベースのセキュリティを有効にする]** を選択し、 **[ポリシー設定]** リンクを選択します。
 1. **[仮想化ベースのセキュリティを有効にする]** ウィンドウで、**[有効]** オプションを選択します。
 1. **[プラットフォームのセキュリティ レベルを選択する]** ドロップダウン リストで、**[Secure Boot and DMA Protection]\(セキュア ブートと DMA 保護)\** というエントリが選択されている必要があります。
@@ -35,7 +30,7 @@ ms.locfileid: "147046978"
 
 #### <a name="task-2-enable-windows-defender-credential-guard-using-the-hypervisor-protected-code-integrity-hvci-and-windows-defender-credential-guard-hardware-readiness-tool"></a>タスク 2: Hypervisor-Protected Code Integrity (HVCI) と Windows Defender Credential Guard ハードウェア準備ツールを使用して Windows Defender Credential Guard を有効にする
 
-1. **SEA-SVR2** で、 **[スタート]** を選択し、**Windows PowerShell** を右クリックして **コンテキスト** メニューにアクセスして、 **[管理者として実行]** を選択します。
+1. **SEA-SVR2** で、 **[スタート]** を選択し、**Windows PowerShell** を右クリックして**コンテキスト** メニューにアクセスして、 **[管理者として実行]** を選択します。
 1. HVCI と Windows Defender Credential Guard ハードウェア準備ツールを実行するには、Windows PowerShell コマンド プロンプトで次のコマンドを入力し、最初のプロンプトでは **[[R] Run once]** を選択し、残りのプロンプトでは Enter キーを押します。
 
    ```powershell
@@ -53,7 +48,7 @@ ms.locfileid: "147046978"
 
 #### <a name="task-1-locate-and-reconfigure-domain-accounts-with-non-expiring-passwords"></a>タスク 1: 無期限のパスワードを持つドメイン アカウントを検出して再構成する
 
-1. **SEA-SVR2** で、**[スタート]** を選択し、**Windows PowerShell** を右クリックして **コンテキスト** メニューにアクセスして、**[管理者として実行]** を選択します。
+1. **SEA-SVR2** で、 **[スタート]** を選択し、**Windows PowerShell** を右クリックして**コンテキスト** メニューにアクセスして、 **[管理者として実行]** を選択します。
 1. 無期限のパスワードを持つ Active Directory 対応ユーザー アカウントを一覧表示するために、Windows PowerShell コマンド プロンプトで次のコマンドを入力し、Enter キーを押します。
 
    ```powershell
@@ -132,9 +127,9 @@ ms.locfileid: "147046978"
 
 1. **SEA-SVR2** で、**[スタート]** ボタンの横にある **[ここに入力して検索]** テキスト ボックスに、「**グループ ポリシーの管理**」と入力します。
 1. 結果の一覧で **[グループ ポリシーの管理]** を選択します。
-1. **グループ ポリシー管理コンソール** で、 **[フォレスト: contoso.com]** を展開し、 **[ドメイン]** を展開し、**contoso.com** を展開します。**Seattle_Servers** OU を右クリックして **コンテキスト** メニューにアクセスして、 **[このドメインに GPO を作成し、このコンテナーにリンクする]** を選択します。
+1. **グループ ポリシー管理コンソール**で、 **[フォレスト: contoso.com]** を展開し、 **[ドメイン]** を展開し、**contoso.com** を展開します。**Seattle_Servers** OU を右クリックして**コンテキスト** メニューにアクセスして、 **[このドメインに GPO を作成し、このコンテナーにリンクする]** を選択します。
 1. **[新しい GPO]** ダイアログ ボックスの **[名前]** テキスト ボックスに「**LAPS_GPO**」と入力し、**[OK]** をクリックします。
-1. **[グループ ポリシーの管理]** ウィンドウの **[Seattle_Servers]** の下にある **[LAPS_GPO]** を右クリックして **コンテキスト** メニューにアクセスして、**[編集]** を選択します。
+1. **[グループ ポリシーの管理]** ウィンドウの **[Seattle_Servers]** の下にある **[LAPS_GPO]** を右クリックして**コンテキスト** メニューにアクセスして、**[編集]** を選択します。
 1. **[グループ ポリシー管理エディター]** ウィンドウの **[コンピューターの構成]** で、**[ポリシー]** ノードを展開し、**[管理用テンプレート]** ノードを展開して、**[LAPS]** を選択します。
 1. **[ローカル管理者のパスワード管理を有効にする]** ポリシーを選択し、**[ポリシー設定]** リンクを選択します。
 1. **[ローカル管理者のパスワード管理を有効にする]** ウィンドウで、**[有効]** を選択し、**[OK]** を選択します。

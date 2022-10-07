@@ -3,20 +3,15 @@ lab:
   title: 'ラボ: Hyper-V レプリカおよび Windows Server バックアップの実装'
   type: Answer Key
   module: 'Module 4: Disaster Recovery in Windows Server'
-ms.openlocfilehash: 1f990cf9fbe0bf61bb25088041b775a24d108a64
-ms.sourcegitcommit: d2e9d886e710729f554d2ba62d1abe3c3f65fcb6
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2022
-ms.locfileid: "147046992"
 ---
+
 # <a name="lab-answer-key-implementing-hyper-v-replica-and-windows-server-backup"></a>ラボ回答キー: Hyper-V レプリカと Windows Server バックアップの実装
 
 ## <a name="exercise1-implementing-hyper-v-replica"></a>演習 1: Hyper-V レプリカの実装
 
 #### <a name="task-1-install-and-configure-hyper-v-replica"></a>タスク 1: Hyper-V レプリカをインストールして構成する
 
-1. **SEA-SVR2** に接続し、必要であればパスワード **Pa55w.rd** を使用して **Contoso\\管理者** としてサインインします。
+1. **SEA-SVR2** に接続し、必要であればパスワード **Pa55w.rd** を使用して **Contoso\\管理者**としてサインインします。
 1. **SEA-SVR2** 上で **[スタート]** を選択し、**[Windows PowerShell (管理者)]** を選択します。
 1. **SEA-SVR2** でセキュリティが強化された **Hyper-V レプリカ HTTP Listener (TCP-In)** 規則を使用する Windows Defender ファイアウォールの状態を確認するには、Windows PowerShell プロンプトで次のコマンドを入力して Enter キーを押します。
 
@@ -30,14 +25,14 @@ ms.locfileid: "147046992"
    Enable-NetFirewallRule -DisplayName 'Hyper-V Replica HTTP Listener (TCP-In)'
    ```
 
-1. **HYPER-V レプリカ** のレプリカ サーバーとして **SEA-SVR2** を構成するには、次のコマンドを入力し、各コマンドを入力した後、Enter キーを押します。
+1. **HYPER-V レプリカ**のレプリカ サーバーとして **SEA-SVR2** を構成するには、次のコマンドを入力し、各コマンドを入力した後、Enter キーを押します。
 
    ```powershell
    New-Item -ItemType Directory -Path C:\ReplicaStorage -Force
    Set-VMReplicationServer -ReplicationEnabled $true -AllowedAuthenticationType Kerberos -KerberosAuthenticationPort 8080 -ReplicationAllowedFromAnyServer $true -DefaultStorageLocation C:\ReplicaStorage
    ```
 
-1. **Hyper-V レプリカ** のレプリカ サーバーとして **SEA-SVR2** が構成されていることを確認するには、次のコマンドを入力して Enter キーを押します。
+1. **Hyper-V レプリカ**のレプリカ サーバーとして **SEA-SVR2** が構成されていることを確認するには、次のコマンドを入力して Enter キーを押します。
 
    ```powershell
    Get-VMReplicationServer
@@ -76,7 +71,7 @@ ms.locfileid: "147046992"
    Get-NetFirewallRule -DisplayName 'Hyper-V Replica HTTP Listener (TCP-In)'
    ```
 
-   > **注**: 出力を確認し、**Enabled** プロパティが **False** に設定されていることを確認します。 **Hyper-V レプリカ** を使用するには、このファイアウォール規則を有効にする必要があります。
+   > **注**: 出力を確認し、**Enabled** プロパティが **False** に設定されていることを確認します。 **Hyper-V レプリカ**を使用するには、このファイアウォール規則を有効にする必要があります。
 
 1. **SEA-SVR1** でセキュリティが強化された **Hyper-V レプリカ HTTP Listener (TCP-In)** 規則を使用する Windows Defender ファイアウォールを有効にするには、**SEA-SVR1** への PowerShell リモート処理セッションをホストしている Windows PowerShell ウィンドウで、次のコマンドを入力して Enter キーを押します。
 
@@ -84,7 +79,7 @@ ms.locfileid: "147046992"
    Enable-NetFirewallRule -DisplayName 'Hyper-V Replica HTTP Listener (TCP-In)'
    ```
 
-1. **SEA-SVR1** を **Hyper-V レプリカ** のレプリカ サーバーとして構成するには、**SEA-SVR1** への PowerShell リモート処理セッションをホストしている Windows PowerShell ウィンドウで次のコマンドを入力し、各コマンドを入力した後、Enter キーを押します。
+1. **SEA-SVR1** を **Hyper-V レプリカ**のレプリカ サーバーとして構成するには、**SEA-SVR1** への PowerShell リモート処理セッションをホストしている Windows PowerShell ウィンドウで次のコマンドを入力し、各コマンドを入力した後、Enter キーを押します。
 
    ```powershell
    New-Item -ItemType Directory -Path C:\ReplicaStorage -Force
@@ -114,7 +109,7 @@ ms.locfileid: "147046992"
    Get-VMReplication
    ```
 
-   > **注**: コマンドの出力で、**状態** の値を特定し、その値が **InitialReplicationInProgress** として表示されていることを確認します。 約 5 分間待ってから、同じコマンドを再実行し、**状態** の値が **[レプリケート中]** に変更されたことを確認します。 これが発生するまで待ってから、次の手順に進みます。 また、**プライマリ サーバー** が **SEA-SVR2** として表示され、**ReplicaServer** が **SEA-SVR1** として表示されていることを確認します。
+   > **注**: コマンドの出力で、**状態** の値を特定し、その値が **InitialReplicationInProgress** として表示されていることを確認します。 約 5 分間待ってから、同じコマンドを再実行し、**状態** の値が **[レプリケート中]** に変更されたことを確認します。 これが発生するまで待ってから、次の手順に進みます。 また、**プライマリ サーバー**が **SEA-SVR2** として表示され、**ReplicaServer** が **SEA-SVR1** として表示されていることを確認します。
 
 1. **SEA-SVR2** で、**SEA-SVR1** への PowerShell リモート処理セッションを表示している **[管理者: Windows PowerShell]** ウィンドウに切り替えます。
 1. **SEA-CORE1** のレプリカが **SEA-SVR1** に存在することを確認するには、**SEA-SVR1** への PowerShell リモート処理セッションをホストしている Windows PowerShell ウィンドウで、次のコマンドを入力して Enter キーを押します。
@@ -173,7 +168,7 @@ ms.locfileid: "147046992"
    Get-VMReplication
    ```
 
-   > **注**: コマンドの出力で、**状態** の値を特定し、その値が **[レプリケート中]** として表示されていることを確認します。 また、**プライマリサーバー** が **SEA-SVR1** として表示され、**ReplicaServer** が **SEA-SVR2** として表示されていることを確認します。
+   > **注**: コマンドの出力で、**状態** の値を特定し、その値が **[レプリケート中]** として表示されていることを確認します。 また、**プライマリサーバー**が **SEA-SVR1** として表示され、**ReplicaServer** が **SEA-SVR2** として表示されていることを確認します。
 
 1. プライマリ サーバーで VM のレプリケートを停止するには、**SEA-SVR2** 上で、**SEA-SVR1** への PowerShell リモート処理セッションを ホストしている Windows PowerShell ウィンドウで、次のコマンドを入力して Enter キーを押します。
 
@@ -192,7 +187,7 @@ ms.locfileid: "147046992"
 1. **SEA-SVR2** で、タスクバーで **[ファイル エクスプローラー]** アイコンを選択してファイル エクスプローラーを開きます。
 1. ファイル エクスプローラーの、**ナビゲーション** ウィンドウで **[ローカル ディスク (C:)]** を選択します。
 1. 詳細ウィンドウの空の領域を右クリックするかコンテキスト メニューを開き、**[新規]** を選択して **[フォルダー]** を選択します。 
-1. フォルダーに **BackupShare** という名前を付けます。 右クリックするか、**BackupShare** フォルダーのコンテキスト メニューにアクセスし、**[アクセスを許可する]** を選択して、**[特定のユーザー]** を選択します。
+1. フォルダーに **BackupShare** という名前を付けます。 右クリックするか、**BackupShare** フォルダーのコンテキスト メニューにアクセスし、** [アクセスを許可する]** を選択して、**[特定のユーザー]** を選択します。
 1. **[ネットワーク アクセス]** ウィンドウで「**Authenticated Users**」と入力し、**[追加]** を選択します。 **[アクセス許可のレベル]** 列で **[Authenticated Users]** の値を **[読み取り/書き込み]** に設定して **[共有]** を選択し、**[完了]** を選択します。
 1. **SEA-SVR2** で、**SEA-SVR1** への PowerShell リモート処理セッションを表示している **[管理者: Windows PowerShell]** ウィンドウに切り替えます。 
 1. **SEA-SVR1** に **Windows Server Backup** ロールをインストールするには、**SEA-SVR2** で、**SEA-SVR1** への PowerShell リモート処理セッションをホストしている Windows PowerShell ウィンドウで、次のコマンドを入力して Enter キーを押します。
