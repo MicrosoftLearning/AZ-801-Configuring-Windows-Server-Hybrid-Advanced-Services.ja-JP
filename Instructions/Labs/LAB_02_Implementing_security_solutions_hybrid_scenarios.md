@@ -2,13 +2,8 @@
 lab:
   title: 'ラボ: ハイブリッド シナリオでのセキュリティ ソリューションの実装'
   module: 'Module 2: Implementing Security Solutions in Hybrid Scenarios'
-ms.openlocfilehash: 475c539c6792c3a50a41c27ec5c293e895f0f07a
-ms.sourcegitcommit: fb0d39e25bc0fe182037587b772d217db126d3bb
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 05/07/2022
-ms.locfileid: "144812992"
 ---
+
 # <a name="lab-implementing-security-solutions-in-hybrid-scenarios"></a>ラボ: ハイブリッド シナリオでのセキュリティ ソリューションの実装
 
 ## <a name="scenario"></a>シナリオ
@@ -88,7 +83,7 @@ ms.locfileid: "144812992"
 
    >**注**: 対応する Log Analytics ソリューションのインストールが完了するまで待ちます。 これには 3 分ほどかかる場合があります。 
 
-   >**注**: これにより、**変更の追跡** ソリューションも自動的にインストールされます。
+   >**注**: これにより、**変更の追跡**ソリューションも自動的にインストールされます。
 
 1. **[Automation アカウント]** ページで、その **[Update Management]** ページを参照します。
 1. **[Automation アカウント]** ページで、このタスクで前に作成した Log Analytics ワークスペースにソリューションを関連付けて有効にします。
@@ -130,7 +125,7 @@ ms.locfileid: "144812992"
 
    - 前の演習で作成した Log Analytics ワークスペースを利用して、**Log Analytics agent for Azure VMs** を有効にする。
    - 前の演習で作成した Log Analytics ワークスペースを利用して、**Log Analytics agent for Azure Arc Machine (プレビュー)** を有効にする。
-   - **Microsoft 脅威と脆弱性の管理** オプションを使用して、**マシンの脆弱性評価** を有効にする。
+   - **Microsoft 脅威と脆弱性の管理**オプションを使用して、**マシンの脆弱性評価**を有効にする。
 
 
 1. Defender for Cloud の **[Cloud Environment settings]\(クラウド環境の設定\)** ページを参照します。
@@ -139,7 +134,7 @@ ms.locfileid: "144812992"
 
    > **注:** 脅威保護機能を含むすべての Defender for Cloud 機能を有効にするには、該当するワークロードを含むサブスクリプションで、強化されたセキュリティ機能を有効にする必要があります。 ワークスペース レベルで有効にしても、Just-In-Time VM アクセス、適応型アプリケーション制御、Azure リソースのネットワーク検出は有効になりません。 さらに、ワークスペース レベルで使用できる Microsoft Defender プランは、Microsoft Defender for servers と Microsoft Defender for SQL servers on machines のみです。
 
-1. 前の演習で作成したワークスペースで、**データ コレクション** のスコープを **[すべてのイベント]** に設定します。
+1. 前の演習で作成したワークスペースで、**データ コレクション**のスコープを **[すべてのイベント]** に設定します。
 
    > **注:** Defender for Cloud でデータ コレクションのレベルを選択することは、Log Analytics ワークスペースでのセキュリティ イベントのストレージにのみ影響します。 ワークスペースに保存するように選択したセキュリティ イベントのレベルに関係なく、Log Analytics エージェントでは、Defender for Cloud の脅威保護に必要なセキュリティ イベントが引き続き収集され、分析されます。 セキュリティ イベントを保存することを選択すると、ワークスペース内でそれらのイベントの調査、検索、監査が可能になります。
 
@@ -212,7 +207,7 @@ ms.locfileid: "144812992"
 1. **[az801-l02-workspace \| エージェント管理]** ページで、 **[ワークスペース ID]** と **[プライマリ キー]** の値を記録します。 これらはこのタスクの後半で必要になります。
 1. **[az801-l02-workspace \| エージェント管理]** ページから、Windows エージェント (64 ビット) をダウンロードします。
 1. ダウンロードした実行可能ファイルを使用して、 **[Microsoft Monitoring Agent のセットアップ]** ウィザードを起動します。
-1. **[Microsoft Monitoring Agent のセットアップ]** ウィザードの **[Azure Log Analytics]** ページで、このタスクで前に記録した **ワークスペース ID** と **プライマリ キー** の値を入力し、既定の設定を使用して Microsoft Monitoring Agent のインストールを完了します。
+1. **[Microsoft Monitoring Agent のセットアップ]** ウィザードの **[Azure Log Analytics]** ページで、このタスクで前に記録した**ワークスペース ID** と**プライマリ キー**の値を入力し、既定の設定を使用して Microsoft Monitoring Agent のインストールを完了します。
 
 #### <a name="task-2-perform-unattended-installation-of-the-log-analytics-agent"></a>タスク 2: Log Analytics エージェントの無人インストールを実行する
 
@@ -236,7 +231,7 @@ ms.locfileid: "144812992"
    Copy-Item -Path 'C:\Labfiles\L02\*' -Destination '\\SEA-SVR1\c$\Labfiles\L02' -Recurse -Force
    ```
 
-1. **SEA-SVR1** で Log Analytics エージェントのインストールを実行するために、**Windows PowerShell** コンソールで次のコマンドを実行します (`<WorkspaceID>` と `<PrimaryKey>` の各プレースホルダーを、この演習の前のタスクで記録した **ワークスペース ID** と **ワークスペース キー** の値に置き換えます)。
+1. **SEA-SVR1** で Log Analytics エージェントのインストールを実行するために、**Windows PowerShell** コンソールで次のコマンドを実行します (`<WorkspaceID>` と `<PrimaryKey>` の各プレースホルダーを、この演習の前のタスクで記録した**ワークスペース ID** と**ワークスペース キー**の値に置き換えます)。
 
    ```powershell
    Invoke-Command -ComputerName SEA-SVR1.contoso.com -ScriptBlock { Start-Process -FilePath C:\Labfiles\L02\setup.exe -ArgumentList '/qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=0 OPINSIGHTS_WORKSPACE_ID="<WorkspaceID>" OPINSIGHTS_WORKSPACE_KEY="<PrimaryKey>" AcceptEndUserLicenseAgreement=1' -Wait }
@@ -261,7 +256,7 @@ ms.locfileid: "144812992"
 
 #### <a name="task-4-enable-azure-automation-solutions-for-on-premises-servers"></a>タスク 4: オンプレミス サーバー向けの Azure Automation ソリューションを有効にする
 
-1. **SEA-SVR2** の Azure portal が表示されている Microsoft Edge ウィンドウで、このラボで前にプロビジョニングした **Azure Automation アカウント** のページを参照します。 
+1. **SEA-SVR2** の Azure portal が表示されている Microsoft Edge ウィンドウで、このラボで前にプロビジョニングした **Azure Automation アカウント**のページを参照します。 
 1. **[Automation アカウント]** ページで、その **[インベントリ]** ページを参照します。
 1. **[インベントリ]** ページで、 **[クリックしてマシンを管理します]** リンクを使用して、オンプレミス サーバーのインベントリと変更の追跡を有効にします。
 
@@ -290,7 +285,7 @@ Windows Server を実行しているオンプレミスのサーバーと Azure V
 このタスクでは、Azure VM の脅威検出機能を検証します。
 
 1. **SEA-SVR2** の Azure portal が表示されている Microsoft Edge ウィンドウで、**az801l02-vm0** 仮想マシンのページを参照します。
-1. **[az801l02-vm0]** ページで、**コマンドの実行** 機能を使用して次の PowerShell コマンドを実行し、脅威検出アラートをトリガーします。
+1. **[az801l02-vm0]** ページで、**コマンドの実行**機能を使用して次の PowerShell コマンドを実行し、脅威検出アラートをトリガーします。
 
    ```powershell
    New-Item -ItemType Directory -Path 'C:\Temp' -Force
@@ -346,7 +341,7 @@ Windows Server を実行しているオンプレミスのサーバーと Azure V
 
    >**注**: 収集されたデータとファイルは、 **[インベントリ]** ページのツールバーの **[設定の編集]** オプションを使用して構成できます。
 
-   >**注**: これにより、**変更の追跡** ソリューションも自動的にインストールされます。
+   >**注**: これにより、**変更の追跡**ソリューションも自動的にインストールされます。
 
 1. 同じ Azure Automation アカウントの **[変更の追跡]** ページを参照します。 
 1. **[イベント]** 、 **[ファイル]** 、 **[レジストリ]** 、 **[ソフトウェア]** 、 **[Windows サービス]** の各エントリに関連付けられている数を確認します。 これらの値が 0 より大きい場合は、対応する変更に関する詳細について、ページの下部にある **[変更]** および **[イベント]** タブで参照できます。

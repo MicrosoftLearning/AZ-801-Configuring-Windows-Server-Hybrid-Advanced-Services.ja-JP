@@ -2,13 +2,8 @@
 lab:
   title: 'ラボ: Azure Migrate を使用して Hyper-V VM を Azure に移行する'
   module: 'Module 7: Design for Migration'
-ms.openlocfilehash: e97b3ecfbeac22c3eafe8caccd3cac3ed0081ffc
-ms.sourcegitcommit: d2e9d886e710729f554d2ba62d1abe3c3f65fcb6
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2022
-ms.locfileid: "147046977"
 ---
+
 # <a name="lab-migrating-hyper-v-vms-to-azure-by-using-azure-migrate"></a>ラボ: Azure Migrate を使用して Hyper-V VM を Azure に移行する
 
 ## <a name="lab-scenario"></a>ラボのシナリオ
@@ -86,7 +81,7 @@ Azure Migrate には次の機能が用意されています。
 > **注**: Azure Bastion を使用すると、この演習の前のタスクでデプロイしたパブリック エンドポイントを使用せずに Azure VM に接続できると同時に、オペレーティング システム レベルの資格情報を対象とするブルート フォース攻撃から保護することができます。
 
 1. **SEA-SVR2** の Azure portal を表示しているブラウザー ウィンドウの **Cloud Shell** ウィンドウで PowerShell セッションを開きます。
-1. **Cloud Shell** ウィンドウの PowerShell セッションから次のコマンドを実行して、この演習で先ほど作成した **az801l07a-hv-vnet **という名前の仮想ネットワークに** AzureBastionSubnet** という名前のサブネットを追加します。
+1. **Cloud Shell** ウィンドウの PowerShell セッションから次のコマンドを実行して、この演習で先ほど作成した **az801l07a-hv-vnet** という名前の仮想ネットワークに **AzureBastionSubnet** という名前のサブネットを追加します。
 
    ```powershell
    $resourceGroupName = 'AZ801-L0701-RG'
@@ -124,13 +119,13 @@ Azure Migrate には次の機能が用意されています。
 
    | 設定 | 値 | 
    | --- | --- |
-   | ユーザー名 |**学生** |
+   | [ユーザー名] |**学生** |
    | パスワード |**Pa55w.rd1234** |
 
 1. **az801l07a-hv-vm** へのリモート デスクトップ セッション内の **[サーバー マネージャー]** ウィンドウで、**[IE セキュリティ強化の構成]** を無効にします。
 1. エクスプローラーを使用して、**F:\\VHDs** と **F:\\VMs** の 2 つのフォルダーを作成します。
 1. Microsoft Edge を使用して [Windows Server Evaluations](https://techcommunity.microsoft.com/t5/windows-11/accessing-trials-and-kits-for-windows-eval-center-workaround/m-p/3361125) から Windows Server 2022 **VHD** ファイルをダウンロードし、**F:\VHDs** フォルダーにコピーします。 
-1. **Hyper-V マネージャー** を使用して、次の設定で新しい仮想マシンを作成します。
+1. **Hyper-V マネージャー**を使用して、次の設定で新しい仮想マシンを作成します。
 
    | 設定 | 値 | 
    | --- | --- |
@@ -256,7 +251,7 @@ Azure Migrate には次の機能が用意されています。
 
    >**メモ**: キーの生成が完了するまで待機し、その値を記録します。 これはこの演習で後から必要になります。
 
-1. **[検出]** ページから、アプライアンス VM の **.VHD ファイル** を **F:\VMs** フォルダーにダウンロードします。
+1. **[検出]** ページから、アプライアンス VM の **.VHD ファイル**を **F:\VMs** フォルダーにダウンロードします。
 
    >**注**: ダウンロードが完了するまで待ちます。 これには 5 分ほどかかる場合があります。
 
@@ -270,7 +265,7 @@ Azure Migrate には次の機能が用意されています。
 
 1. 新しくインポートした仮想マシンの名前を **az801l07a-vma1** に変更します。
 1. 新しくインポートした仮想マシンを起動し、**[仮想マシン接続]** ウィンドウを使用して接続します。 
-1. 仮想アプライアンスの **[仮想マシン接続]** ウィンドウで、**ライセンス条項** に同意し、Administrator アカウントのパスワードを **Pa55w.rd** に設定します。 
+1. 仮想アプライアンスの **[仮想マシン接続]** ウィンドウで、**ライセンス条項**に同意し、Administrator アカウントのパスワードを **Pa55w.rd** に設定します。 
 1. 仮想アプライアンスの **[仮想マシン接続]** ウィンドウの **[アクション]** メニューで、**Ctrl + Alt + Delete** を選択し、ダイアログが表示されたら、新しく設定したパスワードを使用してサインインします。
 
    >**注**: 仮想アプライアンスへの **[仮想マシン接続]** ウィンドウ内で、**Appliance Configuration Manager** を表示するブラウザー ウィンドウが自動的に開きます。
@@ -349,7 +344,7 @@ Azure Migrate には次の機能が用意されています。
 
 1. **[検出]** ページの手順 **[1.Hyper-V ホスト サーバーを準備する]** で、最初の **[ダウンロード]** リンク (**[ダウンロード]** ボタンではありません) を選択して、Hyper-V レプリケーション プロバイダーのソフトウェア インストーラーをダウンロードします。
 
-   > **注:** **AzureSiteRecoveryProvider.exe を安全にダウンロードできない** というブラウザー通知が表示された場合は、**[ダウンロード]** リンクのコンテキスト依存メニューを表示し、メニューで **[リンクのコピー]** を選択します。 同じブラウザー ウィンドウで別のタブを開き、コピーしたリンクを貼り付け、Enter キーを押します。
+   > **注:** **AzureSiteRecoveryProvider.exe を安全にダウンロードできない**というブラウザー通知が表示された場合は、**[ダウンロード]** リンクのコンテキスト依存メニューを表示し、メニューで **[リンクのコピー]** を選択します。 同じブラウザー ウィンドウで別のタブを開き、コピーしたリンクを貼り付け、Enter キーを押します。
 
 1. ダウンロードしたファイルを使用して、既定の設定で **Azure Site Recovery Provider** をインストールします。
 1. インストール中に Azure portal に切り替え、**[マシンの検出]** ページのオンプレミスの Hyper-V ホストを準備する手順のステップ 1 で **[ダウンロード]** ボタンを選択して、コンテナー登録キーをダウンロードし、それを使用して **Azure Site Recovery Provider** を登録します。

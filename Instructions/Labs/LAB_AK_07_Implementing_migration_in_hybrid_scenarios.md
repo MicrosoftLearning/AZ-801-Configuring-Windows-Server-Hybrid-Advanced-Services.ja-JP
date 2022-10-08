@@ -3,13 +3,8 @@ lab:
   title: 'ラボ: Azure Migrate を使用して Hyper-V VM を Azure に移行する'
   type: Answer Key
   module: 'Module 7: Design for Migration'
-ms.openlocfilehash: f8130a11f54f6cc30a6db793dd6b9b35aa9629fd
-ms.sourcegitcommit: d2e9d886e710729f554d2ba62d1abe3c3f65fcb6
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2022
-ms.locfileid: "147047020"
 ---
+
 # <a name="lab-answer-key-migrating-hyper-v-vms-to-azure-by-using-azure-migrate"></a>ラボの解答キー: Azure Migrate を使用して Hyper-V VM を Azure に移行する
 
 ## <a name="exercise-1-prepare-the-lab-environment"></a>演習 1: ラボ環境を準備する
@@ -42,11 +37,11 @@ ms.locfileid: "147047020"
 > **注**: Azure Bastion を使用すると、この演習の前のタスクでデプロイしたパブリック エンドポイントを使用せずに Azure VM に接続できると同時に、オペレーティング システム レベルの資格情報を対象とするブルート フォース攻撃から保護することができます。
 
 1. **SEA-SVR2** で、Azure portal を表示しているブラウザー ウィンドウから、Azure portal の **[Cloud Shell]** ボタンを選択して **[Azure Cloud Shell]** ペインを開きます。
-1. **Bash** または **PowerShell** の選択を求めるメッセージが表示されたら、**[PowerShell]** を選択します。
+1. **Bash** または **PowerShell** の選択を求めるメッセージが表示されたら、 **[PowerShell]** を選択します。
 
    > **注**: **Cloud Shell** を起動するのが初めてで、"**ストレージがマウントされません**" というメッセージが表示される場合は、このラボで使用しているサブスクリプションを選択してから、**[ストレージの作成]** を選択します。
 
-1. **Cloud Shell** ウィンドウの PowerShell セッションから次のコマンドを実行して、この演習で先ほど作成した仮想ネットワーク **az801l07a-hv-vnet **に** AzureBastionSubnet** という名前のサブネットを追加します。
+1. **Cloud Shell** ウィンドウの PowerShell セッションから次のコマンドを実行して、この演習で先ほど作成した仮想ネットワーク **az801l07a-hv-vnet** に **AzureBastionSubnet** という名前のサブネットを追加します。
 
    ```powershell
    $resourceGroupName = 'AZ801-L0701-RG'
@@ -88,7 +83,7 @@ ms.locfileid: "147047020"
 
    | 設定 | 値 | 
    | --- | --- |
-   | ユーザー名 |**学生** |
+   | [ユーザー名] |**学生** |
    | パスワード |**Pa55w.rd1234** |
 
 1. **az801l07a-hv-vm** へのリモート デスクトップ セッションの **[サーバー マネージャー]** ウィンドウで、**[ローカル サーバー]** を選択し、**[IE セキュリティ強化の構成]** ラベルの横にある **[オン]** リンクを選択します。 **[IE セキュリティ強化の構成]** ダイアログ ボックスで、両方の **[オフ]** オプションを選択し、**[OK]** を選択します。
@@ -341,7 +336,7 @@ ms.locfileid: "147047020"
 
 1. **[検出]** ページの手順 **[1.Hyper-V ホスト サーバーを準備する]** で、最初の **[ダウンロード]** リンク (**[ダウンロード]** ボタンではありません) を選択して、Hyper-V レプリケーション プロバイダーのソフトウェア インストーラーをダウンロードします。
 
-   > **注:** **AzureSiteRecoveryProvider.exe を安全にダウンロードできない** というブラウザー通知が表示された場合は、**[ダウンロード]** リンクのコンテキスト依存メニューを表示し、メニューで **[リンクのコピー]** を選択します。 同じブラウザー ウィンドウで別のタブを開き、コピーしたリンクを貼り付け、Enter キーを押します。
+   > **注:** **AzureSiteRecoveryProvider.exe を安全にダウンロードできない**というブラウザー通知が表示された場合は、**[ダウンロード]** リンクのコンテキスト依存メニューを表示し、メニューで **[リンクのコピー]** を選択します。 同じブラウザー ウィンドウで別のタブを開き、コピーしたリンクを貼り付け、Enter キーを押します。
 
 1. ダウンロードが完了したら、ブラウザーの **[ダウンロード]** セクションで **[ファイルを開く]** リンクを選択 します。 これにより、**[Azure Site Recovery Provider のセットアップ (Hyper-V サーバー)]** ウィザードが起動します。
 1. **[Azure Site Recovery Provider のセットアップ (Hyper-V サーバー)]** ウィザードの **[Microsoft Update]** ページで、**[オフ]** を選択し、**[次へ]** を選択します。
@@ -419,7 +414,7 @@ ms.locfileid: "147047020"
 #### <a name="task-4-remove-azure-resources-deployed-in-the-lab"></a>タスク 4: ラボでデプロイされた Azure リソースを削除する
 
 1. **SEA-SVR2** で、Azure portal を表示しているブラウザー ウィンドウから、Azure portal の **[Cloud Shell]** ボタンを選択して **[Azure Cloud Shell]** ペインを開きます。
-1. **Bash** または **PowerShell** の選択を求めるメッセージが表示されたら、**[PowerShell]** を選択します。 
+1. **Bash** または **PowerShell** の選択を求めるメッセージが表示されたら、 **[PowerShell]** を選択します。 
 
    > **注**: **Cloud Shell** を起動するのが初めてで、"**ストレージがマウントされません**" というメッセージが表示される場合は、このラボで使用しているサブスクリプションを選択してから、**[ストレージの作成]** を選択します。
 

@@ -3,13 +3,8 @@ lab:
   title: 'ラボ: Windows Server でのアップグレードと移行'
   type: Answer Key
   module: Module 6 - Upgrade and migrate in Windows Server
-ms.openlocfilehash: 586aafbecd3f9d7d767cf1374e95f919adf2810a
-ms.sourcegitcommit: d2e9d886e710729f554d2ba62d1abe3c3f65fcb6
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2022
-ms.locfileid: "147047021"
 ---
+
 # <a name="lab-answer-key-upgrade-and-migrate-in-windows-server"></a>ラボ回答キー: Windows Server でのアップグレードと移行
 
 ## <a name="exercise-1-deploying-ad-ds-domain-controllers-in-azure"></a>演習 1: AD DS ドメイン コントローラーを Azure にデプロイする
@@ -20,7 +15,7 @@ ms.locfileid: "147047021"
 1. **SEA-SVR2** で Microsoft Edge を起動し、「**[新しい Windows VM を作成し、新しい AD フォレスト、ドメイン、DC を作成する](https://github.com/az140mp/azure-quickstart-templates/tree/master/application-workloads/active-directory/active-directory-new-domain)**」にあるカスタマイズされたバージョンのクイックスタート テンプレートにアクセスします。 
 1. 「**新しい Windows VM を作成し、新しい AD フォレスト、ドメイン、DC を作成する**」ページで、**[Azure に配置する]** を選択します。 これにより、ブラウザーが Azure portal の **[Create an Azure VM with a new AD Forest]\(新しい AD フォレストで Azure VM を作成する\)** ページに自動的にリダイレクトされます。
 1. **[Create an Azure VM with a new AD Forest]\(新しい AD フォレストで Azure VM を作成する\)** ページで、**[テンプレートの編集]** を選びます。
-1. **[Edit template]\(テンプレートの編集\)** ページで、**storageProfile** セクション (**195** 行目以降) を参照し、**sku** (**199** 行目) が **2022-Datacenter** に設定されていて、**dataDisks** **caching** (**213** 行目) が **None** に設定されていることを確認します。
+1. **[Edit template]\(テンプレートの編集\)** ページで、**storageProfile** セクション (**195** 行目以降) を参照し、**sku** (**199** 行目) が**2022-Datacenter** に設定されていて、**dataDisks** **caching** (**213** 行目) が **None** に設定されていることを確認します。
 
    > **注**: AD DS のデータベース ファイルとログ ファイルがホストされているディスクでは、キャッシュを **None** に設定する必要があります。
 
@@ -79,7 +74,7 @@ ms.locfileid: "147047021"
 > **注**: Azure Bastion を使用すると、この演習の前のタスクでデプロイしたパブリック エンドポイントを使用せずに Azure VM に接続できると同時に、オペレーティング システム レベルの資格情報を対象とするブルート フォース攻撃から保護することができます。
 
 1. **SEA-SVR2** の Azure portal を表示している Microsoft Edge ウィンドウで、Azure portal の [Cloud Shell] をクリックして [Azure Cloud Shell] ペインを開きます。
-1. **Bash** または **PowerShell** の選択を求めるメッセージが表示されたら、**[PowerShell]** を選択します。
+1. **Bash** または **PowerShell** の選択を求めるメッセージが表示されたら、 **[PowerShell]** を選択します。
 
    > **注**: Cloud Shell を起動するのが初めてで、"**ストレージがマウントされていません**" というメッセージが表示される場合は、このラボで使用しているサブスクリプションを選択してから、**[ストレージの作成]** を選択します。
 
@@ -197,7 +192,7 @@ ms.locfileid: "147047021"
 
    | 設定 | 値 | 
    | --- | --- |
-   | ユーザー名 |**学生** |
+   | [ユーザー名] |**学生** |
    | パスワード |**Pa55w.rd1234** |
 
 1. **az801l06a-dc2** へのリモート デスクトップ セッション内で、**[スタート]** を選択し、**[Windows PowerShell]** を選択します。
@@ -218,15 +213,15 @@ ms.locfileid: "147047021"
    ```
 
 1. **az801l06a-dc2** へのリモート デスクトップ セッション内で、**サーバー マネージャー** ウィンドウに切り替えます。
-1. **サーバーマネージャー** で、**[通知]** フラグ シンボルを選択し、**[展開後構成]** セクションで **[このサーバーをドメイン コントローラーに昇格する]** リンクを選択します。 これにより、**Active Directory Domain Services 構成ウィザード** が開始されます。
-1. **Active Directory Domain Services 構成ウィザード** の **[デプロイ構成]** ページの **[配置操作を選択してください]** の下で、**[既存のドメインにドメイン コントローラーを追加する]** が選択されていることを確認します。
+1. **サーバーマネージャー**で、**[通知]** フラグ シンボルを選択し、**[展開後構成]** セクションで **[このサーバーをドメイン コントローラーに昇格する]** リンクを選択します。 これにより、**Active Directory Domain Services 構成ウィザード**が開始されます。
+1. **Active Directory Domain Services 構成ウィザード**の **[デプロイ構成]** ページの **[配置操作を選択してください]** の下で、**[既存のドメインにドメイン コントローラーを追加する]** が選択されていることを確認します。
 1. **[ドメイン]** テキスト ボックスに、「**contoso.com**」ドメインを入力します。
 1. **[この操作を実行するには資格情報を指定してください]** セクションで **[変更]** を選択します。
 1. **[配置操作の資格情報]** ダイアログ ボックスの **[ユーザー名]** ボックスに「 **Student@contoso.com** 」と入力してから、 **[パスワード]** ボックスに「**Pa55w.rd1234**」と入力し、 **[OK]** を選択します。 
-1. **Active Directory Domain Services 構成ウィザード** の **[デプロイ構成]** ページに戻り、 **[次へ]** を選択します。
+1. **Active Directory Domain Services 構成ウィザード**の **[デプロイ構成]** ページに戻り、 **[次へ]** を選択します。
 1. **[ドメイン コントローラーのオプション]** ページで、**[ドメイン ネーム システム (DNS) サーバー]** と **[グローバル カタログ (GC)]** チェックボックスがオンになっていることを確かめます。 **[読み取り専用ドメイン コントローラー (RODC)]** チェック ボックスがオフになっていることを確かめます。
 1. **[ディレクトリ サービス復元モード (DSRM) のパスワードを入力してください]** セクションで、パスワード「**Pa55w.rd1234**」を入力して確認し、**[次へ]** を選択します。
-1. **Active Directory Domain Services 構成ウィザード** の **[DNS オプション]** ページで、**[次へ]** を選択します。
+1. **Active Directory Domain Services 構成ウィザード**の **[DNS オプション]** ページで、**[次へ]** を選択します。
 1. **[追加オプション]** ページで、**[次へ]** を選択します。
 1. **[パス]** ページで、**[データベース]** フォルダー、**[ログ ファイル]** フォルダー、および **SYSVOL** フォルダーのパス設定のドライブを **C:** から **F:** に変更し、**[次へ]** を選択します。
 1. **[オプションの確認]** ページで、**[次へ]** を選択します。
@@ -242,7 +237,7 @@ ms.locfileid: "147047021"
 
    | 設定 | 値 | 
    | --- | --- |
-   | ユーザー名 |**学生** |
+   | [ユーザー名] |**学生** |
    | パスワード |**Pa55w.rd1234** |
 
 1. **az801l06a-dc2** へのリモート デスクトップ セッションで、**サーバー マネージャー** ウィンドウが開くまで待機し、ローカル環境にインストールされている役割に **AD DS** と **DNS** が含まれることを確認します。
@@ -276,7 +271,7 @@ ms.locfileid: "147047021"
    ```powershell
    Start-BitsTransfer -Source https://aka.ms/WACDownload -Destination "$env:USERPROFILE\Downloads\WindowsAdminCenter.msi"
    ```
-1. 次のコマンドを入力し、Enter キーを押して、Windows Admin Center をインストールします。
+1. 次のコマンドを入力してから Enter キーを押して、Windows Admin Center をインストールします。
     
    ```powershell
    Start-Process msiexec.exe -Wait -ArgumentList "/i $env:USERPROFILE\Downloads\WindowsAdminCenter.msi /qn /L*v log.txt REGISTRY_REDIRECT_PORT_80=1 SME_PORT=443 SSL_CERTIFICATE_OPTION=generate"
@@ -309,9 +304,9 @@ ms.locfileid: "147047021"
 1. **[このリリースの新機能]** ポップアップ ウィンドウを確認し、右上隅の **[閉じる]** を選択します。
 1. Windows Admin Center の **[すべての接続]** ペインで、右上隅にある **[設定]** アイコン (歯車) を選択します。
 1. 左側のウィンドウで、**[拡張機能]** を選択します。 使用可能な拡張機能を確認します。
-1. 詳細ペインで、**[インストール済みの拡張機能]** を選択し、一覧に **記憶域移行サービス** 拡張機能が含まれていることを確認します。
+1. 詳細ペインで、**[インストール済みの拡張機能]** を選択し、一覧に**記憶域移行サービス**拡張機能が含まれていることを確認します。
 
-   >**注:** 利用可能な更新プログラムがある場合は、**記憶域移行サービス** 拡張機能のエントリを選び、**[更新]** を選びます。
+   >**注:** 利用可能な更新プログラムがある場合は、**記憶域移行サービス**拡張機能のエントリを選び、**[更新]** を選びます。
 
 1. 上部メニューの **[設定]** の横にあるドロップダウン矢印を選択してから、**[サーバー マネージャー]** を選択します。
 1. **[すべての接続]** ペインで **sea-svr2.contoso.com** リンクを選択します。
@@ -322,7 +317,7 @@ ms.locfileid: "147047021"
 
 1. **[Migrate storage in three steps]\(3 つのステップで記憶域を移行する\)** ペインで、**[閉じる]** を選択します。
 1. **[記憶域移行サービス]** ペインで、ページの一番下までスクロールし、**[+ 新しいジョブ]** を選択します。
-1. **[新しいジョブ]** ペインの **[ジョブ名]** テキスト ボックスに「**SVR1toSVR2**」と入力し、**Windows サーバーとクラスター** の **[ソース デバイス]** オプションが選択されていることを確認して、**[OK]** を選択します。
+1. **[新しいジョブ]** ペインの **[ジョブ名]** テキスト ボックスに「**SVR1toSVR2**」と入力し、**Windows サーバーとクラスター**の **[ソース デバイス]** オプションが選択されていることを確認して、**[OK]** を選択します。
 1. **[記憶域移行サービス > SVR1toSVR2]** ペインの **[Inventory servers]\(インベントリ サーバー\)** タブで、 **[Check the prerequisites]\(前提条件の確認\)** ペインを確認し、 **[次へ]** を選択します。
 1. **[Inventory servers]\(インベントリ サーバー\)** タブの **[資格情報の入力]** ペインで、必要に応じて、**CONTOSO\\Administrator** ユーザー アカウントの資格情報を入力し、 **[Migrate from failover clusters]\(フェールオーバー クラスターから移行する\)** チェック ボックスをオフにし、 **[次へ]** を選択します。
 1. **[インベントリ サーバー]** タブの **[Install required features]\(必要な機能のインストール\)** ペインで、 **[次へ]** を選択します。
@@ -348,7 +343,7 @@ ms.locfileid: "147047021"
 
    >**注:** スキャンが正常に完了するまで待ちます。 これには 1 分ほどかかります。
 
-   >**注:** ハイブリッド シナリオでは、移行ジョブの移行先になる Azure VM を自動的に作成することもできます。
+   >**注: ** ハイブリッド シナリオでは、移行ジョブの移行先になる Azure VM を自動的に作成することもできます。
 
 1. スキャンが完了したら、**[Specify the destination for: sea-svr1.contoso.com]\(転送先の指定先: sea-svr1.contoso.com\)** ペインで、**[Map each source volume to a destination volume]\(各転送元ボリュームを転送先ボリュームにマップする\)** セクションを調べて、**S:** 転送元ボリュームが **S:** 転送先ボリュームにマップされていることを確認します。
 1. **[Specify the destination for: sea-svr1.contoso.com]\(転送先の指定先: sea-svr1.contoso.com\)** ペインで、**[Select the shares to transfer]\(転送する共有の選択\)** セクションを調べて、**[データ]** 転送元共有が転送に含まれていることを確認し、**[次へ]** を選択します。

@@ -3,13 +3,8 @@ lab:
   title: 'ラボ: ハイブリッド シナリオでの運用監視の実装'
   type: Answer Key
   module: Module 9 - Implementing operational monitoring in hybrid scenarios
-ms.openlocfilehash: b27abf5d550f581a170fe3e2e9df76daa9c6c1d6
-ms.sourcegitcommit: d2e9d886e710729f554d2ba62d1abe3c3f65fcb6
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2022
-ms.locfileid: "147046976"
 ---
+
 # <a name="lab-answer-key-implementing-operational-monitoring-in-hybrid-scenarios"></a>ラボの回答キー: ハイブリッド シナリオでの運用監視の実装
 
 ## <a name="exercise-1-preparing-a-monitoring-environment"></a>演習 1: 監視環境の準備
@@ -19,7 +14,7 @@ ms.locfileid: "147046976"
 1. **SEA-SVR2** に接続し、必要であれば、パスワード "**Pa55w.rd**" を使用して **CONTOSO\\Administrator** としてサインインします。
 1. **SEA-SVR2** で Microsoft Edge を起動し、**[Azure portal](https://portal.azure.com)** に移動します。そして、このラボで使用するサブスクリプションの所有者ロールをもつユーザー アカウントの資格情報を使用してサインインします。
 1. **SEA-SVR2** で、Azure portal を表示している Microsoft Edge ウィンドウで、Azure portal の [Cloud Shell] をクリックして [Azure Cloud Shell] ウィンドウを開きます。
-1. **Bash** または **PowerShell** の選択を求めるメッセージが表示されたら、**[PowerShell]** を選択します。
+1. **Bash** または **PowerShell** の選択を求めるメッセージが表示されたら、 **[PowerShell]** を選択します。
 
    > **注**: Cloud Shell を起動するのが初めてで、"**ストレージがマウントされていません**" というメッセージが表示される場合は、このラボで使用しているサブスクリプションを選択してから、**[ストレージの作成]** を選択します。
 
@@ -98,7 +93,7 @@ ms.locfileid: "147046976"
 1. **[ライセンス条項]** ページの記述内容を確認し、 **[同意する]** を選択します。
 1. **[インストール先フォルダー]** ページで、既定のインストール フォルダーを変更するか、そのまま使用して、 **[次へ]** を選択します。
 1. **[エージェントのセットアップ オプション]** ページで、 **[Connect the agent to Azure Log Analytics]\(Azure Log Analytics にエージェントを接続する\)** を選んでから、 **[次へ]** を選びます。
-1. **[Azure Log Analytics]** ページで、前の演習で記録した **ワークスペース ID** と **ワークスペース キー (主キー)** を入力します。
+1. **[Azure Log Analytics]** ページで、前の演習で記録した**ワークスペース ID** と**ワークスペース キー (主キー)** を入力します。
 1. 必要な構成設定が完了したら、 **[次へ]** を選択します。
 1. **[インストールの準備完了]** ページで、設定内容を確認し、 **[インストール]** を選択します。
 1. **[構成は正常に終了しました]** ページで **[完了]** を選択します。
@@ -131,7 +126,7 @@ ms.locfileid: "147046976"
 1. **[az801l09-vm0]** ページの **[監視]** セクションで **[診断設定]** を選びます。
 1. **[az801l09-vm0 \| 診断設定]** ページの **[概要]** タブで **[ゲスト レベルの監視を有効にする]** を選択します。
 
-   >**注**: 操作が有効になるまで待ちます。 これには、約 3 分かかる場合があります。
+   >**注**: 操作が有効になるまで待ちます。 これには 3 分ほどかかる場合があります。
 
 1. **[az801l09-vm0 \| 診断設定]** ページの **[パフォーマンス カウンター]** タブに切り替え、使用可能なカウンターを確認します。
 
@@ -228,8 +223,8 @@ ms.locfileid: "147046976"
 
    | 設定 | 値 |
    | --- | --- |
-   | アラート ルール名 | **テストしきい値を超えた CPU 使用率** |
-   | 説明 | **テストしきい値を超えた CPU 使用率** |
+   | アラート ルール名 | **テストしきい値を超えた CPU の割合** |
+   | 説明 | **テストしきい値を超えた CPU の割合** |
    | リソース グループ | **AZ801-L0902-RG** |
    | 重大度 | **重大度 3** |
    | 作成時にルールを有効にする | **はい** |
@@ -275,7 +270,7 @@ ms.locfileid: "147046976"
 
 #### <a name="task-3-review-azure-log-analytics-functionality"></a>タスク 3: Azure Log Analytics の機能を確認する
 
-1. **SEA-SVR2** で、Azure portal の **[モニター]** ページに戻り、**[ログ]** を選びます。
+1. **SEA-SVR2** で、Azure portal の **[モニター]** ページに戻り、 **[ログ]** を選びます。
 
    >**注**: Log Analytics に初めてアクセスしている場合は、 **[Log Analytics へようこそ]** ウィンドウを閉じる必要がある可能性があります。
 

@@ -2,13 +2,8 @@
 lab:
   title: 'ラボ: Windows Server でのセキュリティの構成'
   module: 'Module 1: Windows Server security'
-ms.openlocfilehash: e3ff4a435b249f1688749a3992cb3375136f046c
-ms.sourcegitcommit: d2e9d886e710729f554d2ba62d1abe3c3f65fcb6
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2022
-ms.locfileid: "147046998"
 ---
+
 # <a name="lab-configuring-security-in-windows-server"></a>ラボ: Windows Server でのセキュリティの構成
 
 ## <a name="scenario"></a>シナリオ
@@ -228,9 +223,9 @@ Windows Defender Credential Guard をサーバーと管理ワークステーシ�
 #### <a name="task-4-verify-laps"></a>タスク 4: LAPS を確認する
 
 1. **SEA-SVR2** のコンソール セッションに切り替えます。
-1. **[スタート]** メニューから、**LAPS UI** を起動します。
+1. **[スタート]** メニューから、**LAPS UI**を起動します。
 1. **[LAPS UI]** ダイアログ ボックスの **[ComputerName]** ボックスに「**SEA-SVR1**」と入力し、**[検索]** を選択します。
-1. **[パスワード]** と **[パスワードの有効期限]** の値を確認し、**[終了]** を選択します。
+1. **[パスワード]** と **[パスワードの有効期限]** の値を確認し、 **[終了]** を選択します。
 1. **Windows PowerShell** コンソールに切り替えてから、パスワードの値を確認するために、Windows PowerShell コマンド プロンプトで次のコマンドを実行します。
 
    ```powershell
