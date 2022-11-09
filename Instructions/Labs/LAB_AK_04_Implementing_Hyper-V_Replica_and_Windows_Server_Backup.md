@@ -7,12 +7,14 @@ lab:
 
 # <a name="lab-answer-key-implementing-hyper-v-replica-and-windows-server-backup"></a>ラボ回答キー: Hyper-V レプリカと Windows Server バックアップの実装
 
+                **メモ:** このラボをご自分のペースでクリックして進めることができる、 **[ラボの対話型シミュレーション](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Implementing%20Hyper-V%20Replica%20and%20Windows%20Server%20Backup)** が用意されています。 対話型シミュレーションとホストされたラボの間に若干の違いがある場合がありますが、示されている主要な概念とアイデアは同じです。 
+
 ## <a name="exercise1-implementing-hyper-v-replica"></a>演習 1: Hyper-V レプリカの実装
 
 #### <a name="task-1-install-and-configure-hyper-v-replica"></a>タスク 1: Hyper-V レプリカをインストールして構成する
 
 1. **SEA-SVR2** に接続し、必要であればパスワード **Pa55w.rd** を使用して **Contoso\\管理者**としてサインインします。
-1. **SEA-SVR2** 上で **[スタート]** を選択し、**[Windows PowerShell (管理者)]** を選択します。
+1. **SEA-SVR2** 上で **[スタート]** を選択し、 **[Windows PowerShell (管理者)]** を選択します。
 1. **SEA-SVR2** でセキュリティが強化された **Hyper-V レプリカ HTTP Listener (TCP-In)** 規則を使用する Windows Defender ファイアウォールの状態を確認するには、Windows PowerShell プロンプトで次のコマンドを入力して Enter キーを押します。
 
    ```powershell

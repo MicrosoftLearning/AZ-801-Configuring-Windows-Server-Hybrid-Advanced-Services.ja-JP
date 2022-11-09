@@ -7,6 +7,8 @@ lab:
 
 # <a name="lab-answer-key-upgrade-and-migrate-in-windows-server"></a>ラボ回答キー: Windows Server でのアップグレードと移行
 
+                **メモ:** このラボをご自分のペースでクリックして進めることができる、 **[ラボの対話型シミュレーション](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Upgrading%20and%20migrating%20in%20Windows%20Server)** が用意されています。 対話型シミュレーションとホストされたラボの間に若干の違いがある場合がありますが、示されている主要な概念とアイデアは同じです。 
+
 ## <a name="exercise-1-deploying-ad-ds-domain-controllers-in-azure"></a>演習 1: AD DS ドメイン コントローラーを Azure にデプロイする
 
 #### <a name="task-1-deploy-a-domain-controller-by-using-an-azure-resource-manager-arm-template"></a>タスク 1: Azure Resource Manager (ARM) テンプレートを使用してドメイン コントローラーをデプロイする
