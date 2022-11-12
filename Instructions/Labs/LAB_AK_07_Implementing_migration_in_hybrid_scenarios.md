@@ -7,6 +7,8 @@ lab:
 
 # <a name="lab-answer-key-migrating-hyper-v-vms-to-azure-by-using-azure-migrate"></a>ラボの解答キー: Azure Migrate を使用して Hyper-V VM を Azure に移行する
 
+                **メモ:** このラボをご自分のペースでクリックして進めることができる、 **[ラボの対話型シミュレーション](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Migrating%20Hyper-V%20VMs%20to%20Azure%20by%20using%20Azure%20Migrate)** が用意されています。 対話型シミュレーションとホストされたラボの間に若干の違いがある場合がありますが、示されている主要な概念とアイデアは同じです。 
+
 ## <a name="exercise-1-prepare-the-lab-environment"></a>演習 1: ラボ環境を準備する
 
 #### <a name="task-1-deploy-an-azure-vm-by-using-an-azure-resource-manager-quickstart-template"></a>タスク 1: Azure Resource Manager クイックスタートテンプレートを使用して Azure VM をデプロイする

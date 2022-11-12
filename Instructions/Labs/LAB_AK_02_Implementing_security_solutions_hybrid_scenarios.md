@@ -7,6 +7,8 @@ lab:
 
 # <a name="lab-answer-key-implementing-security-solutions-in-hybrid-scenarios"></a>ラボ解答キー: ハイブリッド シナリオでのセキュリティ ソリューションの実装
 
+                **メモ:** このラボをご自分のペースでクリックして進めることができる、 **[ラボの対話型シミュレーション](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Implementing%20security%20solutions%20in%20hybrid%20scenarios)** が用意されています。 対話型シミュレーションとホストされたラボの間に若干の違いがある場合がありますが、示されている主要な概念とアイデアは同じです。 
+
 ## <a name="exercise-1-creating-an-azure-log-analytics-workspace-and-an-azure-automation-account"></a>演習 1: Azure Log Analytics ワークスペースと Azure Automation アカウントの作成
 
 #### <a name="task-1-create-an-azure-log-analytics-workspace"></a>タスク 1: Azure Log Analytics ワークスペースを作成する 

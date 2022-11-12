@@ -7,6 +7,8 @@ lab:
 
 # <a name="lab-answer-key-implementing-azure-based-recovery-services"></a>ラボの回答キー: Azure ベースの復旧サービスの実装
 
+                **メモ:** このラボをご自分のペースでクリックして進めることができる、 **[ラボの対話型シミュレーション](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Implementing%20Azure-based%20recovery%20services)** が用意されています。 対話型シミュレーションとホストされたラボの間に若干の違いがある場合がありますが、示されている主要な概念とアイデアは同じです。 
+
 ## <a name="exercise-1-creating-and-configuring-an-azure-site-recovery-vault"></a>演習 1: Azure Site Recovery コンテナーの作成と構成
 
 #### <a name="task-1-create-an-azure-site-recovery-vault"></a>タスク 1: Azure Site Recovery コンテナーの作成
