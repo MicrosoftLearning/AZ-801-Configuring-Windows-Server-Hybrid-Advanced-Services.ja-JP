@@ -15,13 +15,13 @@ lab:
 
 1. **SEA-SVR2** に接続し、必要であれば、パスワード **Pa55w.rd** を使用して **CONTOSO\\Administrator** としてサインインします。
 1. **SEA-SVR2** で Microsoft Edge を起動し、「**[新しい Windows VM を作成し、新しい AD フォレスト、ドメイン、DC を作成する](https://github.com/az140mp/azure-quickstart-templates/tree/master/application-workloads/active-directory/active-directory-new-domain)**」にあるカスタマイズされたバージョンのクイックスタート テンプレートにアクセスします。 
-1. 「**新しい Windows VM を作成し、新しい AD フォレスト、ドメイン、DC を作成する**」ページで、**[Azure に配置する]** を選択します。 これにより、ブラウザーが Azure portal の **[Create an Azure VM with a new AD Forest]\(新しい AD フォレストで Azure VM を作成する\)** ページに自動的にリダイレクトされます。
-1. **[Create an Azure VM with a new AD Forest]\(新しい AD フォレストで Azure VM を作成する\)** ページで、**[テンプレートの編集]** を選びます。
-1. **[Edit template]\(テンプレートの編集\)** ページで、**storageProfile** セクション (**195** 行目以降) を参照し、**sku** (**199** 行目) が**2022-Datacenter** に設定されていて、**dataDisks** **caching** (**213** 行目) が **None** に設定されていることを確認します。
+1. 「**新しい Windows VM を作成し、新しい AD フォレスト、ドメイン、DC を作成する**」ページで、**[Azure に配置する]** を選択します。 これにより、ブラウザーが Azure portal の **[Create an Azure VM with a new AD Forest](新しい AD フォレストで Azure VM を作成する)** ページに自動的にリダイレクトされます。
+1. **[Create an Azure VM with a new AD Forest](新しい AD フォレストで Azure VM を作成する)** ページで、**[テンプレートの編集]** を選びます。
+1. **[テンプレートの編集]** ページで、**storageProfile** セクション (**195** 行目以降) を参照し、**sku** (**199** 行目) が **2022-Datacenter** に設定され、**version** (**200** 行目) が **latest** に設定され、**dataDisks** **caching** (**213** 行目) が **None** に設定されていることを確認します。
 
    > **注**: AD DS のデータベース ファイルとログ ファイルがホストされているディスクでは、キャッシュを **None** に設定する必要があります。
 
-1. **[Edit template]\(テンプレートの編集\)** ページで、**extension** セクション (**233** 行目以降) を参照し、デプロイされた Azure 仮想マシン (VM) 内で **CreateADPDC.ps1** スクリプトを実行するために、テンプレートで PowerShell Desired State Configuration が使用されていることに注目します。
+1. **[Edit template](テンプレートの編集)** ページで、**extension** セクション (**233** 行目以降) を参照し、デプロイされた Azure 仮想マシン (VM) 内で **CreateADPDC.ps1** スクリプトを実行するために、テンプレートで PowerShell Desired State Configuration が使用されていることに注目します。
 
    > **注**: 次の手順のようにしてスクリプトを確認できます。
 
@@ -43,11 +43,11 @@ lab:
    > **注**: DNS サーバーの役割を使用してドメイン コントローラーを実行している Azure VM を指すカスタム DNS サーバー仮想ネットワークの設定を構成すると、それ以降に同じ仮想ネットワークにデプロイされるすべての Azure VM で、名前解決にその DNS サーバーが自動的に使用されるようになり、ドメイン参加機能が効果的に提供されます。
 
 1. **[テンプレートの編集]** ページで、**[破棄]** を選択します。
-1. **[Create an Azure VM with a new AD Forest]\(新しい AD フォレストで Azure VM を作成する\)** ページに戻り、**[パラメーターの編集]** を選びます。
+1. **[Create an Azure VM with a new AD Forest](新しい AD フォレストで Azure VM を作成する)** ページに戻り、**[パラメーターの編集]** を選びます。
 1. **[パラメーターの編集]** ページで **[ファイルの読み込み]** を選択し、**[ファイルのアップロード]** ダイアログ ボックスで **C:\\Labfiles\\Lab06** フォルダーを参照し、**L06-rg_template.parameters.json** ファイルを選択して、**[開く]** を選択します。
 1. **[テンプレートの編集]** ページで、 **[保存]** を選択します。
-1. **[Create an Azure VM with a new AD Forest]\(新しい AD フォレストで Azure VM を作成する\)** ページに戻り、**[リソース グループ]** ドロップダウン リストの下にある **[新規作成]** を選択し、**[名前]** テキスト ボックスに「**AZ801-L0601-RG**」と入力し、**[OK]** を選択します。
-1. **[Create an Azure VM with a new AD Forest]\(新しい AD フォレストで Azure VM を作成する\)** ページで、必要に応じてデプロイ設定を調整して、次の値を設定します (他の設定は既定値のまま)。
+1. **[Create an Azure VM with a new AD Forest](新しい AD フォレストで Azure VM を作成する)** ページに戻り、**[リソース グループ]** ドロップダウン リストの下にある **[新規作成]** を選択し、**[名前]** テキスト ボックスに「**AZ801-L0601-RG**」と入力し、**[OK]** を選択します。
+1. **[Create an Azure VM with a new AD Forest](新しい AD フォレストで Azure VM を作成する)** ページで、必要に応じてデプロイ設定を調整して、次の値を設定します (他の設定は既定値のまま)。
 
    | 設定 | 値 | 
    | --- | --- |
@@ -58,6 +58,7 @@ lab:
    | 管理パスワード | **Pa55w.rd1234** |
    | ドメイン名 | **contoso.com** |
    | VM サイズ | **Standard_DS2_v2** |
+   | _artifacts の場所 | **`https://raw.githubusercontent.com/az140mp/azure-quickstart-templates/master/application-workloads/active-directory/active-directory-new-domain/`** |
    | 仮想マシン名 | **az801l06a-dc1** |
    | 仮想ネットワーク名 | **az801l06a-vnet** |
    | Virtual Network のアドレス範囲 | **10.6.0.0/16** |
@@ -67,7 +68,7 @@ lab:
    | サブネット範囲 | **10.6.0.0/24** |
    | 可用性セット名 | **adAvailabilitySet** |
 
-1. **[Create an Azure VM with a new AD Forest]\(新しい AD フォレストで Azure VM を作成する\)** ページで、**[確認と作成]** を選択し、**[作成]** を選択します。
+1. **[Create an Azure VM with a new AD Forest](新しい AD フォレストで Azure VM を作成する)** ページで、**[確認と作成]** を選択し、**[作成]** を選択します。
 
    > **注**: デプロイが完了するまで待ってから、次のタスクに進んでください。 これには 15 分ほどかかる場合があります。 
 
@@ -117,7 +118,7 @@ lab:
 > **注**: この演習の最初のタスクでプロビジョニングした最初の VM と同じドメインへの、2 つ目の Azure VM のデプロイと、追加ドメイン コントローラーとしてのそのセットアップは、完全に自動化できます。 一方、この場合にグラフィカル インターフェイスを使うと、オンプレミスでのドメイン コントローラーのプロビジョニングと Azure ベースのシナリオでの違いに関する追加のガイダンスが提供されます。
 
 1. **SEA-SVR2** の Azure portal を表示している Microsoft Edge ウィンドウで、ツール バーにある **[リソース、サービス、ドキュメントの検索]** テキスト ボックスで、「**仮想マシン**」を検索して選択します。 
-1. **[仮想マシン]** ページで、**[作成]** を選択し、ドロップダウン メニューの **[仮想マシン]** を選択します。
+1. **[仮想マシン]** ページで、 **[+ 作成]** を選択した後、ドロップダウン メニューの **[Azure 仮想マシン]** を選択します。
 1. **[仮想マシンの作成]** ブレードの **[基本]** タブで、以下の設定を指定します (他の設定は既定値のまま)。
 
    | 設定 | 値 |
@@ -129,7 +130,7 @@ lab:
    | 可用性のオプション | **可用性セット** |
    | 可用性セット | **adAvailabilitySet** |
    | Image | **Windows Server 2022 Datacenter: Azure Edition - Gen2** |
-   | Azure Spot インスタンス | **No** |
+   | Azure Spot 割引で実行する | **No** |
    | サイズ | **Standard D2s v3** |
    | ユーザー名 | **学生** |
    | パスワード | **Pa55w.rd1234** |
@@ -159,15 +160,20 @@ lab:
    | サブネット | **adSubnet (10.6.0.0/24)** |
    | パブリック IP | **なし** |
    | NIC ネットワーク セキュリティ グループ | **なし** |
-   | Accelerated Networking | enabled |
+   | 高速ネットワークを有効にする | disabled |
    | この仮想マシンを既存の負荷分散ソリューションの後ろに配置しますか? | disabled |
 
 1. **[次へ: 管理 >]** を選択し、**[仮想マシンの作成]** ブレードの **[管理]** タブで、以下の設定を指定します (他の設定は既定値のまま)。
 
    | 設定 | 値 |
    | --- | --- |
-   | ブート診断 | **マネージド ストレージ アカウントで有効にする (推奨)** |
    | パッチ オーケストレーション オプション | **手動更新** |
+
+1. **[次へ: 監視 >]** を選択した後、 **[仮想マシンの作成]** ブレードの **[監視]** タブで、次の設定を指定します (他は既定値のままにします)。
+
+   | 設定 | 値 |
+   | --- | --- |
+   | ブート診断 | **マネージド ストレージ アカウントで有効にする (推奨)** |
 
 1. **[次へ: 詳細設定 >]** を選択し、**[仮想マシンの作成]** ブレードの **[詳細設定]** タブで、使用可能な設定を変更せずに確認し、**[確認と作成]** を選択します。
 1. **[確認および作成]** ブレードで、**[作成]** を選択します。
@@ -298,6 +304,11 @@ lab:
 #### <a name="task-3-perform-migration-by-using-storage-migration-service"></a>タスク 3: 記憶域移行サービスを使用して移行を実行する
 
 1. **SEA-SVR2** で Microsoft Edge を起動し、**https://SEA-SVR2.contoso.com** に移動します。 
+   
+   >**注**: リンクが機能しない場合は、**SEA-SVR2** でエクスプローラー開き、ダウンロード フォルダーを選択し、ダウンロード フォルダー内の **WindowsAdminCenter.msi** ファイルを選択して、手動でインストールします。 インストールが完了したら、Microsoft Edge を更新します。
+
+   >**注**: **NET::ERR_CERT_DATE_INVALID** エラーが発生した場合は、Edge ブラウザー ページの **[詳細設定]** を選択し、ページの下部にある **[sea-svr2-contoso.com (アンセーフ) に移動]** を選択します。
+
 1. ダイアログが表示されたら、**[Windows セキュリティ]** ダイアログ ボックスに次の資格情報を入力して、**[OK]** を選択します。
 
    - ユーザー名: **CONTOSO\\Administrator**
@@ -312,44 +323,44 @@ lab:
 
 1. 上部メニューの **[設定]** の横にあるドロップダウン矢印を選択してから、**[サーバー マネージャー]** を選択します。
 1. **[すべての接続]** ペインで **sea-svr2.contoso.com** リンクを選択します。
-1. **[sea-svr2.contoso.com]** ページで **[ツール]** メニューの **[記憶域移行]** エントリを選択します。
+1.  **[sea-svr2.contoso.com]** ページで **[ツール]** メニューの **[記憶域移行]** エントリを選択します。
 1. **[記憶域移行]** ペインで、**[インストール]** を選択します。
 
    >**注:** これにより、記憶域移行サービスとその必要なコンポーネントが自動的にインストールされます。
 
-1. **[Migrate storage in three steps]\(3 つのステップで記憶域を移行する\)** ペインで、**[閉じる]** を選択します。
+1. **[Migrate storage in three steps](3 つのステップで記憶域を移行する)** ペインで、**[閉じる]** を選択します。
 1. **[記憶域移行サービス]** ペインで、ページの一番下までスクロールし、**[+ 新しいジョブ]** を選択します。
 1. **[新しいジョブ]** ペインの **[ジョブ名]** テキスト ボックスに「**SVR1toSVR2**」と入力し、**Windows サーバーとクラスター**の **[ソース デバイス]** オプションが選択されていることを確認して、**[OK]** を選択します。
-1. **[記憶域移行サービス > SVR1toSVR2]** ペインの **[Inventory servers]\(インベントリ サーバー\)** タブで、 **[Check the prerequisites]\(前提条件の確認\)** ペインを確認し、 **[次へ]** を選択します。
-1. **[Inventory servers]\(インベントリ サーバー\)** タブの **[資格情報の入力]** ペインで、必要に応じて、**CONTOSO\\Administrator** ユーザー アカウントの資格情報を入力し、 **[Migrate from failover clusters]\(フェールオーバー クラスターから移行する\)** チェック ボックスをオフにし、 **[次へ]** を選択します。
-1. **[インベントリ サーバー]** タブの **[Install required features]\(必要な機能のインストール\)** ペインで、 **[次へ]** を選択します。
-1. **[インベントリ サーバー]** タブの **[Add and scan devices]\(デバイスの追加とスキャン\)** ペインで、**[デバイスの追加]** を選択します。
+1. **[記憶域移行サービス > SVR1toSVR2]** ペインの **[Inventory servers](インベントリ サーバー)** タブで、 **[Check the prerequisites](前提条件の確認)** ペインを確認し、 **[次へ]** を選択します。
+1. **[Inventory servers](インベントリ サーバー)** タブの **[資格情報の入力]** ペインで、必要に応じて、**CONTOSO\\Administrator** ユーザー アカウントの資格情報を入力し、 **[Migrate from failover clusters](フェールオーバー クラスターから移行する)** チェック ボックスをオフにし、 **[次へ]** を選択します。
+1. **[インベントリ サーバー]** タブの **[Install required features](必要な機能のインストール)** ペインで、 **[次へ]** を選択します。
+1. **[インベントリ サーバー]** タブの **[Add and scan devices](デバイスの追加とスキャン)** ペインで、**[デバイスの追加]** を選択します。
 1. **[ソース デバイスの追加]** で、**[デバイス名]** オプションが選択されていることを確認し、**[名前]** テキスト ボックスに「**SEA-SVR1.contoso.com**」と入力して、**[追加]** を選択します。
-1. **[Specify your credentials]\(資格情報の指定\)** ペインで、**[この接続に別のアカウントを使用する]** オプションを選択し、次の資格情報を入力し、**[Use these credentials for all connections]\(すべての接続にこれらの資格情報を使用する\)** を選択し、**[続行]** を選択します。
+1. **[Specify your credentials](資格情報の指定)** ペインで、**[この接続に別のアカウントを使用する]** オプションを選択し、次の資格情報を入力し、**[Use these credentials for all connections](すべての接続にこれらの資格情報を使用する)** を選択し、**[続行]** を選択します。
 
    - ユーザー名: **CONTOSO\\Administrator**
    - パスワード: **Pa55w.rd**
 
    > **注**: シングル サインオンを実行するには、Kerberos の制約付き委任を設定する必要があります。<!--Marcin can this be 'a Kerberos constrained delegation'?-->.
 
-1. デバイスの一覧で、新しく追加した **SEA-SVR1.contoso.com** エントリを選択し、**[Add and scan devices]\(デバイスの追加とスキャン\)** ペインのツールバーで、省略記号ボタン ([**...**]) を選択してから、ドロップダウンメニューで **[スキャンの開始]** を選択します。
+1. デバイスの一覧で、新しく追加した **SEA-SVR1.contoso.com** エントリを選択し、**[Add and scan devices](デバイスの追加とスキャン)** ペインのツールバーで、省略記号ボタン ([**...**]) を選択してから、ドロップダウンメニューで **[スキャンの開始]** を選択します。
 
    >**注:** スキャンが正常に完了するまで待ちます。 これには 1 分ほどかかります。
 
-1. **[インベントリ サーバー]** タブの **[Add and scan devices]\(デバイスの追加とスキャン\)** ペインで、**[次へ]** を選択します。 
+1. **[インベントリ サーバー]** タブの **[Add and scan devices](デバイスの追加とスキャン)** ペインで、**[次へ]** を選択します。 
 
-   >**注:** これにより、**[記憶域移行サービス > SVR1toSVR2]** ペインの **[Transfer data]\(データの転送\)** タブからアクセスできる移行ジョブの 2 番目のステージに移行します。
+   >**注:** これにより、**[記憶域移行サービス > SVR1toSVR2]** ペインの **[Transfer data](データの転送)** タブからアクセスできる移行ジョブの 2 番目のステージに移行します。
 
-1. **[Transfer data]\(データの転送\)** タブの **[Enter credentials for the destination device]\(宛先デバイスの資格情報を入力します\)** ペインで、**CONTOSO\\Administrator** ユーザー アカウントが使用されていることを確認し、**[次へ]** を選択します。
-1. **[Specify the destination for: sea-svr1.contoso.com]\(転送先の指定先: sea-svr1.contoso.com\)** ペインで、**[宛先]** オプションが **[Use an existing server or VM]\(既存のサーバーまたは VM を使用する\)** に設定されていることを確認し、**[宛先デバイス]** ボックスに「**SEA-SVR2.contoso.com**」と入力し、**[スキャン]** を選択します。
+1. **[Transfer data](データの転送)** タブの **[Enter credentials for the destination device](宛先デバイスの資格情報を入力します)** ペインで、**CONTOSO\\Administrator** ユーザー アカウントが使用されていることを確認し、**[次へ]** を選択します。
+1. **[Specify the destination for: sea-svr1.contoso.com](転送先の指定先: sea-svr1.contoso.com)** ペインで、**[宛先]** オプションが **[Use an existing server or VM](既存のサーバーまたは VM を使用する)** に設定されていることを確認し、**[宛先デバイス]** ボックスに「**SEA-SVR2.contoso.com**」と入力し、**[スキャン]** を選択します。
 
    >**注:** スキャンが正常に完了するまで待ちます。 これには 1 分ほどかかります。
 
    >**注: ** ハイブリッド シナリオでは、移行ジョブの移行先になる Azure VM を自動的に作成することもできます。
 
-1. スキャンが完了したら、**[Specify the destination for: sea-svr1.contoso.com]\(転送先の指定先: sea-svr1.contoso.com\)** ペインで、**[Map each source volume to a destination volume]\(各転送元ボリュームを転送先ボリュームにマップする\)** セクションを調べて、**S:** 転送元ボリュームが **S:** 転送先ボリュームにマップされていることを確認します。
-1. **[Specify the destination for: sea-svr1.contoso.com]\(転送先の指定先: sea-svr1.contoso.com\)** ペインで、**[Select the shares to transfer]\(転送する共有の選択\)** セクションを調べて、**[データ]** 転送元共有が転送に含まれていることを確認し、**[次へ]** を選択します。
-1. **[Transfer data]\(データの転送\)** タブの **[Adjust transfer settings]\(転送設定の調整\)** ペインで、次の設定を指定し (他の設定は既定値のまま)、**[次へ]** を選択します。
+1. スキャンが完了したら、**[Specify the destination for: sea-svr1.contoso.com](転送先の指定先: sea-svr1.contoso.com)** ペインで、**[Map each source volume to a destination volume](各転送元ボリュームを転送先ボリュームにマップする)** セクションを調べて、**S:** 転送元ボリュームが **S:** 転送先ボリュームにマップされていることを確認します。
+1. **[Specify the destination for: sea-svr1.contoso.com](転送先の指定先: sea-svr1.contoso.com)** ペインで、**[Select the shares to transfer](転送する共有の選択)** セクションを調べて、**[データ]** 転送元共有が転送に含まれていることを確認し、**[次へ]** を選択します。
+1. **[Transfer data](データの転送)** タブの **[Adjust transfer settings](転送設定の調整)** ペインで、次の設定を指定し (他の設定は既定値のまま)、**[次へ]** を選択します。
 
    | 設定 | 値 | 
    | --- | --- |
@@ -360,16 +371,16 @@ lab:
    | Max retries (最大再試行回数) | **3** |
    | Delay between retries (seconds) (再試行の間隔 (秒)) | **60** |
 
-1. **[Transfer data]\(データの転送\)** タブの **[Install required features]\(必要な機能のインストール\)** ペインで、**SEA-SVR2.contoso.com** への **SMS-Proxy** のインストールが完了するまで待ってから、 **[次へ]** を選択します。
-1. **[Transfer data]\(データの転送\)** タブの **[Validate source and destination devices]\(転送元と転送先のデバイスの検証\)** ペインで **[検証]** を選択し、検証が正常に完了するまで待ってから **[次へ]** を選択します。
-1. **[Transfer data]\(データの転送\)** タブの **[Start the transfer]\(転送の開始\)** ペインで、 **[転送の開始]** を選択し、完了するまで待ち、 **[次へ]** を選択します。
+1. **[Transfer data](データの転送)** タブの **[Install required features](必要な機能のインストール)** ペインで、**SEA-SVR2.contoso.com** への **SMS-Proxy** のインストールが完了するまで待ってから、 **[次へ]** を選択します。
+1. **[Transfer data](データの転送)** タブの **[Validate source and destination devices](転送元と転送先のデバイスの検証)** ペインで **[検証]** を選択し、検証が正常に完了するまで待ってから **[次へ]** を選択します。
+1. **[Transfer data](データの転送)** タブの **[Start the transfer](転送の開始)** ペインで、 **[転送の開始]** を選択し、完了するまで待ち、 **[次へ]** を選択します。
 
    >**注:** 転送が正常に完了するまで待ちます。 これにかかる時間は 1 分未満です。
 
-   >**注:** これにより、**[記憶域移行サービス > SVR1toSVR2]** ペインの **[Cut over to the new servers]\(新しいサーバーへの切り替え\)** タブからアクセスできる移行ジョブの 3 番目のステージに移ります。
+   >**注:** これにより、**[記憶域移行サービス > SVR1toSVR2]** ペインの **[Cut over to the new servers](新しいサーバーへの切り替え)** タブからアクセスできる移行ジョブの 3 番目のステージに移ります。
 
-1. **[Cut over to the new servers]\(新しいサーバーへの切り替え\)** タブの **[Enter credentials for the source devices]\(移行元デバイスの資格情報の入力\)** セクションと **[Enter credentials for the destination devices]\(移行先デバイスの資格情報の入力\)** セクションで、**CONTOSO\\Administrator** ユーザー アカウントの保存されている資格情報を受け入れ、**[次へ]** を選択します。
-1. **[Cut over to the new servers]\(新しいサーバーへの切り替え\)** タブの **[Configure cutover from sea-svr1.contoso.com to sea-svr2.contoso.com]\(sea-svr1.contoso.com から sea-svr2.contoso.com への切り替えの構成\)** ペインの **[Source network adapters]\(移行元ネットワーク アダプター\)** セクションで、次の設定を指定します。
+1. **[Cut over to the new servers](新しいサーバーへの切り替え)** タブの **[Enter credentials for the source devices](移行元デバイスの資格情報の入力)** セクションと **[Enter credentials for the destination devices](移行先デバイスの資格情報の入力)** セクションで、**CONTOSO\\Administrator** ユーザー アカウントの保存されている資格情報を受け入れ、**[次へ]** を選択します。
+1. **[Cut over to the new servers](新しいサーバーへの切り替え)** タブの **[Configure cutover from sea-svr1.contoso.com to sea-svr2.contoso.com](sea-svr1.contoso.com から sea-svr2.contoso.com への切り替えの構成)** ペインの **[Source network adapters](移行元ネットワーク アダプター)** セクションで、次の設定を指定します。
 
    | 設定 | 値 | 
    | --- | --- |
@@ -378,11 +389,11 @@ lab:
    | サブネット | **255.255.0.0** |
    | Gateway | **172.16.10.1** |
 
-1. **[Cut over to the new servers]\(新しいサーバーへの切り替え\)** タブの **[Configure cutover from sea-svr1.contoso.com to sea-svr2.contoso.com]\(sea-svr1.contoso.com から sea-svr2.contoso.com への切り替えの構成\)** ペインの **[Destination network adapters]\(移行先ネットワーク アダプター\)** ドロップダウン リストで、 **[イーサネット]** を選びます。
-1. **[Cut over to the new servers]\(新しいサーバーへの切り替え\)** タブの **[Configure cutover from sea-svr1.contoso.com to sea-svr2.contoso.com]\(sea-svr1.contoso.com から sea-svr2.contoso.com への切り替えの構成\)** ペインの **[Rename the source device after cutover]\(切り替え後に移行元デバイスの名前を変更する\)** セクションで、 **[Choose a new name]\(新しい名前の選択\)** オプションを選び、 **[New source computer name]\(新しい移行元コンピューター名\)** で、<!--text box?-->「**SEA-SVR1-OLD**」と入力し、**[次へ]** を選択します。
-1. **[Cut over to the new servers]\(新しいサーバーへの切り替え\)** タブの **[Adjust cutover settings]\(切り替え設定の調整\)** ペインの **[Cutover timeout (minutes)]\(切り替えタイムアウト (分)\)** テキスト ボックスに「**30**」と入力し、**[Enter AD credentials]\(AD 資格情報の入力\)** セクションの **[Stored credentials]\(保存された資格情報\)** オプションは有効のままにし、**[次へ]** を選択します。
-1. **[Cut over to the new servers]\(新しいサーバーへの切り替え\)** タブの **[Validate source and destination device]\(転送元と転送先のデバイスの検証\)** ペインで **[検証]** を選択し、検証が正常に完了するまで待ってから **[次へ]** を選択します。
-1. **[Cut over to the new servers]\(新しいサーバーへの切り替え\)** タブの **[Cut over to the new servers]\(新しいサーバーへの切り替え\)** ペインで、**[一括移行の開始]** を選択します。
+1. **[Cut over to the new servers](新しいサーバーへの切り替え)** タブの **[Configure cutover from sea-svr1.contoso.com to sea-svr2.contoso.com](sea-svr1.contoso.com から sea-svr2.contoso.com への切り替えの構成)** ペインの **[Destination network adapters](移行先ネットワーク アダプター)** ドロップダウン リストで、 **[イーサネット]** を選びます。
+1. **[Cut over to the new servers](新しいサーバーへの切り替え)** タブの **[Configure cutover from sea-svr1.contoso.com to sea-svr2.contoso.com](sea-svr1.contoso.com から sea-svr2.contoso.com への切り替えの構成)** ペインの **[Rename the source device after cutover](切り替え後に移行元デバイスの名前を変更する)** セクションで、 **[Choose a new name](新しい名前の選択)** オプションを選び、 **[New source computer name](新しい移行元コンピューター名)** で、<!--text box?-->「**SEA-SVR1-OLD**」と入力し、**[次へ]** を選択します。
+1. **[Cut over to the new servers](新しいサーバーへの切り替え)** タブの **[Adjust cutover settings](切り替え設定の調整)** ペインの **[Cutover timeout (minutes)](切り替えタイムアウト (分))** テキスト ボックスに「**30**」と入力し、**[Enter AD credentials](AD 資格情報の入力)** セクションの **[Stored credentials](保存された資格情報)** オプションは有効のままにし、**[次へ]** を選択します。
+1. **[Cut over to the new servers](新しいサーバーへの切り替え)** タブの **[Validate source and destination device](転送元と転送先のデバイスの検証)** ペインで **[検証]** を選択し、検証が正常に完了するまで待ってから **[次へ]** を選択します。
+1. **[Cut over to the new servers](新しいサーバーへの切り替え)** タブの **[Cut over to the new servers](新しいサーバーへの切り替え)** ペインで、**[一括移行の開始]** を選択します。
 
    >**注:** 切り替えによって、**SEA-SVR1** と **SEA-SVR2** 両方の 2 回連続した再起動がトリガーされます。
 
