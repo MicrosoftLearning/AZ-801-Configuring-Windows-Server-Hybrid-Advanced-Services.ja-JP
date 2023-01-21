@@ -184,7 +184,7 @@ lab:
 
 ## <a name="exercise-2-implementing-backup-and-restore-with-windows-server-backup"></a>演習 2: Windows Server Backup を使用したバックアップと復元の実装
 
-### <a name="task1-configure-windows-server-backup-settings"></a>タスク 1: Windows Server Backup 設定を構成する
+#### <a name="task1-configure-windows-server-backup-settings"></a>タスク 1: Windows Server Backup 設定を構成する
 
 1. **SEA-SVR2** で、タスクバーで **[ファイル エクスプローラー]** アイコンを選択してファイル エクスプローラーを開きます。
 1. ファイル エクスプローラーの、**ナビゲーション** ウィンドウで **[ローカル ディスク (C:)]** を選択します。
