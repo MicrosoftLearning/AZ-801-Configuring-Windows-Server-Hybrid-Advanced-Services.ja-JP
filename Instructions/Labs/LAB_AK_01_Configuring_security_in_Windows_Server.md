@@ -5,15 +5,15 @@ lab:
   module: 'Module 1: Windows Server security'
 ---
 
-# <a name="lab-answer-key-configuring-security-in-windows-server"></a>ラボの解答集: Windows Server でのセキュリティの構成
+# ラボの解答集: Windows Server でのセキュリティの構成
 
                 **メモ:** このラボをご自分のペースでクリックして進めることができる、 **[ラボの対話型シミュレーション](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Configuring%20security%20in%20Windows%20Server)** が用意されています。 対話型シミュレーションとホストされたラボの間に若干の違いがある場合がありますが、示されている主要な概念とアイデアは同じです。 
 
-## <a name="exercise-1-configuring-windows-defender-credential-guard"></a>演習 1: Windows Defender Credential Guard の構成
+## 演習 1: Windows Defender Credential Guard の構成
 
 > **注**: ラボ環境では、前提条件を満たしていないため、Credential Guard は VM で使用できません。 ただし、このことが、グループ ポリシーを使用して実装し、対応するツールを使用してその準備状況を評価するというプロセスを実行することの妨げになることはありません。
 
-#### <a name="task-1-enable-windows-defender-credential-guard-using-group-policy"></a>タスク 1: グループ ポリシーを使用して Windows Defender Credential Guard を有効にする
+#### タスク 1: グループ ポリシーを使用して Windows Defender Credential Guard を有効にする
 
 1. **SEA-SVR2** に接続し、必要であればパスワード **Pa55w.rd** を使用して **CONTOSO\\Administrator** としてサインインします。
 1. **[スタート]** ボタンの横にある **[ここに入力して検索]** テキスト ボックスに、「**グループ ポリシーの管理**」と入力します。
@@ -26,11 +26,11 @@ lab:
 1. **[仮想化ベースのセキュリティを有効にする]** ウィンドウで、**[有効]** オプションを選択します。
 1. **[プラットフォームのセキュリティ レベルを選択する]** ドロップダウン リストで、**[Secure Boot and DMA Protection]\(セキュア ブートと DMA 保護)\** というエントリが選択されている必要があります。
 1. **[Credential Guard の構成]** ドロップダウン リストで、**[UEFI ロックで有効化]** というエントリを選択します。
-1. **[Secure Launch Configuration](セキュア起動の構成)** ドロップダウン リストで、**[有効]** のエントリ を選択し、**[OK]** を選択します。
+1. **Secure Launch Configuration** ドロップダウン リストで、**[有効]** のエントリ を選択し、**[OK]** を選択します。
 1. **[グループ ポリシー管理エディター]** ウィンドウを閉じます。
 1. **[グループ ポリシー管理]** コンソール ウィンドウを閉じます。
 
-#### <a name="task-2-enable-windows-defender-credential-guard-using-the-hypervisor-protected-code-integrity-hvci-and-windows-defender-credential-guard-hardware-readiness-tool"></a>タスク 2: Hypervisor-Protected Code Integrity (HVCI) と Windows Defender Credential Guard ハードウェア準備ツールを使用して Windows Defender Credential Guard を有効にする
+#### タスク 2: Hypervisor-Protected Code Integrity (HVCI) と Windows Defender Credential Guard ハードウェア準備ツールを使用して Windows Defender Credential Guard を有効にする
 
 1. **SEA-SVR2** で、 **[スタート]** を選択し、**Windows PowerShell** を右クリックして**コンテキスト** メニューにアクセスして、 **[管理者として実行]** を選択します。
 1. HVCI と Windows Defender Credential Guard ハードウェア準備ツールを実行するには、Windows PowerShell コマンド プロンプトで次のコマンドを入力し、最初のプロンプトでは **[[R] Run once]** を選択し、残りのプロンプトでは Enter キーを押します。
@@ -46,9 +46,9 @@ lab:
 
 1. 再起動が完了したら、**SEA-SVR2** に **CONTOSO\\Administrator** としてサインインし直します。パスワード **Pa55w.rd** を使用します。
 
-## <a name="exercise-2-locating-problematic-accounts"></a>演習 2: 問題のあるアカウントの検出
+## 演習 2: 問題のあるアカウントの検出
 
-#### <a name="task-1-locate-and-reconfigure-domain-accounts-with-non-expiring-passwords"></a>タスク 1: 無期限のパスワードを持つドメイン アカウントを検出して再構成する
+#### タスク 1: 無期限のパスワードを持つドメイン アカウントを検出して再構成する
 
 1. **SEA-SVR2** で、 **[スタート]** を選択し、**Windows PowerShell** を右クリックして**コンテキスト** メニューにアクセスして、 **[管理者として実行]** を選択します。
 1. 無期限のパスワードを持つ Active Directory 対応ユーザー アカウントを一覧表示するために、Windows PowerShell コマンド プロンプトで次のコマンドを入力し、Enter キーを押します。
@@ -66,7 +66,7 @@ lab:
 
 1. 結果を確認するために、手順 2. のコマンドを再実行します。結果が返されないことに注目してください。
 
-#### <a name="task-2-locate-and-disable-domain-accounts-that-have-not-been-used-to-sign-in-for-at-least-90-days"></a>タスク 2: 少なくとも 90 日間はサインインに使用されていないドメイン アカウントを検出して無効にする
+#### タスク 2: 少なくとも 90 日間はサインインに使用されていないドメイン アカウントを検出して無効にする
 
 1. 少なくとも 90 日間はサインインに使用されていない Active Directory ユーザー アカウントを特定するために、Windows PowerShell コマンド プロンプトで次のコマンドを入力し、Enter キーを押します。
 
@@ -85,9 +85,9 @@ lab:
 
    > **注**: このラボ環境では、結果は返されません。
 
-## <a name="exercise-3-implementing-laps"></a>演習 3: LAPS の実装
+## 演習 3: LAPS の実装
 
-#### <a name="task-1-prepare-computer-accounts-for-implementing-laps-local-administrator-password-solution"></a>タスク 1: LAPS (ローカル管理者パスワード ソリューション) の実装用にコンピューター アカウントを準備する
+#### タスク 1: LAPS (ローカル管理者パスワード ソリューション) の実装用にコンピューター アカウントを準備する
 
 1. 指定の OU を作成し、**SEA-SVR1** コンピューター アカウントをその OU に移動するために、**SEA-SVR2** の Windows PowerShell コマンド プロンプトで次のコマンドを入力し、Enter キーを押します。 
 
@@ -117,7 +117,7 @@ lab:
 
    > **注**: これは、このラボで後ほど **SEA-SVR1** から **SEA-SVR2** に接続するために必要です。
 
-#### <a name="task-2-prepare-ad-ds-for-laps"></a>タスク 2: LAPS 用に AD DS を準備する
+#### タスク 2: LAPS 用に AD DS を準備する
 
 1. LAPS 用にドメインを準備するために、**SEA-SVR2** の Windows PowerShell コマンド プロンプトで次のコマンドを入力し、それぞれの後に Enter キーを押します。
 
@@ -140,7 +140,7 @@ lab:
 1. **[Password Age (Days)](パスワードの有効期間 (日数))** が **[30]** に構成されていることを確認し、**[OK]** を選択します。
 1. グループ ポリシー管理エディターを閉じます。
 
-#### <a name="task-3-deploy-laps-client-side-extension"></a>タスク 3: LAPS クライアント側拡張をデプロイする
+#### タスク 3: LAPS クライアント側拡張をデプロイする
 
 1. **SEA-SVR1** のコンソール セッションに切り替え、必要に応じて、**Pa55w.rd** のパスワードを使用して **CONTOSO\\Administrator** としてサインインします。
 
@@ -162,7 +162,7 @@ lab:
    gpupdate /force
    ```
 
-#### <a name="task-4-verify-laps"></a>タスク 4: LAPS を確認する
+#### タスク 4: LAPS を確認する
 
 1. **SEA-SVR2** のコンソール セッションに切り替えます。
 1. **[スタート]** を選択します。 **[スタート]** メニューで **[LAPS]** を選択し、 **[LAPS UI]** を選択します。
