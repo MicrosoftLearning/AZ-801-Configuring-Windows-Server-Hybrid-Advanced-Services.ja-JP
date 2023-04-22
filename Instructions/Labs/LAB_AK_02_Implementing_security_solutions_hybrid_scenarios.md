@@ -5,13 +5,13 @@ lab:
   module: 'Module 2: Implementing Security Solutions in Hybrid Scenarios'
 ---
 
-# <a name="lab-answer-key-implementing-security-solutions-in-hybrid-scenarios"></a>ラボ解答キー: ハイブリッド シナリオでのセキュリティ ソリューションの実装
+# ラボ解答キー: ハイブリッド シナリオでのセキュリティ ソリューションの実装
 
-                **メモ:** このラボをご自分のペースでクリックして進めることができる、 **[ラボの対話型シミュレーション](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Implementing%20security%20solutions%20in%20hybrid%20scenarios)** が用意されています。 対話型シミュレーションとホストされたラボの間に若干の違いがある場合がありますが、示されている主要な概念とアイデアは同じです。 
+**メモ:** このラボをご自分のペースでクリックして進めることができる、 **[ラボの対話型シミュレーション](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Implementing%20security%20solutions%20in%20hybrid%20scenarios)** が用意されています。 対話型シミュレーションとホストされたラボの間に若干の違いがある場合がありますが、示されている主要な概念とアイデアは同じです。 
 
-## <a name="exercise-1-creating-an-azure-log-analytics-workspace-and-an-azure-automation-account"></a>演習 1: Azure Log Analytics ワークスペースと Azure Automation アカウントの作成
+## 演習 1: Azure Log Analytics ワークスペースと Azure Automation アカウントの作成
 
-#### <a name="task-1-create-an-azure-log-analytics-workspace"></a>タスク 1: Azure Log Analytics ワークスペースを作成する 
+#### タスク 1: Azure Log Analytics ワークスペースを作成する 
 
 1. **SEA-SVR2** に接続し、必要であれば、パスワード **Pa55w.rd** を使用して **CONTOSO\\Administrator** としてサインインします。
 1. **SEA-SVR2** で Microsoft Edge を起動し、 **[Azure portal](https://portal.azure.com)** に移動し、このラボで使用するサブスクリプションの所有者ロールを持つユーザー アカウントの資格情報を使用してサインインします。
@@ -27,7 +27,7 @@ lab:
 
    >**注**: デプロイが完了するまで待ちます。 デプロイには約 1 分かかります。
 
-#### <a name="task-2-create-and-configure-an-azure-automation-account"></a>タスク 2: Azure Automation アカウントを作成して構成する
+#### タスク 2: Azure Automation アカウントを作成して構成する
 
 1. **SEA-SVR2** で、Azure portal のツールバーの **[リソース、サービス、ドキュメントの検索]** テキスト ボックスで、 **[Automation アカウント]** を検索して選択し、 **[Automation アカウント]** ページで **[+ 作成]** を選択します。
 1. **[Automation アカウントの作成]** ページで、次の設定を指定し、 **[確認 + 作成]** を選択します。 検証時に、 **[作成]** を選択します。
@@ -55,35 +55,34 @@ lab:
 
    >**注**: インストールが完了するまで待ちます。 これには 5 分ほどかかる場合があります。
 
-## <a name="exercise-2-configuring-microsoft-defender-for-cloud"></a>演習 2: Microsoft Defender for Cloud の構成
+## 演習 2: Microsoft Defender for Cloud の構成
 
-#### <a name="task-1-enable-defender-for-cloud-and-automatic-agent-installation"></a>タスク 1: Defender for Cloud とエージェントの自動インストールを有効にする
+#### タスク 1: Defender for Cloud とエージェントの自動インストールを有効にする
 
 1. **SEA-SVR2** で、Azure portal のツールバーの **[リソース、サービス、ドキュメントの検索]** テキスト ボックスで、 **[Microsoft Defender for Cloud]** を検索して選択します。
 1. **[Microsoft Defender for Cloud \| 作業の開始]** ページで、 **[アップグレード]** を選択し、 **[エージェントのインストール]** を選択します。
 
    > **注:** ご利用のサブスクリプションでは、Defender for Cloud のセキュリティ強化が既に有効になっている可能性があります。その場合は、次のタスクに進みます。
 
-#### <a name="task-2-enable-enhanced-security-of-defender-for-cloud"></a>タスク 2: Defender for Cloud のセキュリティ強化を有効にする
+#### タスク 2: Defender for Cloud のセキュリティ強化を有効にする
 
 1. **SEA-SVR2** で、Azure portal が表示されている Microsoft Edge ウィンドウの **[Microsoft Defender for Cloud | 概要]** ページで、左側にある垂直メニューの **[管理]** セクションにある **[環境設定]** を選択します。
 1. **[環境設定]** ページで、Azure サブスクリプションを表すエントリを選択します。
-1. **[設定 \| Defender プラン]** ページで、 **[Enable all Microsoft Defender for Cloud plans](クラウドプランにすべての Microsoft Defender を有効にする)** タイルを選択します。
+1. **[設定 \| Defender プラン]** ページで、 **[Enable all Microsoft Defender for Cloud plans]\(クラウドプランにすべての Microsoft Defender を有効にする\)** タイルを選択します。
 
    > **注:** 同じページに記載されている個々の Microsoft Defender プランを選択的に無効にできることに注意してください。
 
-1. **[サーバー]** を除くすべてのプランを **[オフ]** に設定し、 **[保存]** を選択します。
-1. **[設定 \| Defender プラン]** ページで、上部の **[設定と監視]** を選択します。
-1. **[設定と監視]** ページの拡張機能の一覧で、 **[Log Analytics エージェント/Azure Monitor エージェント]** エントリの右側にある **[構成の編集]** リンクを選択します。
-1. **[自動プロビジョニング構成]** の**ワークスペースの選択**セクションで、オプション **[カスタム ワークスペース]** を選択し、ドロップダウン メニューで、前の演習で作成したワークスペースを表すエントリを選択し、 **[適用]** を選択します。
-1. **[設定と監視]** ページの拡張機能の一覧で、 **[Guest Configuration agent (preview)] (ゲスト構成エージェント (プレビュー))** を **[オン]** に設定します。
-1. **[設定と監視]** ページの拡張機能の一覧で、 **[マシンの脆弱性評価]** を **[オン]** に設定します。 右側にある **[構成の編集]** リンクを選択します。
-1. **[拡張機能のデプロイ構成]** ページで、 **[Microsoft 脅威と脆弱性の管理]** オプションが選択されていることを確認し、 **[適用]** を選択します。
-1. **[設定と監視]** ページで、 **[続行]** を選択します。   
-1. **[Defender プラン]** ページで **[保存]** を選択してから、ページを閉じます。
+1. **Microsoft Defender for Servers** を表す最初のプランを除き、すべてのプランを**オフ**に設定し、 **[保存]** を選択します。
+1. **[設定 \| Defender プラン]** ページの左側にある垂直メニューの **[設定]** セクションで、 **[自動プロビジョニング]** を選択します。
+1. **[設定 \| 自動プロビジョニング]** ページの拡張機能の一覧で、 **[Log Analytics agent for Azure VMs]\(Azure VM の Log Analytics エージェント\)** エントリの右側にある **[構成の編集]** リンクを選択します。
+1. **[拡張機能のデプロイ構成]** ページの **[ワークスペースの構成]** セクションで、 **[Azure VM を別のワークスペースに接続する]** オプションを選択します。 ドロップダウン メニューで、前の演習で作成したワークスペースを表すエントリを選択し、 **[適用]** を選択します。
+1. **[設定 \| 自動プロビジョニング]** ページに戻り、 **[Azure Arc マシンの Log Analytics エージェント (プレビュー)]** を**オン**に設定します。 これにより、 **[拡張機能のデプロイ構成]** ページが自動的に表示されます。 
+1. **[拡張機能のデプロイ構成]** ページの **[Log Analytics ワークスペースの選択]** ドロップダウン リストで、前の演習で作成したワークスペースを表すエントリを選択し、 **[適用]** を選択します。
+1. **[設定 \| 自動プロビジョニング]** ページに戻り、 **[マシンの脆弱性評価]** を**オン**に設定します。 **[拡張機能のデプロイ構成]** ページで、 **[Microsoft 脅威と脆弱性の管理]** オプションが選択されていることを確認し、 **[適用]** を選択します。
+1. ページの最上部で **[保存]** を選択します。
 1. **[Microsoft Defender for Cloud | 概要]** ページに戻り、左側の垂直メニューの **[管理]** セクションで、 **[環境設定]** を選択します。
 1. **[環境設定]** ページで、Azure サブスクリプションを表すエントリを展開し、前の演習で作成した Log Analytics ワークスペースを表すエントリを選択します。
-1. **[設定 \| Defender プラン]** ページで、 **[Enable all Microsoft Defender for Cloud plans](クラウドプランにすべての Microsoft Defender を有効にする)** タイルを選択し、 **[保存]** を選択します。
+1. **[設定 \| Defender プラン]** ページで、 **[Enable all Microsoft Defender for Cloud plans]\(クラウドプランにすべての Microsoft Defender を有効にする\)** タイルを選択し、 **[保存]** を選択します。
 
    > **注:** 脅威保護機能を含むすべての Defender for Cloud 機能を有効にするには、該当するワークロードを含むサブスクリプションで、強化されたセキュリティ機能を有効にする必要があります。 ワークスペース レベルで有効にしても、Just-In-Time VM アクセス、適応型アプリケーション制御、Azure リソースのネットワーク検出は有効になりません。 さらに、ワークスペース レベルで使用できる Microsoft Defender プランは、Microsoft Defender for servers と Microsoft Defender for SQL servers on machines のみです。
 
@@ -92,16 +91,16 @@ lab:
 
    > **注:** Defender for Cloud でデータ コレクションのレベルを選択することは、Log Analytics ワークスペースでのセキュリティ イベントのストレージにのみ影響します。 ワークスペースに保存するように選択したセキュリティ イベントのレベルに関係なく、Log Analytics エージェントでは、Defender for Cloud の脅威保護に必要なセキュリティ イベントが引き続き収集され、分析されます。 セキュリティ イベントを保存することを選択すると、ワークスペース内でそれらのイベントの調査、検索、監査が可能になります。
 
-## <a name="exercise-3-provisioning-azure-vms-running-windows-server"></a>演習 3: Windows Server を実行する Azure VM のプロビジョニング
+## 演習 3: Windows Server を実行する Azure VM のプロビジョニング
 
-#### <a name="task-1-start-azure-cloud-shell"></a>タスク 1: Azure Cloud Shell を起動する
+#### タスク 1: Azure Cloud Shell を起動する
 
 1. **SEA-SVR2** の Azure portal で、[検索] テキスト ボックスの横にあるツールバー アイコンを直接選択して、Cloud Shell ペインを開きます。
 1. **Bash** または **PowerShell** の選択を求めるメッセージが表示されたら、 **[PowerShell]** を選択します。
 
    >**注**: Cloud Shell を起動するのが初めてで、"**ストレージがマウントされていません**" というメッセージが表示される場合は、このラボで使用しているサブスクリプションを選択し、 **[ストレージの作成]** を選択します。
 
-#### <a name="task-2-deploy-an-azure-vm-by-using-an-azure-resource-manager-template"></a>タスク 2: Azure Resource Manager テンプレートを使用して Azure VM をデプロイする
+#### タスク 2: Azure Resource Manager テンプレートを使用して Azure VM をデプロイする
 
 1. [Cloud Shell] ペインのツールバーで、 **[ファイルのアップロード/ダウンロード]** アイコンをクリックし、表示されるボックスの一覧で **[アップロード]** をクリックし、ファイル **C:\\Labfiles\\Lab02\\L02-sub_template.json** を Cloud Shell のホーム ディレクトリにアップロードします。
 1. 前の手順を 2 回繰り返して、**C:\\Labfiles\\Lab02\\L02-rg_template.json** ファイルと **C:\\Labfiles\\Lab02\\L02-rg_template.parameters.json** ファイルを Cloud Shell ホーム ディレクトリにアップロードします。
@@ -124,9 +123,9 @@ lab:
 
 1. Cloud Shell を閉じます。
 
-## <a name="exercise-4-onboarding-on-premises-windows-server-into-microsoft-defender-for-cloud-and-azure-automation"></a>演習 4: オンプレミスの Windows Server を Microsoft Defender for Cloud および Azure Automation にオンボードする
+## 演習 4: オンプレミスの Windows Server を Microsoft Defender for Cloud および Azure Automation にオンボードする
 
-#### <a name="task-1-perform-manual-installation-of-the-log-analytics-agent"></a>タスク 1: Log Analytics エージェントの手動インストールを実行する
+#### タスク 1: Log Analytics エージェントの手動インストールを実行する
 
 1. **SEA-SVR2** の、Azure portal を表示する Microsoft Edge ウィンドウで、 **[Microsoft Defender for Cloud \| 概要]** ページに戻り、左側の垂直メニューの **[全般]** セクションで **[インベントリ]** を選択します。
 1. **[Microsoft Defender for Cloud \| インベントリ]** ページで、 **[+ 非 Azure サーバーの追加]** を選択します。
@@ -141,13 +140,13 @@ lab:
 1. **Microsoft Monitoring Agent セットアップ** ウィザードの、 **[Microsoft Monitoring Agent セットアップ ウィザードへようこそ]** ページで、 **[次へ]** を選択します。
 1. **Microsoft Monitoring Agent セットアップ** ウィザードの **[重要な通知]** ページで、 **[同意する]** を選択します。
 1. **Microsoft Monitoring Agent セットアップ** ウィザードの **[インストール先フォルダー]** ページで、 **[次へ]** を選択します。
-1. **Microsoft Monitoring Agent のセットアップ ウィザード**の **[エージェントのセットアップ オプション]** ページで、 **[Connect the agent to Azure Log Analytics (OMS)](エージェントを Azure Log Analytics (OMS) に接続する)** チェックボックスをオンにし、 **[次へ]** を選択します。
+1. **Microsoft Monitoring Agent のセットアップ ウィザード**の **[エージェントのセットアップ オプション]** ページで、 **[Connect the agent to Azure Log Analytics (OMS)]\(エージェントを Azure Log Analytics (OMS) に接続する\)** チェックボックスをオンにし、 **[次へ]** を選択します。
 1. **Microsoft Monitoring Agent セットアップ** ウィザードの **[Azure Log Analytics]** ページで、このタスクで前に記録した **[ワークスペース ID]** と **[ワークスペース キー]** の値を入力し、 **[次へ]** を選択します。
 1. **Microsoft Monitoring Agent セットアップ** ウィザードの **[Microsoft Update]** ページで、 **[次へ]** を選択します。
 1. **Microsoft Monitoring Agent セットアップ** ウィザードの **[インストールの準備完了]** ページで、 **[インストール]** を選択します。
 1. インストールが完了したら、 **[Microsoft Monitoring Agent の構成が正常に完了しました。]** ページで **[完了]** を選択します。
 
-#### <a name="task-2-perform-unattended-installation-of-the-log-analytics-agent"></a>タスク 2: Log Analytics エージェントの無人インストールを実行する
+#### タスク 2: Log Analytics エージェントの無人インストールを実行する
 
 1. **SEA-SVR2** 上で **[スタート]** を選択し、 **[Windows PowerShell (管理者)]** を選択します。
 1. **MMASetup-AMD64.exe** ファイルの内容を抽出するには、**Windows PowerShell** コンソールで次のコマンドを入力し、各コマンドを入力した後、Enter キーを押します。
@@ -175,12 +174,12 @@ lab:
 
    > **注**: インストールが完了するまで待ちます。 これには 1 分ほどかかります。
 
-#### <a name="task-3-enable-azure-automation-solutions-for-azure-vms"></a>タスク 3: Azure VM 向けの Azure Automation ソリューションを有効にする
+#### タスク 3: Azure VM 向けの Azure Automation ソリューションを有効にする
 
 1. **SEA-SVR2** で、Azure portal が表示されている Microsoft Edge ウィンドウに切り替え、このラボで前にプロビジョニングした Azure Automation アカウントのページを参照します。 
 1. **[Automation アカウント]** ページの **[構成管理]** セクションで、 **[インベントリ]** を選択します。
 1. **[インベントリ]** ページのツール バーで、 **[+ Azure VM の追加]** を選択します。
-1. **[Enable Inventory](インベントリの有効化)** ページの VM の一覧で、**az801l02-vm0** エントリの横にあるチェック ボックスがオンになっていることを確認し、 **[有効にする]** を選択します。
+1. **[Enable Inventory]\(インベントリの有効化\)** ページの VM の一覧で、**az801l02-vm0** エントリの横にあるチェック ボックスがオンになっていることを確認し、 **[有効にする]** を選択します。
 
    > **注:** この VM が **[有効にする準備ができました]** としてリストされるためには、Automation アカウント ソリューションに関連付けられている Log Analytics ワークスペースに接続されている必要があります。
 
@@ -190,7 +189,7 @@ lab:
 
    > **注:** インベントリおよび Change tracking ソリューションの場合と同様に、この VM が **[有効にする準備ができました]** としてリストされるためには、Automation アカウント ソリューションに関連付けられている Log Analytics ワークスペースに接続されている必要があります。
 
-#### <a name="task-4-enable-azure-automation-solutions-for-on-premises-servers"></a>タスク 4: オンプレミス サーバー向けの Azure Automation ソリューションを有効にする
+#### タスク 4: オンプレミス サーバー向けの Azure Automation ソリューションを有効にする
 
 1. **SEA-SVR2** の、Azure portal が表示されている Microsoft Edge ウィンドウで、 **[Automation アカウント]** ページに戻り、 **[構成管理]** セクションで **[インベントリ]** を選択します。
 1. **[インベントリ]** ページで、 **[クリックしてマシンを管理します]** リンクを選択します。
@@ -204,9 +203,9 @@ lab:
 
    > **注:** インベントリおよび Change tracking ソリューションの場合と同様に、このオプションは、Log Analytics エージェントがインストールされ、インベントリ、Change Tracking、Update Management ソリューションをホストしている Azure Automation アカウントに関連付けられている Azure Log Analytics ワークスペースに登録されているオンプレミス サーバーに適用されます。
 
-## <a name="exercise-5-verifying-the-hybrid-capabilities-of-microsoft-defender-for-cloud-and-azure-automation-solutions"></a>演習 5: Microsoft Defender for Cloud と Azure Automation ソリューションのハイブリッド機能を確認する
+## 演習 5: Microsoft Defender for Cloud と Azure Automation ソリューションのハイブリッド機能を確認する
 
-#### <a name="task-1-validate-threat-detection-capabilities-for-azure-vms"></a>タスク 1: Azure VM の脅威検出機能を検証する
+#### タスク 1: Azure VM の脅威検出機能を検証する
 
 1. **SEA-SVR2** で、Azure portal が表示されている Microsoft Edge ウィンドウに切り替えます。 
 1. Azure portal のツール バーにある **[リソース、サービス、ドキュメントの検索]** テキスト ボックスで、**仮想マシン**を検索して選択します。
@@ -226,7 +225,7 @@ lab:
 
    > **注:** 今後の攻撃の可能性を最小限に抑えるために、セキュリティに関する推奨事項の実装を検討してください。
 
-#### <a name="task-2-validate-the-threat-detection-capabilities-for-on-premises-servers"></a>タスク 2: オンプレミス サーバーの脅威検出機能を検証する
+#### タスク 2: オンプレミス サーバーの脅威検出機能を検証する
 
 1. **SEA-SVR2** 上で、**Windows PowerShell** コンソールに切り替えます。
 1. 脅威検出アラートをトリガーするには、**Windows PowerShell** コンソールで次のコマンドを入力し、各コマンドを入力した後で、Enter キーを押します。
@@ -242,7 +241,7 @@ lab:
 
    > **注:** 今後の攻撃の可能性を最小限に抑えるために、セキュリティに関する推奨事項の実装を検討してください。
 
-#### <a name="task-3-review-the-features-and-capabilities-that-apply-to-hybrid-scenarios"></a>タスク 3: ハイブリッド シナリオに適用される機能を確認する
+#### タスク 3: ハイブリッド シナリオに適用される機能を確認する
 
 1. **SEA-SVR2** の、Azure portal を表示する Microsoft Edge ウィンドウで、 **[Microsoft Defender for Cloud \| 概要]** ページに戻り、左側の垂直メニューの **[全般]** セクションで **[インベントリ]** を選択します。
 1. **[インベントリ]** ページのリソースの一覧で、**az801l02-vm0** Azure VM、**SEA-SVR1.contoso.com** および **SEA-SVR2.contoso.com** オンプレミス サーバーを表すエントリを識別します。
@@ -254,7 +253,7 @@ lab:
 1. **[インベントリ]** ページで **[az801l02-vm0]** リンクを選択してから、 **[リソースの正常性 (プレビュー)]** ページで **[推奨事項]** を確認します。
 1. **[インベントリ]** ページに戻り、**SEA-SVR2** を表すリンクを選択してから、 **[リソースの正常性 (プレビュー)]** ページで **[推奨事項]** を確認します。
 
-#### <a name="task-4-validate-azure-automation-solutions"></a>タスク 4: Azure Automation のソリューションを検証する
+#### タスク 4: Azure Automation のソリューションを検証する
 
 1. **SEA-SVR2** の、Azure portal が表示されている Microsoft Edge ウィンドウで、このラボで前にプロビジョニングした Azure Automation アカウントのページに戻り、 **[構成管理]** セクションで **[インベントリ]** を選択します。
 1. **[インベントリ]** ページで **[マシン]** タブを確認し、このラボの前の手順で Log Analytics ワークスペースに登録した Azure VM とオンプレミス サーバーの両方が含まれていることを確認します。
@@ -278,13 +277,13 @@ lab:
 
    >**注**: オンプレミス サーバーと Azure VM の両方に対して、不足している更新プログラムの自動デプロイをスケジュールするオプションがあります。
 
-## <a name="exercise-6-deprovisioning-the-azure-environment"></a>演習 6: Azure 環境のプロビジョニング解除
+## 演習 6: Azure 環境のプロビジョニング解除
 
-#### <a name="task-1-start-a-powershell-session-in-cloud-shell"></a>タスク 1: Cloud Shell で PowerShell セッションを開始する
+#### タスク 1: Cloud Shell で PowerShell セッションを開始する
 
 1. **SEA-SVR2** の Azure portal を表示している Microsoft Edge ウィンドウで、Cloud Shell アイコンを選んで Cloud Shell ペインを開きます。
 
-#### <a name="task-2-identify-all-azure-resources-provisioned-in-the-lab"></a>タスク 2: ラボでプロビジョニングしたすべての Azure リソースを特定する
+#### タスク 2: ラボでプロビジョニングしたすべての Azure リソースを特定する
 
 1. Cloud Shell ペインで次のコマンドを実行して、このラボで作成されたすべてのリソース グループの一覧を表示します。
 
