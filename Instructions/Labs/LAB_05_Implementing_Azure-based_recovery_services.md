@@ -4,14 +4,14 @@ lab:
   module: 'Module 5: Planning and implementing migration and recovery services in hybrid scenarios'
 ---
 
-# <a name="lab-implementing-azure-based-recovery-services"></a>ラボ: Azure ベースの復旧サービスの実装
+# ラボ: Azure ベースの復旧サービスの実装
 
-## <a name="scenario"></a>シナリオ 
+## シナリオ 
 古い運用モデル、自動化の使用制限、復元とディザスター リカバリーのためのテープ バックアップへの依存に関する懸念に対処するために、Microsoft Azure ベースの復旧サービスを使用することにしました。 最初のステップとして、Azure Site Recovery と Azure Backup を実装します。
 
                 **メモ:** このラボをご自分のペースでクリックして進めることができる、 **[ラボの対話型シミュレーション](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Implementing%20Azure-based%20recovery%20services)** が用意されています。 対話型シミュレーションとホストされたラボの間に若干の違いがある場合がありますが、示されている主要な概念とアイデアは同じです。 
 
-## <a name="objectives"></a>目標
+## 目標
 このラボを完了すると、次のことができるようになります。 
 
 - Azure Site Recovery コンテナーを作成および構成します。
@@ -19,9 +19,9 @@ lab:
 - Azure Backup を実装します。
 - Azure ラボ環境をプロビジョニング解除します。
 
-## <a name="estimated-time-60-minutes"></a>予想所要時間: 60 分
+## 予想所要時間: 60 分
 
-## <a name="lab-setup"></a>ラボのセットアップ
+## ラボのセットアップ
 
 仮想マシン: **AZ-801T00A-SEA-DC1**、**AZ-801T00A-SEA-SVR1**、**AZ-801T00A-SEA-SVR2** が実行されている必要があります。 他の VM が実行されていてもかまいませんが、このラボでは必要ありません。
 
@@ -36,9 +36,9 @@ lab:
 
 このラボでは、使用可能な VM 環境と Azure サブスクリプションを使用します。 ラボを開始する前に、Azure サブスクリプションと、そのサブスクリプションの所有者または共同作成者ロールを持つユーザー アカウントがあることを確認してください。
 
-## <a name="exercise-1-creating-and-configuring-an-azure-site-recovery-vault"></a>演習 1: Azure Site Recovery コンテナーの作成と構成
+## 演習 1: Azure Site Recovery コンテナーの作成と構成
 
-### <a name="scenario"></a>シナリオ
+### シナリオ
 
 Azure VM で実行されている VM に Azure をディザスター リカバリー サイトとして、Azure Site Recovery を実装するには、まず Azure Site Recovery コンテナーを作成して構成する必要があります。
 
@@ -47,9 +47,9 @@ Azure VM で実行されている VM に Azure をディザスター リカバ�
 1. Azure Site Recovery コンテナーを作成します。
 1. Azure Site Recovery コンテナーを構成します。
 
-#### <a name="task-1-create-an-azure-site-recovery-vault"></a>タスク 1: Azure Site Recovery コンテナーの作成
+#### タスク 1: Azure Site Recovery コンテナーの作成
 
-1. **SEA-SVR2** で Microsoft Edge を起動し、**[Azure portal](https://portal.azure.com)** に移動し、 このラボで使用するサブスクリプションの所有者ロールをもつユーザー アカウントの資格情報を使用してサインインします。
+1. **SEA-SVR2** で Microsoft Edge を起動し、Azure portal (`https://portal.azure.com/`) に移動し、このラボで使用するサブスクリプションの所有者ロールを持つユーザー アカウントの資格情報を使用してサインインします。
 1. Azure portal で、次の設定を使用して Recovery Services コンテナーを作成します (他の設定は既定値のままにします)。
 
    |設定|値|
@@ -63,18 +63,18 @@ Azure VM で実行されている VM に Azure をディザスター リカバ�
 
    > **注：** 既定では、コンテナーのストレージ レプリケーションの種類は geo 冗長 (GRS) に設定され、論理的な削除は有効になっています。 ラボでは、プロビジョニング解除を簡略化するためにこれらの設定を変更しますが、実稼働環境では有効にしておく必要があります。
 
-#### <a name="task-2-configure-the-azure-site-recovery-vault"></a>タスク 2: Azure Site Recovery コンテナーの構成
+#### タスク 2: Azure Site Recovery コンテナーの構成
 
 1. **SEA-SVR2** 上の、Azure Portal を表示している Microsoft Edge ウィンドウで、新しく作成された Azure Recovery Services コンテナーを参照します。 
-1. Azure Portal で、コンテナーの **[Storage replication type]** \(ストレージ レプリケーションの種類\) を **[ローカル冗長]** に設定します。
+1. Azure Portal で、コンテナーの **[Storage replication type]**(ストレージ レプリケーションの種類) を **[ローカル冗長]** に設定します。
 
    > **注:** [ストレージ レプリケーションの種類] は、保護を実装した後では変更できません。
 
 1. Azure Portal で、コンテナーの **[論理的な削除]** と **[セキュリティ機能]** の設定を無効にします。
 
-## <a name="exercise-2-implementing-hyper-v-vm-protection-by-using-azure-site-recovery-vault"></a>演習 2: Azure Site Recovery コンテナーを使った Hyper-V VM 保護の実装
+## 演習 2: Azure Site Recovery コンテナーを使った Hyper-V VM 保護の実装
 
-### <a name="scenario"></a>シナリオ
+### シナリオ
 
 テスト Hyper-V VM と Recovery Services コンテナーが作成されたら、Azure Site Recovery を使用してHyper-V VM 保護の実装に進むことができます。 テスト フェールオーバーを実行し、計画されたフェールオーバーと計画外のフェールオーバーの設定を確認します。 
 
@@ -86,7 +86,7 @@ Azure VM で実行されている VM に Azure をディザスター リカバ�
 1. Azure VM のレプリケーション設定を確認します。
 1. Hyper-V 仮想マシンのフェールオーバーを実行します。
 
-#### <a name="task-1-implement-an-azure-recovery-site"></a>タスク 1: Azure 復旧サイトの実装
+#### タスク 1: Azure 復旧サイトの実装
 
 1. **SEA-SVR2** 上の、Azure portal で、次の設定を使用して仮想ネットワークを作成します (他の設定は既定値のままにします)。
 
@@ -137,7 +137,7 @@ Azure VM で実行されている VM に Azure をディザスター リカバ�
 
    > **注：** Azure Site Recovery のストレージ アカウントを使用する場合は、BLOB とコンテナーの論理的な削除機能を無効にする必要があります。
 
-#### <a name="task-2-prepare-protection-of-a-hyper-v-virtual-machine"></a>タスク 2: Hyper-V 仮想マシンの保護の準備
+#### タスク 2: Hyper-V 仮想マシンの保護の準備
 
 1. **SEA-SVR2** 上の Azure portal で **az801l05a-rsvault** Recovery Services コンテナー ブレードを参照します。 
 1. **az801l05a-rsvault** ウィンドウの垂直方向のメニューで、**Site Recovery** の構成を開始します。
@@ -168,7 +168,7 @@ Azure VM で実行されている VM に Azure をディザスター リカバ�
 
 1. **[インフラストラクチャの準備]** 手順を完了 し、関連付けプロセスが完了するまで待ちます。
 
-#### <a name="task-3-enable-replication-of-a-hyper-v-virtual-machine"></a>タスク 3: Hyper-V 仮想マシンのレプリケーションの有効化
+#### タスク 3: Hyper-V 仮想マシンのレプリケーションの有効化
 
 1. **SEA-SVR2** 上の、Azure portal の **[az801l05a-rsvault \| Site Recovery]** ブレードの **[Hyper-V マシンを Azure に]** セクションで、**[2. レプリケーションを有効にする]** を選択します。 
 1. **[レプリケーションの有効化]** ブレードの **[ソース環境]** タブの **[ソースの場所]** ドロップダウン リストで、**[az801l05-site]** を選択します。
@@ -188,7 +188,7 @@ Azure VM で実行されている VM に Azure をディザスター リカバ�
 1. **[レプリケーションの有効化]** ブレードの **[レプリケーション設定]** タブで、**[既定値]** と **[OS の種類]** を **[Windows]** に設定します。
 1. 既定の設定で **[レプリケーションの有効化]** の手順を完了します。
 
-#### <a name="task-4-review-azure-vm-replication-settings"></a>タスク 4: Azure VM のレプリケーション設定の確認
+#### タスク 4: Azure VM のレプリケーション設定の確認
 
 1. Azure portal の **[az801l05a-rsvault \| Site Recovery]** ブレードに戻り、**[az801l05a-rsvault \| レプリケートされた項目]** ブレードを参照します。
 1. **[az801l05a-rsvault \| レプリケートされた項目]** ブレードで、**[SEA-CORE1]** 仮想マシンを表すエントリが表示され、その **[レプリケーション ヘルス]** が **[正常]** と表示され、その **[状態]** が **[保護を有効化中]** または同期の進行状況の現在の割合として表示されることを確認します。
@@ -202,9 +202,10 @@ Azure VM で実行されている VM に Azure をディザスター リカバ�
 
 1. [**SEA-CORE1** レプリケートされた項目] ブレードで、**[最新の復旧ポイント]** を選択し、**[最新のクラッシュ整合性]** と **[最新のアプリ整合性]** の復旧ポイントを確認します。 
 
-#### <a name="task-5-perform-a-failover-of-the-hyper-v-virtual-machine"></a>タスク 5: Hyper-V 仮想マシンのフェールオーバーの実行
+#### タスク 5: Hyper-V 仮想マシンのフェールオーバーの実行
 
-1. **SEA-SVR2** 上の Azure Portal を表示しているブラウザー ウィンドウの [**SEA-CORE1** レプリケートされた項目] ブレードで、以下の設定で **[テスト フェールオーバー]** を開始し (他は既定値のままにしておきます)、**[OK]** を選択します。
+1. **SEA-SVR2** の Azure portal が表示されているブラウザー ウィンドウの **SEA-CORE1** のレプリケートされたアイテム ブレードで、[コンピューティングとネットワーク] 設定に移動し、仮想マシンのサイズを確認します。 サイズが A1_v2 に設定されていることを確認します。そうでない場合はサイズを A1_v2 に編集します。
+1. 概要に戻り、次の設定で**テスト フェールオーバー**を開始し (他は既定値のままにします)、 **[OK]** を選択します。
 
    |設定|値|
    |---|---|
@@ -230,9 +231,9 @@ Azure VM で実行されている VM に Azure をディザスター リカバ�
 1. **[フェールオーバー]** ブレードには、復旧ポイントを選択するオプションがある点に着目してください。 
 1. フェールオーバーを開始しないで **[フェールオーバー]** ブレードを閉じます。
 
-## <a name="exercise-3-implementing-azure-backup"></a>演習 3: Azure Backup の実装
+## 演習 3: Azure Backup の実装
 
-### <a name="scenario"></a>シナリオ
+### シナリオ
 
 入れ子になった VM のレプリケーションが完了するのを待っている間に、Azure VM エージェントと 3 番目の Azure VM の Azure VM レベルのバックアップを使用して、2 つ目の Azure VM の Azure Backup を実装します。
 
@@ -243,7 +244,7 @@ Azure VM で実行されている VM に Azure をディザスター リカバ�
 1. オンデマンド バックアップを実行する。
 1. Azure Recovery Services エージェントを使用してファイルの回復を実行します。
 
-#### <a name="task-1-set-up-the-azure-recovery-services-agent"></a>タスク 1: Azure Recovery Services エージェントの設定
+#### タスク 1: Azure Recovery Services エージェントの設定
 
 > **注：** 一般に、同じコンテナーを使用して、Azure Site Recovery と Azure Backup 機能を実装できます。 ディザスター リカバリーとバックアップの目的でコンテナーをホストする Azure リージョンを選択する場合は、リージョンの災害の影響範囲やネットワーク待機時間に関する考慮事項など、復旧目標を考慮する必要があります。 このラボでは、サイトの復旧とバックアップに同じコンテナーを使用して、重複する手順の数を最小限にします。 
 
@@ -268,7 +269,7 @@ Azure VM で実行されている VM に Azure をディザスター リカバ�
 
    > **注** 実稼働環境では、バックアップするサーバー以外のセキュリティで保護された場所にパスフレーズ ファイルを保存する必要があります。
 
-#### <a name="task-2-schedule-azure-backup"></a>タスク 2: Azure Backup をスケジュール設定する
+#### タスク 2: Azure Backup をスケジュール設定する
 
 1. **SEA-SVR2** の **Microsoft Azure Backup** コンソールで、次の設定を使用してバックアップをスケジュールします (他の設定は既定値のままにします)。
 
@@ -279,7 +280,7 @@ Azure VM で実行されている VM に Azure をディザスター リカバ�
    |Retention Policy|default|
    |初回バックアップの種類|default|
 
-#### <a name="task-3-perform-an-on-demand-backup"></a>タスク 3: オンデマンド バックアップを実行する
+#### タスク 3: オンデマンド バックアップを実行する
 
 > **注** スケジュールされたバックアップを作成した後、オンデマンドでバックアップを実行するオプションを使用できます。
 
@@ -287,7 +288,7 @@ Azure VM で実行されている VM に Azure をディザスター リカバ�
 1. Azure portal が表示されている [Microsoft Edge] ウィンドウに切り替え、**[az801l05a-rsvault** Recovery Services コンテナー] ブレードに戻り、**[バックアップ項目]** を表示します。 
 1. **[az801l05a-rsvault \| バックアップ項目]** ブレードで、**[バックアップ項目 (Azure Backup エージェント)]** ブレードに移動し、**sea-svr2.contoso.com** のドライブ **C** を参照するエントリが存在することを確認します。
 
-#### <a name="task-4-perform-file-recovery-by-using-azure-recovery-services-agent"></a>タスク 4: Azure Recovery Services エージェントを使用してファイルの回復を実行する
+#### タスク 4: Azure Recovery Services エージェントを使用してファイルの回復を実行する
 
 1. **SEA-SVR2** で、エクスプローラーを開き、**C:\\Windows\\System32\\drivers\\etc\\** フォルダーに移動し、**ホスト** ファイルを削除します。
 1. [Microsoft Azure Backup] ウィンドウに切り替えて、次の設定を使用して **[データの回復ウィザード]** を開始します (他の設定は既定値のままにします)。
@@ -316,9 +317,9 @@ Azure VM で実行されている VM に Azure をディザスター リカバ�
 
 1. **[データの回復ウィザード]** に戻り、 マウントされたバックアップ ファイルのマウントを解除します。 
 
-## <a name="exercise-4-deprovisioning-the-azure-lab-environment"></a>演習 4: Azure ラボ環境のプロビジョニング解除
+## 演習 4: Azure ラボ環境のプロビジョニング解除
 
-### <a name="scenario"></a>シナリオ
+### シナリオ
 
 Azure 関連の料金を最小限に抑えるため、このラボでプロビジョニングした Azure リソースをプロビジョニング解除します。
 
@@ -327,7 +328,7 @@ Azure 関連の料金を最小限に抑えるため、このラボでプロビ�
 1. 保護された項目を削除します。
 1. ラボ リソース グループを削除します。
 
-#### <a name="task-1-remove-the-protected-items"></a>タスク 1: 保護された項目を削除する
+#### タスク 1: 保護された項目を削除する
 
 1. **SEA-SVR2** で、Azure portal の**バックアップ項目 (Azure Backup エージェント)** ブレードが表示されている Microsoft Edge ウィンドウに切り替え、**sea-svr2.contoso.com** のドライブ **C** を参照するエントリを選択します。
 1. **C:\\ on sea-svr2.contoso.com** ブレードで **sea-svr2.contoso.com** ブレードを参照します。
@@ -342,7 +343,7 @@ Azure 関連の料金を最小限に抑えるため、このラボでプロビ�
 1. **SEA-SVR2** 上の、Azure Portal を表示している Microsoft Edge で、**[az801l05a-rsvault | レプリケートされた項目]** ブレードを参照し、**[SEA-CORE1]** エントリを選択します。
 1. **[SEA-CORE1 **レプリケートされた項目] ブレードで、レプリケーションを無効にし、フィードバックを提供せずにレプリケートされた項目を削除します。 
 
-#### <a name="task-2-delete-the-lab-resource-groups"></a>タスク 2: ラボ リソース グループを削除する
+#### タスク 2: ラボ リソース グループを削除する
 
 1. **SEA-SVR2** の Azure portal を表示している Microsoft Edge ウィンドウで、Azure Cloud Shell ウィンドウで PowerShell セッションを開きます。
 

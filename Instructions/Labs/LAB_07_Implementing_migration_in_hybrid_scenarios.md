@@ -4,16 +4,16 @@ lab:
   module: 'Module 7: Design for Migration'
 ---
 
-# <a name="lab-migrating-hyper-v-vms-to-azure-by-using-azure-migrate"></a>ラボ: Azure Migrate を使用して Hyper-V VM を Azure に移行する
+# ラボ: Azure Migrate を使用して Hyper-V VM を Azure に移行する
 
-## <a name="lab-scenario"></a>ラボのシナリオ
+## ラボのシナリオ
 
 Azure への移行の一環としてワークロードを最新化するという目標があるにもかかわらず、Adatum Enterprise のアーキテクチャ チームは、厳しいスケジュールのため、多くの場合にリフトアンドシフト アプローチに従う必要があることに気が付きました。 このタスクを簡略化するために、チームは Azure Migrate の機能の調査を開始します。 Azure Migrate は、オンプレミスのサーバー、インフラストラクチャ、アプリケーション、データを評価し、Azure への移行を行うための一元化されたハブとして機能します。
 
 Azure Migrate には次の機能が用意されています。
 
 - 統合された移行プラットフォーム:Azure への移行を開始、実行、追跡するための単一のポータル。
-- ツールの範囲:評価と移行のためのさまざまなツール。 ツールには、Azure Migrate:Server Assessment、Azure Migrate: Server Migration に関するエラーのトラブルシューティングに役立つ情報を提供しています。 Azure Migrate は、他の Azure サービスや、他のツールおよび独立系ソフトウェア ベンダー (ISV) オファリングと統合されています。
+- ツールの範囲:評価と移行のためのさまざまなツール。 ツールには、[Azure Migrate: Server Assessment] と [移行およびモダン化] が含まれます。 Azure Migrate は、他の Azure サービスや、他のツールおよび独立系ソフトウェア ベンダー (ISV) オファリングと統合されています。
 - 評価と移行: Azure Migrate ハブでは、以下の評価と移行を行うことができます。
     - サーバー:オンプレミスのサーバーを評価し、Azure の仮想マシンに移行します。
     - データベース: オンプレミスのデータベースを評価し、Azure SQL Database または SQL Managed Instance に移行します。
@@ -25,7 +25,7 @@ Azure Migrate には次の機能が用意されています。
 
                 **メモ:** このラボをご自分のペースでクリックして進めることができる、 **[ラボの対話型シミュレーション](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Migrating%20Hyper-V%20VMs%20to%20Azure%20by%20using%20Azure%20Migrate)** が用意されています。 対話型シミュレーションとホストされたラボの間に若干の違いがある場合がありますが、示されている主要な概念とアイデアは同じです。 
 
-## <a name="objectives"></a>目標
+## 目標
   
 このラボを完了すると、次のことができるようになります。
 
@@ -33,9 +33,9 @@ Azure Migrate には次の機能が用意されています。
 -  Azure Migrate を使用して Hyper-V の移行を評価する。
 -  Azure Migrate を使用して Hyper-V VM を移行する。
 
-## <a name="estimated-time-120-minutes"></a>予想所要時間: 120 分
+## 予想所要時間: 120 分
 
-## <a name="lab-environment"></a>ラボ環境
+## ラボ環境
   
 仮想マシン: **AZ-801T00A-SEA-DC1** と **AZ-801T00A-SEA-SVR2** が実行されている必要があります。 他の VM が実行されていてもかまいませんが、このラボでは必要ありません。
 
@@ -50,7 +50,7 @@ Azure Migrate には次の機能が用意されています。
 
 このラボでは、使用可能な VM 環境と Azure サブスクリプションを使用します。 ラボを開始する前に、Azure サブスクリプションと、そのサブスクリプションの所有者ロールを持つユーザー アカウントがあることを確認してください。
 
-## <a name="exercise-1-prepare-the-lab-environment"></a>演習 1: ラボ環境を準備する
+## 演習 1: ラボ環境を準備する
 
 この演習の主なタスクは次のとおりです。
 
@@ -58,11 +58,11 @@ Azure Migrate には次の機能が用意されています。
 1. Azure Bastion をデプロイする。
 1. Azure VM に入れ子になった VM をデプロイする。
 
-#### <a name="task-1-deploy-an-azure-vm-by-using-an-azure-resource-manager-quickstart-template"></a>タスク 1: Azure Resource Manager クイックスタート テンプレートを使用して Azure VM をデプロイする
+#### タスク 1: Azure Resource Manager クイックスタート テンプレートを使用して Azure VM をデプロイする
 
 1. **SEA-SVR2** で Microsoft Edge を起動し、[301-nested-vms-in-virtual-network Azure クイックスタートテンプレート](https://github.com/az140mp/azure-quickstart-templates/tree/master/demos/nested-vms-in-virtual-network)を参照して、**[Azure へのデプロイ]** を選択します。 (ボタン **[Azure へのデプロイ]** は、テンプレートにより作成されるリソース一覧の後の `README.md` ファイル内にあります)。
 1. Azure portal でダイアログが表示されたら、このラボで使用するサブスクリプションの所有者ロールをもつユーザー アカウントの資格情報を使用してサインインします。
-1. Azure portal の **[Hyper-V Host Virtual Machine with nested VMs]\(入れ子になった VM を含む Hyper-V ホスト仮想マシン\)** ページで、次の設定を使用してデプロイを実行します (その他は既定値のままにします)。
+1. Azure portal の **[Hyper-V Host Virtual Machine with nested VMs](入れ子になった VM を含む Hyper-V ホスト仮想マシン)** ページで、次の設定を使用してデプロイを実行します (その他は既定値のままにします)。
 
    | 設定 | 値 | 
    | --- | --- |
@@ -78,7 +78,7 @@ Azure Migrate には次の機能が用意されています。
 
    > **注**: デプロイが完了するまで待ちます。 デプロイには約 10 分かかります。
 
-#### <a name="task-2-deploy-azure-bastion"></a>タスク 2: Azure Bastion をデプロイする 
+#### タスク 2: Azure Bastion をデプロイする 
 
 > **注**: Azure Bastion を使用すると、この演習の前のタスクでデプロイしたパブリック エンドポイントを使用せずに Azure VM に接続できると同時に、オペレーティング システム レベルの資格情報を対象とするブルート フォース攻撃から保護することができます。
 
@@ -114,14 +114,14 @@ Azure Migrate には次の機能が用意されています。
    
    > **注**: デプロイが完了するまで待ってから、次のタスクに進んでください。 デプロイには約 5 分かかります。
 
-#### <a name="task-3-deploy-a-nested-vm-in-the-azure-vm"></a>タスク 3: Azure VM に入れ子になった VM をデプロイする
+#### タスク 3: Azure VM に入れ子になった VM をデプロイする
 
 1. Azure portal で、**az801l07a-hv-vm** 仮想マシンのページに移動します。
 1. **[az801l07a-hv-vm]** ページで、次の資格情報を使用して、仮想マシン内で実行されているオペレーティング システムに Azure Bastion 経由で接続します。
 
    | 設定 | 値 | 
    | --- | --- |
-   | [ユーザー名] |**学生** |
+   | [ユーザー名] |**Student** |
    | パスワード |**Pa55w.rd1234** |
 
 1. **az801l07a-hv-vm** へのリモート デスクトップ セッション内の **[サーバー マネージャー]** ウィンドウで、**[IE セキュリティ強化の構成]** を無効にします。
@@ -149,7 +149,7 @@ Azure Migrate には次の機能が用意されています。
    Rename-Computer -NewName 'az801l07a-vm1' -Restart
    ```
 
-## <a name="exercise-2-prepare-for-assessment-and-migration-by-using-azure-migrate"></a>演習 2: Azure Migrate を使用して評価と移行の準備をする
+## 演習 2: Azure Migrate を使用して評価と移行の準備をする
   
 この演習の主なタスクは次のとおりです。
 
@@ -157,7 +157,7 @@ Azure Migrate には次の機能が用意されています。
 1. Azure Migrate プロジェクトを作成します。
 1. ターゲットの Azure 環境を実装します。
 
-#### <a name="task-1-configure-hyper-v-environment"></a>タスク 1: Hyper-V 環境を構成する
+#### タスク 1: Hyper-V 環境を構成する
 
 1. **az801l07a-hv-vm** へのリモート デスクトップ セッション内のブラウザー ウィンドウで、[https://aka.ms/migrate/script/hyperv](https://aka.ms/migrate/script/hyperv) に移動し、Azure Migrate 構成 PowerShell スクリプトをダウンロードします。
 
@@ -186,9 +186,9 @@ Azure Migrate には次の機能が用意されています。
    - Do you use SMB share(s) to store the VHDs? (SMB 共有を使用して VHD を格納しますか?)
    - Do you want to create non-administrator local user for Azure Migrate and Hyper-V Host communication? (Azure Migrate と Hyper-V ホストの通信用に管理者以外のローカル ユーザーを作成しますか?) 
 
-#### <a name="task-2-create-an-azure-migrate-project"></a>タスク 2: Azure Migrate プロジェクトを作成する
+#### タスク 2: Azure Migrate プロジェクトを作成する
 
-1. **az801l07a-hv-vm** へのリモート デスクトップ セッション内のブラウザー ウィンドウで、[Azure portal](https://portal.azure.com) に移動し、このラボで使用しているサブスクリプションの所有者ロールを持つユーザー アカウントの資格情報を使用してサインインします。
+1. **az801l07a-hv-vm** へのリモート デスクトップ セッション内のブラウザー ウィンドウで、Azure portal (`https://portal.azure.com/`) に移動し、このラボで使用しているサブスクリプションの所有者ロールを持つユーザー アカウントの資格情報を使ってサインインします。
 1. Azure portal で **[Azure Migrate]** ページに移動し、次の設定を使用してプロジェクトを作成します (他の設定は既定値のままにします)。
 
    | 設定 | 値 | 
@@ -198,7 +198,7 @@ Azure Migrate には次の機能が用意されています。
    | プロジェクトを移行する | **az801l07a-migrate-project** |
    | Geography | 国または地理的領域の名前 |
 
-#### <a name="task-3-implement-the-target-azure-environment"></a>タスク 3: ターゲットの Azure 環境を実装する
+#### タスク 3: ターゲットの Azure 環境を実装する
 
 1. Azure portal で、次の設定を使用して仮想ネットワークを作成します (他の設定は既定値のままにします)。
 
@@ -237,14 +237,14 @@ Azure Migrate には次の機能が用意されています。
    | BLOB の論理的な削除の有効化 | disabled |
    | コンテナーの論理的な削除を有効にする | disabled |
 
-## <a name="exercise-3-assess-hyper-v-for-migration-by-using-azure-migrate"></a>演習 3: Azure Migrate を使用して Hyper-V の移行を評価する
+## 演習 3: Azure Migrate を使用して Hyper-V の移行を評価する
   
 この演習の主なタスクは次のとおりです。
 
 1. Azure Migrate アプライアンスをデプロイおよび構成する
 1. 評価を構成、実行、表示する
 
-#### <a name="task-1-deploy-and-configure-the-azure-migrate-appliance"></a>タスク 1: Azure Migrate アプライアンスをデプロイして構成する
+#### タスク 1: Azure Migrate アプライアンスをデプロイして構成する
 
 1. **az801l07a-hv-vm** へのリモート デスクトップ セッション内で、ブラウザー ウィンドウの Azure portal で、新しく作成された Azure Migrate プロジェクトを参照します。 
 1. **[Azure Migrate | 始めましょう]** ページの **[サーバー、データベース、Web アプリ]** セクションで、**[検出、評価、移行]** を選択し、**[検出]** ページに移動します。
@@ -261,7 +261,7 @@ Azure Migrate には次の機能が用意されています。
 
    >**注**:Microsoft Edge ではプロンプトが既定では表示されないため、.VHD ファイルを F:\VMs フォルダーに手動でコピーする必要がある場合があります。
 
-1. **az801l07a-hv-vm** へのリモート デスクトップ セッション内で、**Hyper-V マネージャー** コンソールを使用して、VM ファイルをコピーした仮想マシンを **F:\VMs** フォルダーにインポートします。 **[Register the virtual machine in-place (use the existing unique ID)]\(仮想マシンをインプレースで登録する (既存の一意の ID を使用)\)** オプションを使用して、**[仮想プロセッサ数]** を **4** に設定してから、それを **NestedSwitch** に接続します。
+1. **az801l07a-hv-vm** へのリモート デスクトップ セッション内で、**Hyper-V マネージャー** コンソールを使用して、VM ファイルをコピーした仮想マシンを **F:\VMs** フォルダーにインポートします。 **[Register the virtual machine in-place (use the existing unique ID)](仮想マシンをインプレースで登録する (既存の一意の ID を使用))** オプションを使用して、**[仮想プロセッサ数]** を **4** に設定してから、それを **NestedSwitch** に接続します。
 
    >**注**: ラボ環境では、仮想プロセッサ数の変更に関するエラー メッセージはすべて無視してかまいません。 運用環境のシナリオでは、仮想アプライアンスに十分な数のコンピューティング リソースが割り当てられていることを確認する必要があります。
 
@@ -276,7 +276,7 @@ Azure Migrate には次の機能が用意されています。
 1. **[Appliance Configuration Manager]** ページの **[こちらにキーを貼り付けて Hyper-V アプライアンスを登録します]** テキスト ボックスに、この演習で先にメモ帳コピーしたキーを貼り付け、**[ログイン]** を選択し、デバイス コードを使用してサブスクリプションにサインインします。 
 1. **[Microsoft Azure PowerShell にサインインしますか?]** のダイアログが表示されたら、**[続行]** を選択し、新しく開いたブラウザー タブを閉じます。
 1. **[Appliance Configuration Manager]** ページで、登録が成功したことを確認します。
-1. **[Appliance Configuration Manager]** ページの **[Manage credentials and discovery sources]\(資格情報と検出ソースの管理\)** セクションで、次の設定を使用して資格情報を追加します。
+1. **[Appliance Configuration Manager]** ページの **[Manage credentials and discovery sources](資格情報と検出ソースの管理)** セクションで、次の設定を使用して資格情報を追加します。
 
    | 設定 | 値 | 
    | --- | --- |
@@ -284,15 +284,15 @@ Azure Migrate には次の機能が用意されています。
    | [ユーザー名] | **学生** |
    | パスワード | **Pa55w.rd1234** |
 
-1. ブラウザー ウィンドウ内の **[Appliance Configuration Manager]** ページの **[Provide Hyper-V host/cluster details]\(Hyper-V ホスト/クラスターの詳細を指定\)** セクションで、**[Hyper-V ホスト/クラスター]** に設定した検出ソースを追加し、その **[フレンドり名]** を **az801l07ahvcred** に設定し、その **[IP アドレス/FQDN]** を **10.0.2.1** に設定します。
+1. ブラウザー ウィンドウ内の **[Appliance Configuration Manager]** ページの **[Provide Hyper-V host/cluster details](Hyper-V ホスト/クラスターの詳細を指定)** セクションで、**[Hyper-V ホスト/クラスター]** に設定した検出ソースを追加し、その **[フレンドり名]** を **az801l07ahvcred** に設定し、その **[IP アドレス/FQDN]** を **10.0.2.1** に設定します。
 
    >**注**: **10.0.2.1** は、内部スイッチに接続されている Hyper-V ホストのネットワーク インターフェイスの IP アドレスです。
 
-1. **[Appliance Configuration Manager]** ページの **[Provide Hyper-V host/cluster details]\(Hyper-V ホスト/クラスターの詳細を指定\)** セクションで、 **[Disable the slider if you don’t want to perform these features]\(これらの機能を実行しない場合はスライダーを無効にする\)** のトグル ボタンを有効にして、 **[Start discovery]\(検出の開始\)** を選択します。 
+1. **[Appliance Configuration Manager]** ページの **[Provide Hyper-V host/cluster details](Hyper-V ホスト/クラスターの詳細を指定)** セクションで、 **[Disable the slider if you don’t want to perform these features](これらの機能を実行しない場合はスライダーを無効にする)** のトグル ボタンを有効にして、 **[Start discovery](検出の開始)** を選択します。 
 
    >**注**: 検出されたサーバーのメタデータが Azure portal に表示されるまでに、ホストごとに約 15 分かかります。
 
-#### <a name="task-2-configure-run-and-view-an-assessment"></a>タスク 2: 評価を構成、実行、表示する
+#### タスク 2: 評価を構成、実行、表示する
 
 1. 仮想アプライアンスへの **[仮想マシン接続]** ウィンドウから、**az801l07a-hv-vm** へのリモート デスクトップ セッションに切り替えます。 Azure portal が表示されているブラウザー ウィンドウで、**[Azure Migrate | サーバー、データベース、Web アプリ]** に戻り、**[更新]** を選択します。 **[Azure Migrate: 検出と評価]** セクションで、 **[評価]** を選択し、ドロップダウン メニューの **[Azure VM]** を選びます。
 1. **[評価の作成]** ページで、次の設定を指定します (他の設定は既定値のままにします)。
@@ -321,7 +321,7 @@ Azure Migrate には次の機能が用意されています。
 
    >**注**: 実際のシナリオでは、評価段階でサーバーの依存関係に関するより多くの分析情報を取得するために、依存関係エージェントのインストールを検討する必要があります。
 
-## <a name="exercise-4-migrate-hyper-v-vms-by-using-azure-migrate"></a>演習 4: Azure Migrate を使用して Hyper-V VM を移行する
+## 演習 4: Azure Migrate を使用して Hyper-V VM を移行する
   
 この演習の主なタスクは次のとおりです。
 
@@ -330,10 +330,10 @@ Azure Migrate には次の機能が用意されています。
 1. Hyper-V VM の移行を実行する。
 1. ラボでデプロイされた Azure リソースを削除する。
 
-#### <a name="task-1-prepare-for-migration-of-hyper-v-vms"></a>タスク 1: Hyper-V VM の移行を準備する
+#### タスク 1: Hyper-V VM の移行を準備する
 
 1. **az801l07a-hv-vm** へのリモート デスクトップ セッション内の Azure portal が表示されているブラウザー ウィンドウで、**[Azure Migrate | サーバー、データベース、Web アプリ]** ページに戻ります。 
-1. **[Azure Migrate | サーバー、データベース、Web アプリ]** ページの **[Azure Migrate: サーバーの移行]** セクションで、**[検出]** リンクを選びます。 
+1. **[Azure Migrate | サーバー、データベース、Web アプリ]** ページの **[移行およびモダン化]** セクションで、 **[検出]** リンクを選びます。 
 1. **[検出]** ページで、次の設定を指定してリソースを作成します (他の設定は既定値のままにしておきます)。
 
    | 設定 | 値 | 
@@ -351,14 +351,14 @@ Azure Migrate には次の機能が用意されています。
 1. ダウンロードしたファイルを使用して、既定の設定で **Azure Site Recovery Provider** をインストールします。
 1. インストール中に Azure portal に切り替え、**[マシンの検出]** ページのオンプレミスの Hyper-V ホストを準備する手順のステップ 1 で **[ダウンロード]** ボタンを選択して、コンテナー登録キーをダウンロードし、それを使用して **Azure Site Recovery Provider** を登録します。
 1. **[検出]** ページが表示されているブラウザー ウィンドウを最新の情報に更新します。 
-1. **[Azure Migrate | サーバー、データベース、Web アプリ]** ページの **[Azure Migrate: サーバーの移行]** セクションで、**[検出]** リンクを選びます。 
+1. **[Azure Migrate | サーバー、データベース、Web アプリ]** ページの **[移行およびモダン化]** セクションで、 **[検出]** リンクを選びます。 
 1. **[検出]** ページで、登録を確定します。
 
    >**注**: 仮想マシンの検出が完了するまでに、最大で 15 分かかる場合があります。
 
-#### <a name="task-2-configure-replication-of-hyper-v-vms"></a>タスク 2: Hyper-V VM のレプリケーションを構成する。
+#### タスク 2: Hyper-V VM のレプリケーションを構成する
 
-1. 登録が完了したことを示す確認メッセージが表示されたら、**[Azure Migrate | サーバー、データベース、Web アプリ]** ページに戻り、**[Azure Migrate: サーバーの移行]** セクションで、**[レプリケート]** リンクを選択します。 
+1. 登録が完了したことを示す確認メッセージが表示されたら、 **[Azure Migrate | サーバー、データベース、Web アプリ]** ページに戻り、 **[移行およびモダン化]** セクションで、 **[レプリケート]** リンクを選択します。 
 
    >**注**: **[Azure Migrate | サーバー、データベース、Web アプリ]** ページを表示しているブラウザー ページを最新の情報に更新する必要がある場合があります。
 
@@ -383,14 +383,14 @@ Azure Migrate には次の機能が用意されています。
    | サブネット | **subnet0** |
 
 1. **[レプリケート]** ページの **[コンピューティング]** タブで、**[Azure VM サイズ]** ドロップダウン リストで **[Standard_D2s_v3]** が選択されていることを確認します。 **[OS の種類]** ドロップダウン リストで、**[Windows]** を選択します。
-1. レプリケーションの状態を監視するには、**[Azure Migrate | サーバー、データベース、Web アプリ]** ページに戻り、**[最新の情報に更新]** を選択し、**[Azure Migrate: サーバーの移行]** セクションで **[サーバーをレプリケートしています]** エントリを選択します。 **[Azure Migrate: サーバーの移行 | マシンのレプリケート]** ページで、レプリケート中のマシンの一覧の **[状態]** 列を確認します。 
+1. レプリケーションの状態を監視するには、 **[Azure Migrate | サーバー、データベース、Web アプリ]** ページに戻り、 **[最新の情報に更新]** を選択し、 **[移行およびモダン化]** セクションで **[サーバーをレプリケートしています]** エントリを選びます。 **[移行およびモダン化 | マシンのレプリケート]** ページで、レプリケート中のマシンのリストの **[状態]** 列を確認します。 
 1. 状態が **[保護されている]** に変わるまで待ちます。 これには、さらに 15 分かかることがあります。
 
-   >**注**: **[Azure Migrate: サーバーの移行 | マシンのレプリケート]** を最新の情報に更新して **[状態]** 情報を更新する必要があります。
+   >**注**: **[移行およびモダン化 | マシンのレプリケート]** を最新の情報に更新して、 **[状態]** 情報を更新する必要があります。
 
-#### <a name="task-3-perform-migration-of-hyper-v-vms"></a>タスク 3: Hyper-V VM の移行を実行する
+#### タスク 3: Hyper-V VM の移行を実行する
 
-1. Azure portal の **[Azure Migrate: サーバーの移行 | マシンのレプリケート]** ページで、**az801l07a-vm1** 仮想マシンを表すエントリを選択します。
+1. Azure portal の **[移行およびモダン化 | マシンのレプリケート]** ページで、**az801l07a-vm1** 仮想マシンを表すエントリを選択します。
 1. **[az801l07a-vm1]** ページから、**az801l07a-test-vnet** 仮想ネットワークをターゲットとして使用して、**[テスト移行]** を開始します。
 
    >**注**: テスト移行が完了するまで待ちます。 これには 5 分ほどかかる場合があります。
@@ -399,16 +399,16 @@ Azure Migrate には次の機能が用意されています。
 
    > **注:** 仮想マシンの名前は、最初は **asr-** プレフィックスとランダムに生成されたサフィックスで構成されますが、最終的には **az801l07a-vm1-test** に名前が変更されます。
 
-1. Azure portal で、**[Azure Migrate: サーバーの移行 | マシンのレプリケート]** ページに戻り、**[最新の情報に更新]** を選択して、**az801l07a-vm1** 仮想マシンが **[テスト フェールオーバーのクリーンアップが保留中]** 状態で一覧表示されていることを確認します。
-1. **[Azure Migrate: サーバーの移行 | マシンのレプリケート]** ページで、**[az801l07a-vm1]** レプリケート マシンのページに移動し、**[テストが完了しました。テスト仮想マシンを削除します]** を指定して **[テスト移行をクリーンアップ]** アクションをトリガーします。
+1. Azure portal で、 **[移行およびモダン化 | マシンのレプリケート]** ページに戻り、 **[最新の情報に更新]** を選択して、**az801l07a-vm1** 仮想マシンが **[テスト フェールオーバーのクリーンアップが保留中]** 状態で一覧表示されていることを確認します。
+1. **[移行およびモダン化 | マシンのレプリケート]** ページで、 **[az801l07a-vm1]** レプリケート マシンのページに移動し、 **[テストが完了しました。テスト仮想マシンを削除します]** を指定して **[テスト移行をクリーンアップ]** アクションをトリガーします。
 1. テスト フェールオーバーのクリーンアップ ジョブが完了したら、**az801l07a-vm1** レプリケート マシン ページが表示されているブラウザー ページを最新の情報に更新し、ツール バーの **[移行]** アイコンが自動的に使用可能になることを確認します。
 1. **az801l07a-vm1** レプリケート マシン ページで、**[移行]** アクションをトリガーします。 
 1. **[移行]** ページで、**[データの損失を最小限に抑えるため、移行前にマシンをシャットダウンしますか?]** オプションが選択されていることを確認します。
-1. 移行の状態を監視するために、**[Azure Migrate | サーバー、データベース、Web アプリ]** ページに戻ります。 **[Azure Migrate: サーバーの移行]** セクションで、**[サーバーをレプリケートしています]** エントリを選択し、**[Azure Migrate: サーバーの移行 | マシンのレプリケート]** ページで、レプリケート中のマシンの一覧の **[状態]** 列を確認します。 状態に **[計画フェールオーバーが完了]** が表示されていることを確認します。
+1. 移行の状態を監視するために、**[Azure Migrate | サーバー、データベース、Web アプリ]** ページに戻ります。 **[移行およびモダン化]** セクションで、 **[サーバーをレプリケートしています]** エントリを選択し、 **[移行およびモダン化 | マシンのレプリケート]** ページで、レプリケート中のマシンのリストの **[状態]** 列を確認します。 状態に **[計画フェールオーバーが完了]** が表示されていることを確認します。
 
-   >**注**: 移行は、元に戻すことができないアクションであることが想定されています。 完了した情報を確認する場合は、**[Azure Migrate | サーバー、データベース、Web アプリ]** ページに戻ってページを更新し、**[Azure Migrate: サーバーの移行]** セクションの **[サーバーが移行されました]** エントリの値が **1** であることを確認します。
+   >**注**: 移行は、元に戻すことができないアクションであることが想定されています。 完了した情報を確認する場合は、 **[Azure Migrate | サーバー、データベース、Web アプリ]** ページに戻ってページを更新し、 **[移行およびモダン化]** セクションの **[サーバーが移行されました]** エントリの値が **1** であることを確認します。
 
-#### <a name="task-4-remove-azure-resources-deployed-in-the-lab"></a>タスク 4: ラボでデプロイされた Azure リソースを削除する
+#### タスク 4: ラボでデプロイされた Azure リソースを削除する
 
 1. **SEA-SVR2** の Azure portal を表示しているブラウザー ウィンドウの **Azure Cloud Shell** ウィンドウで PowerShell セッションを開きます。
 1. **Cloud Shell** ウィンドウで次のコマンドを実行して、このラボで作成したすべてのリソース グループの一覧を表示します。
