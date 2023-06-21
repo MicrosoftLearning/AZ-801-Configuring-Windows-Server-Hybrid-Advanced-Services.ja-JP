@@ -5,13 +5,13 @@ lab:
   module: Module 6 - Upgrade and migrate in Windows Server
 ---
 
-# <a name="lab-answer-key-upgrade-and-migrate-in-windows-server"></a>ラボ回答キー: Windows Server でのアップグレードと移行
+# ラボ回答キー: Windows Server でのアップグレードと移行
 
                 **メモ:** このラボをご自分のペースでクリックして進めることができる、 **[ラボの対話型シミュレーション](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Upgrading%20and%20migrating%20in%20Windows%20Server)** が用意されています。 対話型シミュレーションとホストされたラボの間に若干の違いがある場合がありますが、示されている主要な概念とアイデアは同じです。 
 
-## <a name="exercise-1-deploying-ad-ds-domain-controllers-in-azure"></a>演習 1: AD DS ドメイン コントローラーを Azure にデプロイする
+## 演習 1: AD DS ドメイン コントローラーを Azure にデプロイする
 
-#### <a name="task-1-deploy-a-domain-controller-by-using-an-azure-resource-manager-arm-template"></a>タスク 1: Azure Resource Manager (ARM) テンプレートを使用してドメイン コントローラーをデプロイする
+#### タスク 1: Azure Resource Manager (ARM) テンプレートを使用してドメイン コントローラーをデプロイする
 
 1. **SEA-SVR2** に接続し、必要であれば、パスワード **Pa55w.rd** を使用して **CONTOSO\\Administrator** としてサインインします。
 1. **SEA-SVR2** で Microsoft Edge を起動し、「**[新しい Windows VM を作成し、新しい AD フォレスト、ドメイン、DC を作成する](https://github.com/az140mp/azure-quickstart-templates/tree/master/application-workloads/active-directory/active-directory-new-domain)**」にあるカスタマイズされたバージョンのクイックスタート テンプレートにアクセスします。 
@@ -72,7 +72,7 @@ lab:
 
    > **注**: デプロイが完了するまで待ってから、次のタスクに進んでください。 これには 15 分ほどかかる場合があります。 
 
-#### <a name="task-2-deploy-azure-bastion"></a>タスク 2: Azure Bastion をデプロイする 
+#### タスク 2: Azure Bastion をデプロイする 
 
 > **注**: Azure Bastion を使用すると、この演習の前のタスクでデプロイしたパブリック エンドポイントを使用せずに Azure VM に接続できると同時に、オペレーティング システム レベルの資格情報を対象とするブルート フォース攻撃から保護することができます。
 
@@ -113,7 +113,7 @@ lab:
 
    > **注**: デプロイが完了するのを待たずに、次のタスクに進んでください。 デプロイには約 5 分かかります。
 
-#### <a name="task-3-deploy-an-azure-vm-by-using-the-azure-portal"></a>タスク 3: Azure portal を使用して Azure VM をデプロイする
+#### タスク 3: Azure portal を使用して Azure VM をデプロイする
 
 > **注**: この演習の最初のタスクでプロビジョニングした最初の VM と同じドメインへの、2 つ目の Azure VM のデプロイと、追加ドメイン コントローラーとしてのそのセットアップは、完全に自動化できます。 一方、この場合にグラフィカル インターフェイスを使うと、オンプレミスでのドメイン コントローラーのプロビジョニングと Azure ベースのシナリオでの違いに関する追加のガイダンスが提供されます。
 
@@ -124,7 +124,7 @@ lab:
    | 設定 | 値 |
    | --- | --- |
    | サブスクリプション | このラボで使用している Azure サブスクリプションの名前 |
-   | リソース グループ | 新しいリソース グループの名前 **AZ801-L0601-RG** |
+   | リソース グループ | 既存のリソース グループ **AZ801-L0601-RG** を選択します |
    | 仮想マシン名 | **az801l06a-dc2** |
    | リージョン | この演習で前に最初の仮想マシンをデプロイしたのと同じ Azure リージョンを選択します |
    | 可用性のオプション | **可用性セット** |
@@ -180,7 +180,7 @@ lab:
 
    > **注**: デプロイが完了するまで待ちます。 デプロイには約 3 分かかります。
 
-#### <a name="task-4-manually-promote-a-domain-controller-in-an-azure-vm"></a>タスク 4: Azure VM でドメイン コントローラーを手動で昇格させる
+#### タスク 4: Azure VM でドメイン コントローラーを手動で昇格させる
 
 1. **SEA-SVR2** で、Azure portal を表示している Microsoft Edge ウィンドウ内のデプロイ ページで **[リソースに移動]** を選択します。
 1. **[az801l06a-dc2]** ページの左側の垂直メニューの **[設定]** セクションで、 **[ネットワーク]** を選択します。
@@ -195,13 +195,14 @@ lab:
 
 1. **SEA-SVR2** の Azure portal が表示されている Microsoft Edge ウィンドウで、**az801l06a-dc2** ページに戻ります。
 1. **[az801l06a-dc2]** ページで、**[接続]** を選択し、ドロップダウン メニューで **[Bastion]** を選択します。 
-1. **[az801l06a-dc2 \| 接続]** ページの **[Bastion]** タブで、**[Bastion を使用する]** を選択します。
-1. プロンプトが表示されたら、次の資格情報を入力し、**[接続]** を選択します。
+1. Bastion ページで、次の資格情報を入力し、 **[接続]** を選択します。
 
    | 設定 | 値 | 
    | --- | --- |
-   | [ユーザー名] |**学生** |
+   | [ユーザー名] |**Student** |
    | パスワード |**Pa55w.rd1234** |
+
+> **注**: 既定で、**Edge** ではポップアップがブロックされます。 **Bastion** のポップアップを許可するには、**Edge** の **[設定]** に移動し、左側の **[Cookie とサイトのアクセス許可]** を選択し、 **[すべてのアクセス許可]** の下の **[ポップアップとリダイレクト]** を選び、最後に **[ブロック (推奨)]** をオフに切り替えます。
 
 1. **az801l06a-dc2** へのリモート デスクトップ セッション内で、**[スタート]** を選択し、**[Windows PowerShell]** を選択します。
 1. AD DS と DNS サーバーの役割をインストールするには、Windows PowerShell コマンド プロンプトで次のコマンドを入力してから Enter キーを押します。
@@ -239,9 +240,8 @@ lab:
 
    > **注**: 昇格プロセスを完了するため、オペレーティング システムが自動的に再起動されます。
 
-1. **SEA-SVR2** の Azure portal が表示されている Microsoft Edge ウィンドウで **az801l06a-dc2** ページに戻り、**[接続]** を選択し、ドロップダウン メニューの **[Bastion]** を選択します。 
-1. **[az801l06a-dc2 \| 接続]** ページの **[Bastion]** タブで、**[Bastion を使用する]** を選択します。
-1. プロンプトが表示されたら、次の資格情報を入力し、**[接続]** を選択します。
+1. **SEA-SVR2** の Azure portal が表示されている Microsoft Edge ウィンドウで **az801l06a-dc2** ページに戻り、**[接続]** を選択し、ドロップダウン メニューの **[Bastion]** を選択します。  
+1. Bastion ページで、次の資格情報を入力し、 **[接続]** を選択します。
 
    | 設定 | 値 | 
    | --- | --- |
@@ -250,7 +250,7 @@ lab:
 
 1. **az801l06a-dc2** へのリモート デスクトップ セッションで、**サーバー マネージャー** ウィンドウが開くまで待機し、ローカル環境にインストールされている役割に **AD DS** と **DNS** が含まれることを確認します。
 
-#### <a name="task-5-remove-azure-resources-deployed-in-the-exercise"></a>タスク 5: 演習でデプロイした Azure リソースを削除する
+#### タスク 5: 演習でデプロイした Azure リソースを削除する
 
 1. **SEA-SVR2** の Azure portal を表示している Microsoft Edge ウィンドウで、Azure portal の [Cloud Shell] をクリックして [Azure Cloud Shell] ペインの PowerShell セッションを開きます。
 1. Cloud Shell ペインで次のコマンドを実行して、このラボで作成したすべてのリソース グループの一覧を表示します。
@@ -269,9 +269,9 @@ lab:
 
    > **注:** このコマンドは非同期で実行されるため (*-AsJob* パラメーターによって決定されます)、同じ PowerShell セッション内で別の PowerShell コマンドをすぐに実行できますが、リソース グループが実際に削除されるまでに数分かかります。
 
-## <a name="exercise-2-migrating-file-servers-by-using-storage-migration-service"></a>演習 2: 記憶域移行サービスを使用してファイル サーバーを移行する
+## 演習 2: 記憶域移行サービスを使用してファイル サーバーを移行する
 
-#### <a name="task-1-install-windows-admin-center"></a>タスク 1: Windows Admin Center をインストールする
+#### タスク 1: Windows Admin Center をインストールする
 
 1. **SEA-SVR2** 上で **[スタート]** を選択し、**[Windows PowerShell]** を選択します。
 1. **Windows PowerShell** コンソールで、次のコマンドを入力し、Enter キーを押して、最新バージョンの Windows Admin Center をダウンロードします。
@@ -287,7 +287,7 @@ lab:
 
    > **注**: インストールが完了するまで待ちます。 これには 2 分ほどかかります。
 
-#### <a name="task-2-set-up-file-services"></a>タスク 2: ファイル サービスを設定する
+#### タスク 2: ファイル サービスを設定する
 
 1. **SEA-SVR2** のタスク バーで **[エクスプローラー]** を選択します。
 1. エクスプローラーで、**C:\\Labfiles\\Lab06** フォルダーに移動します。
@@ -301,7 +301,7 @@ lab:
 
    >**注:** このスクリプトでは、**SEA-SVR1** と **SEA-SVR2** で追加のデータ ディスクが初期化され、それぞれに NTFS ボリュームが作成され、各ボリュームにドライブ文字 **S:** が割り当てられ、**SEA-SVR1** の **S:\Data** フォルダーを使用して **Data** という名前の共有が作成されて、合計サイズ約 1 GB のサンプル ファイルが追加されます。 
 
-#### <a name="task-3-perform-migration-by-using-storage-migration-service"></a>タスク 3: 記憶域移行サービスを使用して移行を実行する
+#### タスク 3: 記憶域移行サービスを使用して移行を実行する
 
 1. **SEA-SVR2** で Microsoft Edge を起動し、**https://SEA-SVR2.contoso.com** に移動します。 
    
@@ -397,7 +397,7 @@ lab:
 
    >**注:** 切り替えによって、**SEA-SVR1** と **SEA-SVR2** 両方の 2 回連続した再起動がトリガーされます。
 
-#### <a name="task-4-validate-migration-outcome"></a>タスク 4: 移行の結果を検証する
+#### タスク 4: 移行の結果を検証する
 
 1. **SEA-SVR2** で、パスワード **Pa55w.rd** を使用して **CONTOSO\\Administrator** としてサインインします。
 1. **SEA-SVR2** 上で **[スタート]** を選択し、**[Windows PowerShell]** を選択します。

@@ -4,15 +4,15 @@ lab:
   module: 'Module 9: Implementing operational monitoring in hybrid scenarios'
 ---
 
-# <a name="lab-implementing-operational-monitoring-in-hybrid-scenarios"></a>ラボ: ハイブリッド シナリオでの運用監視の実装
+# ラボ: ハイブリッド シナリオでの運用監視の実装
 
-## <a name="lab-scenario"></a>ラボのシナリオ
+## ラボのシナリオ
 
 あなたは、Microsoft Azure の機能を評価して、主に Azure 仮想マシン (VM) に関する Azure リソースのパフォーマンスと構成の分析情報を検討する必要があります。 これを実現するために、Log Analytics を含む、Azure Monitor の機能を調べる予定です。
 
                 **メモ:** このラボをご自分のペースでクリックして進めることができる、 **[ラボの対話型シミュレーション](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Implementing%20operational%20monitoring%20in%20hybrid%20scenarios)** が用意されています。 対話型シミュレーションとホストされたラボの間に若干の違いがある場合がありますが、示されている主要な概念とアイデアは同じです。 
 
-## <a name="objectives"></a>目標
+## 目標
 
 このラボを完了すると、次のことができるようになります。
 
@@ -21,9 +21,9 @@ lab:
 - Azure VM の監視を構成する。
 - 監視サービスを評価する。
 
-## <a name="estimated-time-60-minutes"></a>予想所要時間: 60 分
+## 予想所要時間: 60 分
 
-## <a name="lab-environment"></a>ラボ環境
+## ラボ環境
   
 仮想マシン: **AZ-801T00A-SEA-DC1** と **AZ-801T00A-SEA-SVR2** が実行されている必要があります。 他の VM が実行されていてもかまいませんが、このラボでは必要ありません。
 
@@ -38,7 +38,7 @@ lab:
 
 このラボでは、使用可能な VM 環境と Azure サブスクリプションを使用します。 ラボを開始する前に、Azure サブスクリプションと、そのサブスクリプションの所有者ロールを持つユーザー アカウントがあることを確認してください。
 
-## <a name="exercise-1-preparing-a-monitoring-environment"></a>演習 1: 監視環境の準備
+## 演習 1: 監視環境の準備
 
 この演習の主なタスクは次のとおりです。
 
@@ -46,11 +46,11 @@ lab:
 1. Microsoft.Insights と Microsoft.AlertsManagement リソース プロバイダーを登録する。
 1. Azure Log Analytics ワークスペースを作成して構成する。
 
-#### <a name="task-1-deploy-an-azure-virtual-machine"></a>タスク 1: Azure 仮想マシンをデプロイする
+#### タスク 1: Azure 仮想マシンをデプロイする
 
 このタスクでは、監視シナリオのテストに使用する仮想マシンをデプロイします。
 
-1. **SEA-SVR2** で Microsoft Edge を起動して **[Azure portal](https://portal.azure.com)** に移動し、このラボで使用するサブスクリプションの所有者ロールをもつユーザー アカウントの資格情報を使用してサインインします。
+1. **SEA-SVR2** で Microsoft Edge を起動して Azure portal (`https://portal.azure.com/`) に移動し、このラボで使用するサブスクリプションの所有者ロールをもつユーザー アカウントの資格情報を使用してサインインします。
 1. **SEA-SVR2** の Azure portal を表示している Microsoft Edge ウィンドウで、Azure Cloud Shell で PowerShell セッションを開きます。
 1. Cloud Shell ウィンドウで、**C:\\Labfiles\\Lab02\\L02-sub_template.json**、**C:\\Labfiles\\Lab09\\L09-rg_template.json**、および **C:\\Labfiles\\Lab09\\L09-rg_template.parameters.json** の各ファイルを Cloud Shell のホーム ディレクトリにアップロードします。
 1. ラボ環境をホストするリソース グループを作成するために、Cloud Shell ウィンドウの **PowerShell** セッションで、次のコマンドを実行します (`<Azure_region>` プレースホルダーを、このラボでリソースをデプロイする Azure リージョンの名前に置き換えます)。
@@ -71,7 +71,7 @@ lab:
 
    >**注**: デプロイが完了するのを待たず、代わりに次のタスクに進んでください。 デプロイには約 3 分かかります。
 
-#### <a name="task-2-register-the-microsoftinsights-and-microsoftalertsmanagement-resource-providers"></a>タスク 2: Microsoft.Insights と Microsoft.AlertsManagement リソース プロバイダーを登録する
+#### タスク 2: Microsoft.Insights と Microsoft.AlertsManagement リソース プロバイダーを登録する
 
 1. Microsoft.Insights と Microsoft.AlertsManagement リソース プロバイダーを登録するには、**SEA-SVR2** で、Cloud Shell ウィンドウから次のコマンドを実行します。
 
@@ -86,7 +86,7 @@ lab:
 
 1. Cloud Shell を閉じます。
 
-#### <a name="task-3-create-and-configure-an-azure-log-analytics-workspace"></a>タスク 3: Azure Log Analytics ワークスペースを作成して構成する
+#### タスク 3: Azure Log Analytics ワークスペースを作成して構成する
 
 このタスクでは、Azure Log Analytics ワークスペースと Azure Automation ベースのソリューションを作成して構成します。
 
@@ -106,7 +106,7 @@ lab:
 1. Azure portal で、新しくプロビジョニングされたワークスペースのブレードに移動します。
 1. ワークスペース ウィンドウで、 **[エージェント管理]** ウィンドウに移動し、 **[ワークスペース ID]** と **[主キー]** の値を記録します。 これらは、次の演習で必要になります。
 
-#### <a name="task-4-install-service-map-solution"></a>タスク 4:Service Map ソリューションをインストールする
+#### タスク 4:Service Map ソリューションをインストールする
 
 1. **SEA-SVR2** の Azure portal で、**Service Map** Marketplace 項目を検索し、対応するウィンドウに移動します。
 1. **[Service Map ソリューションの作成]** ウィンドウで、次の設定を使って **Service Map** ソリューションを作成します。
@@ -117,13 +117,13 @@ lab:
    | リソース グループ | **AZ801-L0902-RG** |
    | Log Analytics ワークスペース | 前のタスクで作成した Log Analytics ワークスペースの名前 |
 
-## <a name="exercise-2-configuring-monitoring-of-on-premises-servers"></a>演習 2: オンプレミス サーバーの監視の構成
+## 演習 2: オンプレミス サーバーの監視の構成
 
 この演習の主なタスクでは次のことを行います。
 
 1. Log Analytics エージェントと Dependency Agent をインストールする
 
-#### <a name="task-1-install-the-log-analytics-agent-and-the-dependency-agent"></a>タスク 1:Log Analytics エージェントと Dependency Agent をインストールする
+#### タスク 1:Log Analytics エージェントと Dependency Agent をインストールする
 
 1. **SEA-SVR2** のコンソール セッションに接続した状態で、Azure portal が表示されているブラウザー ウィンドウの **[エージェント管理]** ウィンドウで、64 ビットの Windows Log Analytics エージェントをダウンロードします。 
 1. 既定の設定でエージェントをインストールします。 メッセージが表示されたら、前の演習で記録した**ワークスペース ID** と**ワークスペース キー (主キー)** を入力します。 
@@ -134,14 +134,14 @@ lab:
    .\InstallDependencyAgent-Windows.exe /S
    ```
 
-## <a name="exercise-3-configuring-monitoring-of-azure-vms"></a>演習 3: Azure VM の監視を構成する
+## 演習 3: Azure VM の監視を構成する
 
 この演習の主なタスクは次のとおりです。
 
 1. ホストベースの監視を確認する。
 1. 診断設定と VM 分析情報を構成する。
 
-#### <a name="task-1-review-host-based-monitoring"></a>タスク 1: ホストベースの監視を確認する
+#### タスク 1: ホストベースの監視を確認する
 
 このタスクでは、Azure 仮想マシンの既定の監視設定を確認します。
 
@@ -157,7 +157,7 @@ lab:
 
 1. **[az801l09-vm0 \| メトリック]** ページで、**az801l09-vm0** の平均 CPU 使用率を示すグラフを表示します。
 
-#### <a name="task-2-configure-diagnostic-settings-and-vm-insights"></a>タスク 2: 診断設定と VM 分析情報を構成する
+#### タスク 2: 診断設定と VM 分析情報を構成する
 
 このタスクでは、Azure 仮想マシンの診断設定を構成します。
 
@@ -203,7 +203,7 @@ lab:
 
    >**注**: このオプションにより、正常性モデルを使用した監視とアラートの機能が有効になります。これは、Azure Monitor for VMs によって生成されたメトリックを使用して構築される正常性監視の階層で構成されています。
 
-## <a name="exercise-4-evaluating-monitoring-services"></a>演習 4: 監視サービスを評価する
+## 演習 4: 監視サービスを評価する
 
 この演習の主なタスクは次のとおりです。
 
@@ -211,7 +211,7 @@ lab:
 1. Azure Monitor の VM Insights 機能を確認する。
 1. Azure Log Analytics の機能を確認する。
 
-#### <a name="task-1-review-azure-monitor-monitoring-and-alerting-functionality"></a>タスク 1: Azure Monitor の監視とアラートの機能を確認する
+#### タスク 1: Azure Monitor の監視とアラートの機能を確認する
 
 1. **SEA-SVR2** の Azure portal で、**[監視 \| メトリック]** ブレードに戻ります。
 1. スコープを **az801l09-vm0** 仮想マシンに設定します。 
@@ -219,7 +219,7 @@ lab:
    >**注**: これにより、**[az801l09-vm0 \| メトリック]** ページと同じビューとオプションが表示されます。
 
 1. **[az801l09-vm0 \| メトリック]** ページで、**az801l09-vm0** の平均 CPU 使用率を示すグラフを表示します。
-1. **[監視 \| メトリック]** ページの **[Avg Percentage CPU for az801l09-vm0]\(az801l09 の平均 CPU 使用率\)** ウィンドウで、次のシグナル ロジック設定を使用して、**az801l09-vm0** の平均 CPU 使用率に関する新しい警告ルールを作成します。
+1. **[監視 \| メトリック]** ページの **[Avg Percentage CPU for az801l09-vm0](az801l09 の平均 CPU 使用率)** ウィンドウで、次のシグナル ロジック設定を使用して、**az801l09-vm0** の平均 CPU 使用率に関する新しい警告ルールを作成します。
 
    | 設定 | 値 |
    | --- | --- |
@@ -276,7 +276,7 @@ lab:
 
    >**注**: 数分待ってから **[更新]** を選択する必要がある場合があります。
 
-#### <a name="task-2-review-azure-monitor-vm-insights-functionality"></a>タスク 2: Azure Monitor の VM Insights 機能を確認する
+#### タスク 2: Azure Monitor の VM Insights 機能を確認する
 
 1. **SEA-SVR2** で、Azure portal の **az801l09-vm0** 仮想マシンのページに戻ります。
 1. **az801l09-vm0** 仮想マシンのページの左側にある垂直メニューで、**[監視]** セクションの **[Insights]** を選択します。
@@ -286,7 +286,7 @@ lab:
 
    >**注**: 正常性情報を使用できるかどうかは、ワークスペースのアップグレードが完了しているかどうかによって異なります。
 
-#### <a name="task-3-review-azure-log-analytics-functionality"></a>タスク 3: Azure Log Analytics の機能を確認する
+#### タスク 3: Azure Log Analytics の機能を確認する
 
 1. **SEA-SVR2** で、Azure portal の **[モニター]** ページに戻り、 **[ログ]** を選びます。
 1. **[スコープの選択]** ページで、 **[最近表示したもの]** タブを使って、このラボで先ほど作成した一意のワークスペースを選択して、 **[適用]** を選択します。
@@ -302,7 +302,7 @@ lab:
    | render timechart
    ```
 
-1. ツールバーの **[クエリ]** を選択し、 **[クエリ]** ウィンドウで **[仮想マシン]** ノードを展開し、 **[Track VM availability]\(VM 可用性の追跡\)** クエリを確認して実行し、結果を確認します。
+1. ツールバーの **[クエリ]** を選択し、 **[クエリ]** ウィンドウで **[仮想マシン]** ノードを展開し、 **[Track VM availability](VM 可用性の追跡)** クエリを確認して実行し、結果を確認します。
 1. **[新しいクエリ 1]** タブの **[テーブル]** ヘッダーを選択し、 **[VM の Azure Monitor]** セクションでテーブルの一覧を確認します。
 
    >**注**: いくつかのテーブルの名前は、このラボで以前にインストールしたソリューションに対応しています。 特に、**InsightMetrics** は、パフォーマンス メトリックを格納するために Azure VM Insights で使用されます。
@@ -320,18 +320,18 @@ lab:
 1. 拡大して、**SEA-SVR2** で使用可能なネットワーク ポートを示すマップを確認し、別のポートを選択してから、対応する接続情報を確認します。
 1. 各接続で、**[概要]** ビューと **[プロパティ]** ビューを切り替えます。後者には、接続ターゲットに関するより詳細な情報が表示されます。
 
-## <a name="exercise-5-deprovisioning-the-azure-environment"></a>演習 5: Azure 環境のプロビジョニング解除
+## 演習 5: Azure 環境のプロビジョニング解除
 
 この演習の主なタスクは次のとおりです。
 
 1. Cloud Shell で PowerShell セッションを開始する。
 1. ラボでプロビジョニングされたすべての Azure リソースを削除する。
 
-#### <a name="task-1-start-a-powershell-session-in-cloud-shell"></a>タスク 1: Cloud Shell で PowerShell セッションを開始する
+#### タスク 1: Cloud Shell で PowerShell セッションを開始する
 
 1. **SEA-SVR2** の Azure portal を表示している Microsoft Edge ウィンドウで、Cloud Shell アイコンを選んで Cloud Shell ウィンドウを開きます。
 
-#### <a name="task-2-delete-all-azure-resources-provisioned-in-the-lab"></a>タスク 2: ラボでプロビジョニングされたすべての Azure リソースを削除する
+#### タスク 2: ラボでプロビジョニングされたすべての Azure リソースを削除する
 
 1. Cloud Shell ウィンドウで次のコマンドを実行して、このラボで作成されたすべてのリソース グループの一覧を表示します。
 
@@ -350,7 +350,7 @@ lab:
    >**注**: このコマンドは非同期で実行されます (*-AsJob* パラメーターによって決定されます)。 そのため、同じ PowerShell セッション内ですぐに別の PowerShell コマンドを実行できるようになりますが、リソース グループが実際に削除されるまでに数分かかります。
 
 
-#### <a name="review"></a>確認
+#### 確認
 
 このラボでは、次のことを行いました。
 
