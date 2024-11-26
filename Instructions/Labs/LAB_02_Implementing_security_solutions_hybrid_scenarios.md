@@ -10,7 +10,7 @@ lab:
 
 オンプレミスとクラウドのセキュリティ環境をさらに強化できる Microsoft Azure のセキュリティ関連の統合機能を特定するために、概念実証環境の Windows サーバーを Microsoft Defender for Cloud にオンボードすることにしました。 また、Windows Server を実行しているオンプレミスのサーバーと Azure VM を、インベントリ、変更の追跡、更新管理などの Azure Automation ベースのソリューションと統合する必要があります。
 
-                **メモ:** このラボをご自分のペースでクリックして進めることができる、 **[ラボの対話型シミュレーション](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Implementing%20security%20solutions%20in%20hybrid%20scenarios)** が用意されています。 対話型シミュレーションとホストされたラボの間に若干の違いがある場合がありますが、示されている主要な概念とアイデアは同じです。 
+**メモ:** このラボをご自分のペースでクリックして進めることができる、 **[ラボの対話型シミュレーション](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Implementing%20security%20solutions%20in%20hybrid%20scenarios)** が用意されています。 対話型シミュレーションとホストされたラボの間に若干の違いがある場合がありますが、示されている主要な概念とアイデアは同じです。 
 
 ## 目標
 

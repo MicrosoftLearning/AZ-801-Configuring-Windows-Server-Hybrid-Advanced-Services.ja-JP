@@ -23,7 +23,7 @@ Azure Migrate には次の機能が用意されています。
 
 データベース、Web アプリ、仮想デスクトップが移行イニシアチブの次のステージの範囲内にありますが、Adatum Enterprise のアーキテクチャ チームは、オンプレミスの Hyper-V 仮想マシンを Azure VM に移行するための Azure Migrate の使用を評価することから始めたいと考えています。
 
-                **メモ:** このラボをご自分のペースでクリックして進めることができる、 **[ラボの対話型シミュレーション](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Migrating%20Hyper-V%20VMs%20to%20Azure%20by%20using%20Azure%20Migrate)** が用意されています。 対話型シミュレーションとホストされたラボの間に若干の違いがある場合がありますが、示されている主要な概念とアイデアは同じです。 
+**メモ:** このラボをご自分のペースでクリックして進めることができる、 **[ラボの対話型シミュレーション](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Migrating%20Hyper-V%20VMs%20to%20Azure%20by%20using%20Azure%20Migrate)** が用意されています。 対話型シミュレーションとホストされたラボの間に若干の違いがある場合がありますが、示されている主要な概念とアイデアは同じです。 
 
 ## 目標
   
@@ -281,7 +281,7 @@ Azure Migrate には次の機能が用意されています。
    | 設定 | 値 | 
    | --- | --- |
    | フレンドリ名 | **az801l07ahvcred** | 
-   | [ユーザー名] | **学生** |
+   | [ユーザー名] | **Student** |
    | パスワード | **Pa55w.rd1234** |
 
 1. ブラウザー ウィンドウ内の **[Appliance Configuration Manager]** ページの **[Provide Hyper-V host/cluster details](Hyper-V ホスト/クラスターの詳細を指定)** セクションで、**[Hyper-V ホスト/クラスター]** に設定した検出ソースを追加し、その **[フレンドり名]** を **az801l07ahvcred** に設定し、その **[IP アドレス/FQDN]** を **10.0.2.1** に設定します。

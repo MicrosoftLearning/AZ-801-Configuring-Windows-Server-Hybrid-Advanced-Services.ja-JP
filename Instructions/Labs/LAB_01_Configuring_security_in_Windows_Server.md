@@ -4,15 +4,15 @@ lab:
   module: 'Module 1: Windows Server security'
 ---
 
-# <a name="lab-configuring-security-in-windows-server"></a>ラボ: Windows Server でのセキュリティの構成
+# ラボ: Windows Server でのセキュリティの構成
 
-## <a name="scenario"></a>シナリオ
+## シナリオ
 
 Contoso 製薬は、世界各地に 5,000 人の従業員を抱える医療系リサーチ会社です。 医療記録とデータが公開されないようにするという特定のニーズがあります。 この会社は本社の拠点と世界の複数の拠点を有しています。 Contoso では最近、Windows Server サーバーとクライアント インフラストラクチャをデプロイしました。 あなたは、サーバーのセキュリティ構成に改善を実装するように求められました。
 
-                **メモ:** このラボをご自分のペースでクリックして進めることができる、 **[ラボの対話型シミュレーション](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Configuring%20security%20in%20Windows%20Server)** が用意されています。 対話型シミュレーションとホストされたラボの間に若干の違いがある場合がありますが、示されている主要な概念とアイデアは同じです。 
+**メモ:** このラボをご自分のペースでクリックして進めることができる、 **[ラボの対話型シミュレーション](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Configuring%20security%20in%20Windows%20Server)** が用意されています。 対話型シミュレーションとホストされたラボの間に若干の違いがある場合がありますが、示されている主要な概念とアイデアは同じです。 
 
-## <a name="objectives"></a>目標
+## 目標
 
 このラボを完了すると、次のことができるようになります。
 
@@ -20,9 +20,9 @@ Contoso 製薬は、世界各地に 5,000 人の従業員を抱える医療系�
 - 問題のあるユーザーアカウントを検出する。
 - LAPS (ローカル管理者パスワード ソリューション) を実装して検証する。
 
-## <a name="estimated-time-40-minutes"></a>予想所要時間: 40 分
+## 予想所要時間: 40 分
 
-## <a name="lab-setup"></a>ラボのセットアップ
+## ラボのセットアップ
 
 仮想マシン: **AZ-801T00A-SEA-DC1**、**AZ-801T00A-SEA-SVR1**、**AZ-801T00A-SEA-SVR2** が実行されている必要があります。 他の VM が実行されていてもかまいませんが、このラボでは必要ありません。
 
@@ -37,9 +37,9 @@ Contoso 製薬は、世界各地に 5,000 人の従業員を抱える医療系�
 
 このラボでは、利用可能な VM 環境を使用します。
 
-## <a name="exercise-1-configuring-windows-defender-credential-guard"></a>演習 1: Windows Defender Credential Guard の構成
+## 演習 1: Windows Defender Credential Guard の構成
 
-### <a name="scenario"></a>シナリオ
+### シナリオ
 
 Windows Defender Credential Guard をサーバーと管理ワークステーションに実装して、Pass-the-Hash と Pass-the-Ticket の資格情報盗難から保護することにしました。 グループ ポリシーを使用して、既存のサーバーで Credential Guard を有効にします。 すべての新しいサーバーに対して Hypervisor-Protected Code Integrity (HVCI) と Windows Defender Credential Guard ハードウェア準備ツールを使用して、それらの新しいサーバーがドメインに参加する前に Credential Guard を有効にします。
 
@@ -52,7 +52,7 @@ Windows Defender Credential Guard をサーバーと管理ワークステーシ�
 1. グループ ポリシーを使用して Windows Defender Credential Guard を有効にする。
 1. HVCI と Windows Defender Credential Guard ハードウェア準備ツールを使用して Windows Defender Credential Guard を有効にする。
 
-#### <a name="task-1-enable-windows-defender-credential-guard-using-group-policy"></a>タスク 1: グループ ポリシーを使用して Windows Defender Credential Guard を有効にする
+#### タスク 1: グループ ポリシーを使用して Windows Defender Credential Guard を有効にする
 
 1. **SEA-SVR2** で、 **[グループ ポリシー管理]** コンソールを開きます。
 1. **[グループ ポリシー管理]** コンソールで、 **[フォレスト: contoso.com]** 、 **[ドメイン]** 、**contoso.com** の順に参照し、**IT** 組織単位 (OU) にリンクされた **CredentialGuard_GPO** という名前のグループ ポリシー オブジェクト (GPO) を作成します。
@@ -66,7 +66,7 @@ Windows Defender Credential Guard をサーバーと管理ワークステーシ�
 1. **[グループ ポリシー管理エディター]** ウィンドウを閉じます。
 1. **[グループ ポリシー管理]** コンソール ウィンドウを閉じます。
 
-#### <a name="task-2-enable-windows-defender-credential-guard-using-the-hvci-and-windows-defender-credential-guard-hardware-readiness-tool"></a>タスク 2: HVCI と Windows Defender Credential Guard ハードウェア準備ツールを使用して Windows Defender Credential Guard を有効にする
+#### タスク 2: HVCI と Windows Defender Credential Guard ハードウェア準備ツールを使用して Windows Defender Credential Guard を有効にする
 
 1. **SEA-SVR2** で、管理者として Windows PowerShell を起動します。
 1. HVCI と Windows Defender Credential Guard ハードウェア準備ツールを実行するために、Windows PowerShell コマンド プロンプトで次のコマンドを実行します。
@@ -79,16 +79,16 @@ Windows Defender Credential Guard をサーバーと管理ワークステーシ�
 1. ツールの実行が完了するまで待ってから、表示されるダイアログに従ってオペレーティング システムを再起動します。
 1. 再起動が完了したら、**SEA-SVR2** に **CONTOSO\\Administrator** としてサインインし直します。パスワード **Pa55w.rd** を使用します。
 
-### <a name="results"></a>結果
+### 結果
 
 この演習を完了すると、次を完了することになります。
 
 1. グループ ポリシー使用して、組織内のすべてのコンピューターに Windows Defender Credential Guard を実装する。
 1. ローカル コンピューターで Windows Defender Credential Guard を直ちに有効にする。
 
-## <a name="exercise-2-locating-problematic-accounts"></a>演習 2: 問題のあるアカウントの検出
+## 演習 2: 問題のあるアカウントの検出
 
-### <a name="scenario"></a>シナリオ
+### シナリオ
 
 無期限に設定されたパスワードを持つユーザー アカウントが組織に存在するかどうかを確認し、この設定を修復します。 また、90 日以上にサインインしていないアカウントを確認し、無効にします。
 
@@ -97,7 +97,7 @@ Windows Defender Credential Guard をサーバーと管理ワークステーシ�
 1. 無期限のパスワードを持つドメイン アカウントを検出して再構成する。
 1. 少なくとも 90 日間はサインインに使用されていないドメイン アカウントを検出して無効にする。
 
-#### <a name="task-1-locate-and-reconfigure-domain-accounts-with-non-expiring-passwords"></a>タスク 1: 無期限のパスワードを持つドメイン アカウントを検出して再構成する
+#### タスク 1: 無期限のパスワードを持つドメイン アカウントを検出して再構成する
 
 1. **SEA-SVR2** で、管理者として Windows PowerShell を起動します。
 1. 無期限のパスワードを持つ Active Directory 対応ユーザー アカウントを一覧表示するために、Windows PowerShell コマンド プロンプトで次のコマンドを実行します。
@@ -115,7 +115,7 @@ Windows Defender Credential Guard をサーバーと管理ワークステーシ�
 
 1. 結果を確認するために、手順 2. のコマンドを再実行します。結果が返されないことに注目してください。
 
-#### <a name="task-2-locate-and-disable-domain-accounts-that-have-not-been-used-to-sign-in-for-at-least-90-days"></a>タスク 2: 少なくとも 90 日間はサインインに使用されていないドメイン アカウントを検出して無効にする
+#### タスク 2: 少なくとも 90 日間はサインインに使用されていないドメイン アカウントを検出して無効にする
 
 1. 少なくとも 90 日間はサインインに使用されていない Active Directory ユーザー アカウントを特定するために、Windows PowerShell コマンド プロンプトで次のコマンドを実行します。
 
@@ -134,9 +134,9 @@ Windows Defender Credential Guard をサーバーと管理ワークステーシ�
 
    > **注**: このラボ環境では、結果は返されません。
 
-## <a name="exercise-3-implementing-laps"></a>演習 3: LAPS の実装
+## 演習 3: LAPS の実装
 
-### <a name="scenario"></a>シナリオ
+### シナリオ
 
 現在、Contoso のすべてのサーバーとワークステーションで同じローカル管理者アカウントのパスワードが使用されています。 この問題を解決するために、LAP を構成してデプロイします。
 
@@ -147,7 +147,7 @@ Windows Defender Credential Guard をサーバーと管理ワークステーシ�
 1. LAPS クライアント側拡張をデプロイする。
 1. LAPS を確認する。
 
-#### <a name="task-1-prepare-computer-accounts-for-implementing-laps-local-administrator-password-solution"></a>タスク 1: LAPS (ローカル管理者パスワード ソリューション) の実装用にコンピューター アカウントを準備する
+#### タスク 1: LAPS (ローカル管理者パスワード ソリューション) の実装用にコンピューター アカウントを準備する
 
 1. 指定の OU を作成し、**SEA-SVR1** コンピューター アカウントをその OU に移動するために、**SEA-SVR2** の Windows PowerShell コマンド プロンプトで次のコマンドを実行します。
 
@@ -175,7 +175,7 @@ Windows Defender Credential Guard をサーバーと管理ワークステーシ�
 
    > **注**: これは、このラボで後ほど **SEA-SVR1** から **SEA-SVR2** に接続するために必要です。
 
-#### <a name="task-2-prepare-ad-ds-for-laps"></a>タスク 2: LAPS 用に AD DS を準備する
+#### タスク 2: LAPS 用に AD DS を準備する
 
 1. LAPS 用にドメインを準備するために、**SEA-SVR2** の Windows PowerShell コマンド プロンプトで次のコマンドを実行します。
 
@@ -203,7 +203,7 @@ Windows Defender Credential Guard をサーバーと管理ワークステーシ�
 1. グループ ポリシー管理エディターを閉じます。
 1. **[グループ ポリシー管理]** コンソール ウィンドウを閉じます。
 
-#### <a name="task-3-deploy-laps-client-side-extension"></a>タスク 3: LAPS クライアント側拡張をデプロイする
+#### タスク 3: LAPS クライアント側拡張をデプロイする
 
 1. **SEA-SVR1** のコンソール セッションに切り替え、必要に応じて、**Pa55w.rd** のパスワードを使用して **CONTOSO\\Administrator** としてサインインします。
 
@@ -222,7 +222,7 @@ Windows Defender Credential Guard をサーバーと管理ワークステーシ�
    gpupdate /force
    ```
 
-#### <a name="task-4-verify-laps"></a>タスク 4: LAPS を確認する
+#### タスク 4: LAPS を確認する
 
 1. **SEA-SVR2** のコンソール セッションに切り替えます。
 1. **[スタート]** メニューから、**LAPS UI**を起動します。
@@ -238,7 +238,7 @@ Windows Defender Credential Guard をサーバーと管理ワークステーシ�
 
    > **注:** この場合、パスワードの値は中かっこのペアで囲まれています。
 
-### <a name="results"></a>結果
+### 結果
 
 この演習を完了すると、次を完了することになります。
 
