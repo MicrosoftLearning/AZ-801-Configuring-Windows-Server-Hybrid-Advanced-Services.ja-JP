@@ -4,24 +4,24 @@ lab:
   module: 'Module 4: Disaster Recovery in Windows Server'
 ---
 
-# <a name="lab-implementing-hyper-v-replica-and-windows-server-backup"></a>ラボ: Hyper-V レプリカおよび Windows Server バックアップの実装
+# ラボ: Hyper-V レプリカおよび Windows Server バックアップの実装
 
-## <a name="scenario"></a>シナリオ
+## シナリオ
 
 あなたは、Contoso 社で管理者として作業しています。 Contoso 社は、新しいディザスター リカバリーおよびバックアップの機能とテクノロジを評価して構成したいと考えています。 システム管理者として、その評価と実装を担当してきました。 **Hyper-V レプリカ**と Windows Server バックアップを評価することに決定しました。
 
-                **メモ:** このラボをご自分のペースでクリックして進めることができる、 **[ラボの対話型シミュレーション](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Implementing%20Hyper-V%20Replica%20and%20Windows%20Server%20Backup)** が用意されています。 対話型シミュレーションとホストされたラボの間に若干の違いがある場合がありますが、示されている主要な概念とアイデアは同じです。 
+**メモ:** このラボをご自分のペースでクリックして進めることができる、 **[ラボの対話型シミュレーション](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Implementing%20Hyper-V%20Replica%20and%20Windows%20Server%20Backup)** が用意されています。 対話型シミュレーションとホストされたラボの間に若干の違いがある場合がありますが、示されている主要な概念とアイデアは同じです。 
 
-## <a name="objectives"></a>目標
+## 目標
 
 このラボを完了すると、次のことができるようになります。
 
 - **Hyper-V レプリカ**を構成して実装する。
 - Windows Server バックアップを使用してバックアップを構成し、実装する。
 
-## <a name="estimated-time-45-minutes"></a>予想所要時間: 45 分
+## 予想所要時間: 45 分
 
-## <a name="lab-setup"></a>ラボのセットアップ
+## ラボのセットアップ
 
 仮想マシン: **AZ-801T00A-SEA-DC1**、**AZ-801T00A-SEA-SVR1**、**AZ-801T00A-SEA-SVR2** が実行されている必要があります。 他の VM が実行されていてもかまいませんが、このラボでは必要ありません。
 
@@ -36,9 +36,9 @@ lab:
 
 このラボでは、利用可能な VM 環境を使用します。
 
-## <a name="exercise-1-implementing-hyper-v-replica"></a>演習 1: Hyper-V レプリカの実装
+## 演習 1: Hyper-V レプリカの実装
 
-### <a name="scenario"></a>シナリオ
+### シナリオ
 
 クラスターのデプロイを開始する前に、ホスト間で VM をレプリケートするための Hyper-V の新しいテクノロジを評価することにしました。 アクティブなコピーまたはホストで障害が発生した場合に、VM のコピーを別のホストに手動でマウントできるようにする必要があります。
 
@@ -48,7 +48,7 @@ lab:
 1. Hyper-V レプリケーションを構成します。
 1. フェールオーバーを検証します。
 
-#### <a name="task-1-install-and-configure-hyper-v-replica"></a>タスク 1: Hyper-V レプリカをインストールして構成する
+#### タスク 1: Hyper-V レプリカをインストールして構成する
 
 1. **SEA-SVR2** で、管理者として Windows PowerShell を開始します。
 1. **SEA-SVR2** でセキュリティが強化された **Hyper-V レプリカ HTTP Listener (TCP-In)** 規則を使用する Windows Defenderファイアウォールの状態を確認するには、Windows PowerShell プロンプトで次のコマンドを実行します。
@@ -126,7 +126,7 @@ lab:
 
    > **注**: 2 つ目の **[管理者: Windows PowerShell]** ウィンドウは開いたままにしておきます。
 
-#### <a name="task-2-configure-hyper-v-replication"></a>タスク 2: Hyper-V レプリケーションを構成する
+#### タスク 2: Hyper-V レプリケーションを構成する
 
 1. **SEA-SVR2** で、ローカルの PowerShell セッションを表示している **[管理者: Windows PowerShell]** ウィンドウに切り替えます。
 1. **SEA-SVR2** から **SEA-SVR1** への仮想マシン **SEA-CORE1** のレプリケーションを有効にするには、**SEA-SVR2** 上のローカルセッションの Windows PowerShell プロンプトで次のコマンドを実行します。
@@ -160,7 +160,7 @@ lab:
 
    > **注**: Windows PowerShell のセッションは両方とも開いたままにしておきます。
 
-##### <a name="task-3-validate-a-failover"></a>タスク 3: フェールオーバーを検証する
+##### タスク 3: フェールオーバーを検証する
 
 1. **SEA-SVR2** で、ローカルの PowerShell セッションを表示している **[管理者: Windows PowerShell]** ウィンドウに切り替えます。
 1. **SEA-CORE1** 仮想マシンを **SEA-SVR1** にフェールオーバーする準備をするには、**SEA-SVR2** 上の、ローカルセッションをホストしている Windows PowerShell ウィンドウで、次のコマンドを実行します。
@@ -216,9 +216,9 @@ lab:
 
    > **注**: グラフィカル ツールを使用してこの演習の結果を確認する場合は、**SEA-SVR2** 上で Hyper-V マネージャーを使用してから、**SEA-SVR1** および **SEA-SVR2** サーバーを **Hyper-V** コンソールに追加します。 その後、**SEA-CORE1** VM が **SEA-SVR1** と **SEA-SVR2** の両方に存在し、**SEA-SVR2** から **SEA-SVR1** へレプリケーションが実行されていることを確認できます。
 
-## <a name="exercise-2-implementing-backup-and-restore-with-windows-server-backup"></a>演習 2: Windows Server バックアップを使用したバックアップと復元の実装
+## 演習 2: Windows Server バックアップを使用したバックアップと復元の実装
 
-### <a name="scenario"></a>シナリオ
+### シナリオ
 
 メンバーサーバーの Windows Server バックアップを評価する必要があります。 **SEA-SVR2** サーバーの Windows Server バックアップを構成し、 **SEA-SVR2** のネットワーク共有への試用版バックアップを実行することにしました。
 
@@ -227,14 +227,14 @@ lab:
 1. Windows Server バックアップ設定を構成します。
 1. ネットワーク共有へのバックアップを実行します。
 
-#### <a name="task-1-configure-windows-server-backup-settings"></a>タスク 1: Windows Server バックアップ設定を構成する
+#### タスク 1: Windows Server バックアップ設定を構成する
 
 1. **SEA-SVR2** 上で、エクスプローラーを使用して **SEA-SVR2** に **C:\\ BackupShare** フォルダーを作成します。 **認証されたユーザー** が読み取り/書き込みアクセス許可を持つようにフォルダーを共有します。
 1. **SEA-SVR2** で、**SEA-SVR1** への PowerShell リモート処理セッションを表示している **[管理者: Windows PowerShell]** ウィンドウに切り替えます。
 1. **SEA-SVR1** への PowerShell リモート処理セッションで、 **Install-WindowsFeature** コマンドレットを使用して **Windows-Server-Backup** 機能を **SEA-SVR1** 上にインストールします。
 1. **SEA-SVR1** への PowerShell リモート処理セッションで、**wbadmin /?**、 および **Get-Command** コマンドを使用して、 **wbadmin** ユーティリティの機能と **WindowsServerBackup** モジュールのコマンドレットを確認します。
 
-#### <a name="task-2-perform-a-backup-to-a-network-share"></a>タスク 2: ネットワーク共有へのバックアップを実行する
+#### タスク 2: ネットワーク共有へのバックアップを実行する
 
 1. **SEA-SVR2** から、**SEA-SVR1** 上にバックアップするフォルダーとファイルを作成します。そのためには、 **SEA-SVR1** への PowerShell リモート処理セッションを使用して次のコマンドを実行します。
 

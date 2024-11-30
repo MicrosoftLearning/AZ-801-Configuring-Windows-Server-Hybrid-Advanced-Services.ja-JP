@@ -7,7 +7,7 @@ lab:
 
 # ラボ回答キー: Windows Server でのアップグレードと移行
 
-                **メモ:** このラボをご自分のペースでクリックして進めることができる、 **[ラボの対話型シミュレーション](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Upgrading%20and%20migrating%20in%20Windows%20Server)** が用意されています。 対話型シミュレーションとホストされたラボの間に若干の違いがある場合がありますが、示されている主要な概念とアイデアは同じです。 
+**メモ:** このラボをご自分のペースでクリックして進めることができる、 **[ラボの対話型シミュレーション](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Upgrading%20and%20migrating%20in%20Windows%20Server)** が用意されています。 対話型シミュレーションとホストされたラボの間に若干の違いがある場合がありますが、示されている主要な概念とアイデアは同じです。 
 
 ## 演習 1: AD DS ドメイン コントローラーを Azure にデプロイする
 
@@ -54,8 +54,8 @@ lab:
    | サブスクリプション | このラボで使用している Azure サブスクリプションの名前 |
    | リソース グループ | 新しいリソース グループの名前 **AZ801-L0601-RG** |
    | リージョン | Azure VM をプロビジョニングできる Azure リージョンの名前 |
-   | 管理ユーザー名 | **学生** |
-   | 管理パスワード | **Pa55w.rd1234** |
+   | 管理ユーザー名 | **Student** |
+   | 管理者パスワード | **Pa55w.rd1234** |
    | ドメイン名 | **contoso.com** |
    | VM サイズ | **Standard_DS2_v2** |
    | _artifacts の場所 | **`https://raw.githubusercontent.com/az140mp/azure-quickstart-templates/master/application-workloads/active-directory/active-directory-new-domain/`** |
@@ -132,7 +132,7 @@ lab:
    | Image | **Windows Server 2022 Datacenter: Azure Edition - Gen2** |
    | Azure Spot 割引で実行する | **No** |
    | サイズ | **Standard D2s v3** |
-   | ユーザー名 | **学生** |
+   | ユーザー名 | **Student** |
    | パスワード | **Pa55w.rd1234** |
    | パブリック受信ポート | **なし** |
    | 既存の Windows Server ライセンスを使用しますか? | **No** |
@@ -202,7 +202,7 @@ lab:
    | [ユーザー名] |**Student** |
    | パスワード |**Pa55w.rd1234** |
 
-> **注**: 既定で、**Edge** ではポップアップがブロックされます。 **Bastion** のポップアップを許可するには、**Edge** の **[設定]** に移動し、左側の **[Cookie とサイトのアクセス許可]** を選択し、 **[すべてのアクセス許可]** の下の **[ポップアップとリダイレクト]** を選び、最後に **[ブロック (推奨)]** をオフに切り替えます。
+> **注**: 既定では、**Edge** によってポップアップがブロックされます。 **Bastion** のポップアップを許可するには、**Edge** の **[設定]** に移動し、左側の **[Cookie とサイトのアクセス許可]** を選択し、 **[すべてのアクセス許可]** の下の **[ポップアップとリダイレクト]** を選び、最後に **[ブロック (推奨)]** をオフに切り替えます。
 
 1. **az801l06a-dc2** へのリモート デスクトップ セッション内で、**[スタート]** を選択し、**[Windows PowerShell]** を選択します。
 1. AD DS と DNS サーバーの役割をインストールするには、Windows PowerShell コマンド プロンプトで次のコマンドを入力してから Enter キーを押します。
@@ -245,7 +245,7 @@ lab:
 
    | 設定 | 値 | 
    | --- | --- |
-   | [ユーザー名] |**学生** |
+   | [ユーザー名] |**Student** |
    | パスワード |**Pa55w.rd1234** |
 
 1. **az801l06a-dc2** へのリモート デスクトップ セッションで、**サーバー マネージャー** ウィンドウが開くまで待機し、ローカル環境にインストールされている役割に **AD DS** と **DNS** が含まれることを確認します。
@@ -341,7 +341,7 @@ lab:
    - ユーザー名: **CONTOSO\\Administrator**
    - パスワード: **Pa55w.rd**
 
-   > **注**: シングル サインオンを実行するには、Kerberos の制約付き委任を設定する必要があります。<!--Marcin can this be 'a Kerberos constrained delegation'?-->.
+   > **注**: シングル サインオンを実行するには、Kerberos の制約付き委任を設定する必要があります。<!--Marcin can this be 'a Kerberos constrained delegation'?-->=
 
 1. デバイスの一覧で、新しく追加した **SEA-SVR1.contoso.com** エントリを選択し、**[Add and scan devices](デバイスの追加とスキャン)** ペインのツールバーで、省略記号ボタン ([**...**]) を選択してから、ドロップダウンメニューで **[スキャンの開始]** を選択します。
 
