@@ -28,11 +28,7 @@ Contoso は、オンプレミスの Windows Server から Azure 仮想マシン 
 > **注**: **AZ-801T00A-SEA-DC1**、**AZ-801T00A-SEA-SVR1**、**AZ-801T00A-SEA-SVR2** 仮想マシンは、それぞれ **SEA-DC1**、**SEA-SVR1**、および **SEA-SVR2** のインストールをホストしています。
 
 1. **[SEA-SVR2]** を選択します。
-1. 次の資格情報を使用してサインインします。
-
-   - ユーザー名: **Administrator**
-   - パスワード: **Pa55w.rd**
-   - ドメイン: **CONTOSO**
+1. 講師から提供された資格情報を使用してサインインします。
 
 このラボでは、使用可能な VM 環境と Azure サブスクリプションを使用します。 ラボを開始する前に、Azure サブスクリプションと、そのサブスクリプションの所有者ロールを持つユーザー アカウントがあることを確認してください。
 
@@ -283,10 +279,7 @@ Contoso は、オンプレミスの Windows Server から Azure 仮想マシン 
 #### タスク 3: 記憶域移行サービスを使用して移行を実行する
 
 1. **SEA-ADM1** で Microsoft Edge を起動し、**https://SEA-ADM1.contoso.com** で Windows Admin Center のローカル インスタンスに接続します。 
-1. メッセージが表示されたら、次の資格情報を使用して認証を行います。
-
-   - ユーザー名: **CONTOSO\\Administrator**
-   - パスワード: **Pa55w.rd**
+1. プロンプトが表示されたら、講師から提供された資格情報で認証します。
 
 1. **SEA-ADM1** の Windows Admin Center で、インストールされている拡張機能を確認し、一覧に**記憶域移行サービス**拡張機能が含まれることを確認します。
 
@@ -301,10 +294,7 @@ Contoso は、オンプレミスの Windows Server から Azure 仮想マシン 
 1. **[記憶域移行サービス]** ペインで、**SVR1toSVR2** という名前の移行ジョブを作成し、**[ソース デバイス]** を **[Windows servers and clusters](Windows サーバーとクラスター)** に設定します。
 1. **[記憶域移行サービス > SVR1toSVR2]** ペインの **[Inventory servers](インベントリ サーバー)** タブで、**[Check the prerequisites](前提条件の確認)** ペインを確認します。
 1. **[Inventory servers](インベントリ サーバー)** タブの **[資格情報の入力]** ペインで、必要に応じて、**CONTOSO\\Administrator** ユーザー アカウントの資格情報を入力し、**[Migrate from failover clusters](フェールオーバー クラスターから移行する)** チェック ボックスをオフにします。
-1. **[Inventory servers](インベントリ サーバー)** タブの **[Add and scan devices](デバイスの追加とスキャン)** ペインで、次の資格情報を使用して **SEA-SVR1.contoso.com** サーバーを追加します。
-
-   - ユーザー名: **CONTOSO\\Administrator**
-   - パスワード: **Pa55w.rd**
+1. **[Inventory servers](インベントリ サーバー)** タブの **[Add and scan devices](デバイスの追加とスキャン)** ペインで、講師から提供された資格情報を使用して **SEA-SVR1.contoso.com** サーバーを追加します。
 
    > **注**: シングル サインオンを実行するには、Kerberos の制約付き委任を設定する必要があります。
 

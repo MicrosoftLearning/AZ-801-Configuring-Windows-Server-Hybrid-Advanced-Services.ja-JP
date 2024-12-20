@@ -13,7 +13,7 @@ lab:
 
 #### タスク 1: Azure Resource Manager (ARM) テンプレートを使用してドメイン コントローラーをデプロイする
 
-1. **SEA-SVR2** に接続し、必要であれば、パスワード **Pa55w.rd** を使用して **CONTOSO\\Administrator** としてサインインします。
+1. **SEA-SVR2** に接続し、必要に応じて、講師から提供された資格情報でサインインします。
 1. **SEA-SVR2** で Microsoft Edge を起動し、「**[新しい Windows VM を作成し、新しい AD フォレスト、ドメイン、DC を作成する](https://github.com/az140mp/azure-quickstart-templates/tree/master/application-workloads/active-directory/active-directory-new-domain)**」にあるカスタマイズされたバージョンのクイックスタート テンプレートにアクセスします。 
 1. 「**新しい Windows VM を作成し、新しい AD フォレスト、ドメイン、DC を作成する**」ページで、**[Azure に配置する]** を選択します。 これにより、ブラウザーが Azure portal の **[Create an Azure VM with a new AD Forest](新しい AD フォレストで Azure VM を作成する)** ページに自動的にリダイレクトされます。
 1. **[Create an Azure VM with a new AD Forest](新しい AD フォレストで Azure VM を作成する)** ページで、**[テンプレートの編集]** を選びます。
@@ -309,10 +309,7 @@ lab:
 
    >**注**: **NET::ERR_CERT_DATE_INVALID** エラーが発生した場合は、Edge ブラウザー ページの **[詳細設定]** を選択し、ページの下部にある **[sea-svr2-contoso.com (アンセーフ) に移動]** を選択します。
 
-1. ダイアログが表示されたら、**[Windows セキュリティ]** ダイアログ ボックスに次の資格情報を入力して、**[OK]** を選択します。
-
-   - ユーザー名: **CONTOSO\\Administrator**
-   - パスワード: **Pa55w.rd**
+1. プロンプトが表示されたら、**[Windows セキュリティ]** ダイアログ ボックスに、講師から提供された資格情報を入力して、**[OK]** を選択します。
 
 1. **[このリリースの新機能]** ポップアップ ウィンドウを確認し、右上隅の **[閉じる]** を選択します。
 1. Windows Admin Center の **[すべての接続]** ペインで、右上隅にある **[設定]** アイコン (歯車) を選択します。
@@ -336,12 +333,9 @@ lab:
 1. **[インベントリ サーバー]** タブの **[Install required features](必要な機能のインストール)** ペインで、 **[次へ]** を選択します。
 1. **[インベントリ サーバー]** タブの **[Add and scan devices](デバイスの追加とスキャン)** ペインで、**[デバイスの追加]** を選択します。
 1. **[ソース デバイスの追加]** で、**[デバイス名]** オプションが選択されていることを確認し、**[名前]** テキスト ボックスに「**SEA-SVR1.contoso.com**」と入力して、**[追加]** を選択します。
-1. **[Specify your credentials](資格情報の指定)** ペインで、**[この接続に別のアカウントを使用する]** オプションを選択し、次の資格情報を入力し、**[Use these credentials for all connections](すべての接続にこれらの資格情報を使用する)** を選択し、**[続行]** を選択します。
+1. **[Specify your credentials](資格情報の指定)** ペインで、**[この接続に別のアカウントを使用する]** オプションを選択し、講師から提供された格情報を入力し、**[Use these credentials for all connections](すべての接続にこれらの資格情報を使用する)** を選択したあと、**[続行]** を選択します。
 
-   - ユーザー名: **CONTOSO\\Administrator**
-   - パスワード: **Pa55w.rd**
-
-   > **注**: シングル サインオンを実行するには、Kerberos の制約付き委任を設定する必要があります。<!--Marcin can this be 'a Kerberos constrained delegation'?-->=
+   > **注**: シングル サインオンを実行するには、Kerberos の制約付き委任を設定する必要があります。<!--Marcin can this be 'a Kerberos constrained delegation'?-->から始めます。
 
 1. デバイスの一覧で、新しく追加した **SEA-SVR1.contoso.com** エントリを選択し、**[Add and scan devices](デバイスの追加とスキャン)** ペインのツールバーで、省略記号ボタン ([**...**]) を選択してから、ドロップダウンメニューで **[スキャンの開始]** を選択します。
 
@@ -399,7 +393,7 @@ lab:
 
 #### タスク 4: 移行の結果を検証する
 
-1. **SEA-SVR2** で、パスワード **Pa55w.rd** を使用して **CONTOSO\\Administrator** としてサインインします。
+1. **SEA-SVR2** で、講師から提供された資格情報を使用してサインインします。
 1. **SEA-SVR2** 上で **[スタート]** を選択し、**[Windows PowerShell]** を選択します。
 1. **SEA-SVR2** のネットワーク インターフェイスに割り当てられた IPv4 アドレスを確認するには、**Windows PowerShell** コンソールで次のコマンドを入力し、Enter キーを押します。
     
