@@ -13,7 +13,7 @@ lab:
 
 #### タスク 1: Hyper-V レプリカをインストールして構成する
 
-1. **SEA-SVR2** に接続し、必要であればパスワード **Pa55w.rd** を使用して **Contoso\\管理者**としてサインインします。
+1. **SEA-SVR2** に接続し、必要に応じて、講師から提供された資格情報でサインインします。
 1. **SEA-SVR2** 上で **[スタート]** を選択し、 **[Windows PowerShell (管理者)]** を選択します。
 1. **SEA-SVR2** でセキュリティが強化された **Hyper-V レプリカ HTTP Listener (TCP-In)** 規則を使用する Windows Defender ファイアウォールの状態を確認するには、Windows PowerShell プロンプトで次のコマンドを入力して Enter キーを押します。
 
@@ -237,7 +237,7 @@ lab:
    Add-WBFileSpec -Policy $policy -FileSpec $fileSpec
    ```
 
-1. 前のタスクで作成したネットワーク共有を使用し、**SEA-SVR2** でバックアップの場所を構成するには、**SEA-SVR2** で、**SEA-SVR1** への PowerShell リモート処理セッションをホストする Windows PowerShell ウィンドウで、次のコマンドを入力し、各コマンドを入力した後、Enter キーを押します (サイン インを求めるメッセージが表示されたら、**CONTOSO\\Administrator** ユーザー名と **Pa55w.rd** パスワードを入力します)。
+1. 前のタスクで作成したネットワーク共有を使用し、**SEA-SVR2** でバックアップの場所を構成するには、**SEA-SVR2** で、**SEA-SVR1** への PowerShell リモート処理セッションをホストする Windows PowerShell ウィンドウで、次のコマンドを入力し、各コマンドを入力した後、Enter キーを押します (サインインを求めるメッセージが表示されたら、講師から提供された資格情報を入力します)。
 
    ```powershell
    $cred = Get-Credential

@@ -15,7 +15,7 @@ lab:
 
 #### タスク 1: Azure Resource Manager クイックスタートテンプレートを使用して Azure VM をデプロイする
 
-1. **SEA-SVR2** に接続し、必要であればパスワード **Pa55w.rd** を使用して **CONTOSO\\Administrator** としてサインインします。
+1. **SEA-SVR2** に接続し、必要に応じて、講師から提供された資格情報でサインインします。
 1. **SEA-SVR2** で Microsoft Edge を起動し、**[301-nested-vms-in-virtual-network Azure クイックスタートテンプレート](https://github.com/az140mp/azure-quickstart-templates/tree/master/demos/nested-vms-in-virtual-network)** を参照して、**[Azure へのデプロイ]** を選択します。 (ボタン **[Azure へのデプロイ]** は、テンプレートにより作成されるリソース一覧の後の `README.md` ファイル内にあります)。これにより、Azure portal の **[Hyper-V Host Virtual Machine with nested VMs](入れ子になった VM を含む Hyper-V ホスト仮想マシン)** ページにブラウザーが自動的にリダイレクトされます。
 1. Azure portal でダイアログが表示されたら、このラボで使用するサブスクリプションの所有者ロールをもつユーザー アカウントの資格情報を使用してサインインします。
 1. Azure portal の **[Hyper-V Host Virtual Machine with nested VMs](入れ子になった VM を含む Hyper-V ホスト仮想マシン)** ページで、次の設定を使用します (その他は既定値のままにします)。
