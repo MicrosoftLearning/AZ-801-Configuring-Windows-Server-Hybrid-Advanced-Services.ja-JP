@@ -36,61 +36,57 @@ lab:
 
    > **注**: デプロイが完了するまで待ちます。 デプロイには約 10 分かかります。
 
-#### タスク 2: Azure Bastion をデプロイする 
+#### タスク 2: リモート アクセス権を付与する
 
-> **注**: Azure Bastion を使用すると、この演習の前のタスクでデプロイしたパブリック エンドポイントを使用せずに Azure VM に接続できると同時に、オペレーティング システム レベルの資格情報を対象とするブルート フォース攻撃から保護することができます。
+**注**: 最も安全で堅牢な機能のために、デプロイされた VM などの機密性の高い VM にアクセスするには Bastion ホスト を常に使用することをお勧めしますが、このラボのデモンストレーションの目的に対しては、直接リモート アクセスを構成します。
 
-1. **SEA-SVR2** で、Azure portal を表示しているブラウザー ウィンドウから、Azure portal の **[Cloud Shell]** ボタンを選択して **[Azure Cloud Shell]** ペインを開きます。
-1. **Bash** または **PowerShell** の選択を求めるメッセージが表示されたら、 **[PowerShell]** を選択します。
+1. **SEA-SVR2** で Microsoft Edge を起動し、「**[whatismyipaddress](https://whatismyipaddress.com/)**」を参照します。 IP アドレスをメモ帳に保存します。これは、後の手順で使用されます。
+1. Azure portal で、ページ上部の検索テキストボックスのすぐ右側にある **Cloud Shell** アイコンをクリックします。
+1. **Bash** または **PowerShell** の選択を求めるメッセージが表示されたら、**[Bash]** を選択します。
 
-   > **注**: **Cloud Shell** を起動するのが初めてで、"**ストレージがマウントされません**" というメッセージが表示される場合は、このラボで使用しているサブスクリプションを選択してから、**[ストレージの作成]** を選択します。
+   >**注**: **Cloud Shell** を初めて起動し、[**ストレージがマウントされていません**] というメッセージが表示された場合は、このラボで使用しているサブスクリプションを選択し、**[ストレージの作成]** を選択します。
 
-1. **Cloud Shell** ウィンドウの PowerShell セッションから次のコマンドを実行して、この演習で先ほど作成した仮想ネットワーク **az801l07a-hv-vnet** に **AzureBastionSubnet** という名前のサブネットを追加します。
+1. **[Cloud Shell]** ウィンドウの **Bash** プロンプトから次のコマンドを実行して新しいパブリック IP アドレスを作成します。
 
-   ```powershell
-   $resourceGroupName = 'AZ801-L0701-RG'
-   $vnet = Get-AzVirtualNetwork -ResourceGroupName $resourceGroupName -Name 'az801l07a-hv-vnet'
-   $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
-    -Name 'AzureBastionSubnet' `
-    -AddressPrefix 10.0.7.0/24 `
-    -VirtualNetwork $vnet
-   $vnet | Set-AzVirtualNetwork
+   ```bash
+      az network public-ip create --name RDP --resource-group AZ801-L0701-RG
+      ```
+1. 次のコマンドを実行して、新しいパブリック IP アドレスを VM のネットワーク インターフェイス nic1 にリンクします。
+   ```bash
+      az network nic ip-config update \
+      --name ipconfig \
+      --nic-name az801l07a-hv-vm-nic1 \
+      --resource-group AZ801-L0701-RG \
+      --public-ip-address RDP
+   ```
+1. 次のコマンドを実行して新しい nsg ルールを作成し、 **SEA-SVR2** からのリモート アクセスを許可します。 **WHATS-MY-IP-ADDRESS** プレースホルダーは、前の手順で確認した IP アドレスに置き換えます。
+   ```bash
+      az network nsg rule create \
+      --name RDP \
+      --nsg-name NATNSG \
+      --priority 100 \
+      --resource-group AZ801-L0701-RG \
+      --access Allow \
+      --description "RDPIn" \
+      --destination-port-ranges 3389 \
+      --direction Inbound \
+      --protocol TCP \
+      --source-address-prefixes WHATS-MY-IP-ADDRESS/32
    ```
 
-1. **[Cloud Shell]** ペインを閉じます。
-1. Azure portal のツールバーの **[リソース、サービス、ドキュメントの検索]** テキスト ボックスで、**[Bastions]** を検索して選択し、**[Bastions]** ページで **[+ 作成]** を選択します。
-1. **[Bastion の作成]** ページの **[基本]** タブで、次の設定を指定し、**[確認と作成]** を選択します。
 
-   | 設定 | 値 | 
-   | --- | --- |
-   | サブスクリプション | このラボで使用している Azure サブスクリプションの名前 |
-   | リソース グループ | **AZ801-L0701-RG** |
-   | 名前 | **az801l07a-bastion** |
-   | リージョン | この演習の前のタスクでリソースをデプロイしたのと同じ Azure リージョン |
-   | レベル | **Basic** |
-   | 仮想ネットワーク | **az801l07a-hv-vnet** |
-   | サブネット | **AzureBastionSubnet (10.0.7.0/24)** |
-   | パブリック IP アドレス | **新規作成** |
-   | パブリック IP の名前 | **az801l07a-hv-vnet-ip** |
-
-   > **注**: bastion は、仮想ネットワークと同じ Azure リージョンに作成する必要があります。
-
-1. **[Bastion の作成]** ページの **[確認と作成]** タブで、**[作成]** を選択します。
-
-   > **注**: デプロイが完了するまで待ってから、次のタスクに進んでください。 デプロイには約 5 分かかります。
 
 #### タスク 3: Azure VM に入れ子になった VM をデプロイする
 
 1. Azure portal のツールバーの **[リソース、サービス、ドキュメントの検索]** テキスト ボックスで、**[仮想マシン]** を検索して選択し、**[仮想マシン]** ページで **[az801l07a-hv-vm]** を選択します。
-1. **[az801l07a-hv-vm]** ページで、**[接続]** を選択し、ドロップダウン メニューで **[Bastion]** を選択します。
+1. **[概要]** の **[az801l07a-hv-vm]** ページで、パブリック IP アドレスの値を書き留めます。
+1. **[接続]** を選択して、**[RDP ファイルのダウンロード]** を選択します。
 1. プロンプトが表示されたら、次の資格情報を入力し、**[接続]** を選択します。
 
    | 設定 | 値 | 
    | --- | --- |
    | [ユーザー名] |**Student** |
    | パスワード |**Pa55w.rd1234** |
-
-   > **注**: 既定では、**Edge** によってポップアップがブロックされます。 **Bastion** のポップアップを許可するには、**Edge** の **[設定]** に移動し、左側の **[Cookie とサイトのアクセス許可]** を選択し、 **[すべてのアクセス許可]** で **[ポップアップとリダイレクト]** を選び、最後に **[ブロック (推奨)]** をオフに切り替えます。
 
 1. **az801l07a-hv-vm** へのリモート デスクトップ セッションの **[サーバー マネージャー]** ウィンドウで、**[ローカル サーバー]** を選択し、**[IE セキュリティ強化の構成]** ラベルの横にある **[オン]** リンクを選択します。 **[IE セキュリティ強化の構成]** ダイアログ ボックスで、両方の **[オフ]** オプションを選択し、**[OK]** を選択します。
 1. リモート デスクトップ セッションでエクスプローラーを開き、**F:** ドライブに移動します。 **F:\\VHDs** と **F:\\VMs** の 2 つのフォルダーを作成します。 
