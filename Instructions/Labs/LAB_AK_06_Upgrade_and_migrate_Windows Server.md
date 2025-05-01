@@ -57,7 +57,7 @@ lab:
    | 管理ユーザー名 | **Student** |
    | 管理者パスワード | **Pa55w.rd1234** |
    | ドメイン名 | **contoso.com** |
-   | VM サイズ | **Standard_DS2_v2** |
+   | VM サイズ | **Standard_D2s_v3** |
    | _artifacts の場所 | **`https://raw.githubusercontent.com/az140mp/azure-quickstart-templates/master/application-workloads/active-directory/active-directory-new-domain/`** |
    | 仮想マシン名 | **az801l06a-dc1** |
    | 仮想ネットワーク名 | **az801l06a-vnet** |
