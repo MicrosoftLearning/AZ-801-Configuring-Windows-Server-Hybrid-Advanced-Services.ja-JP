@@ -7,8 +7,6 @@ lab:
 
 # ラボ回答キー: Hyper-V レプリカと Windows Server バックアップの実装
 
-**メモ:** このラボをご自分のペースでクリックして進めることができる、 **[ラボの対話型シミュレーション](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Implementing%20Hyper-V%20Replica%20and%20Windows%20Server%20Backup)** が用意されています。 対話型シミュレーションとホストされたラボの間に若干の違いがある場合がありますが、示されている主要な概念とアイデアは同じです。 
-
 ## 演習 1: Hyper-V レプリカの実装
 
 #### タスク 1: Hyper-V レプリカをインストールして構成する
