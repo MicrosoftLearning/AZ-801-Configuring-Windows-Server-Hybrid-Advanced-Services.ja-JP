@@ -79,7 +79,7 @@ lab:
    >**注**: **(Get-AzLocation).Location** コマンドを使用して、使用可能な Azure リージョンの名前を一覧表示できます。
 
    ```powershell 
-   New-AzResourceGroup -Name 'AZ801-L0202-RG' -Location '<Location>'
+   New-AzResourceGroup -Name 'AZ801-L0202-RG' -Location '<Azure_region>'
    ```
 
 1. Cloud Shell を閉じます。
