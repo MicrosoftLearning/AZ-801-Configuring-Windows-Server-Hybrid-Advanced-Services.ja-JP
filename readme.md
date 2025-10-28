@@ -1,3 +1,5 @@
+**⚠️ This GitHub repo will retire on 31st October 2025.**
+
 # AZ-801T00: Windows Server Hybrid Advanced Services の構成
 
 - **[最新の学生ハンドブックと AllFiles コンテンツをダウンロードする](../../releases/latest)**
