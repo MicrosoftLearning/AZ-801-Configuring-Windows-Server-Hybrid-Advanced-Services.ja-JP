@@ -5,6 +5,8 @@ lab:
   module: 'Module 3: High availability in Windows Server'
 ---
 
+この演習の所要時間は約 **60** 分です。 <!-- update with estimated duration -->
+
 # ラボ応答キー: フェールオーバー クラスタリングの実装
 
 ## 演習 1: iSCSI ストレージの構成

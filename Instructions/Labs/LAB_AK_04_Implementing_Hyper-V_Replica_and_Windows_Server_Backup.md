@@ -7,6 +7,8 @@ lab:
 
 # ラボ回答キー: Hyper-V レプリカと Windows Server バックアップの実装
 
+この演習の所要時間は約 **45** 分です。 <!-- update with estimated duration -->
+
 ## 演習 1: Hyper-V レプリカの実装
 
 #### タスク 1: Hyper-V レプリカをインストールして構成する
