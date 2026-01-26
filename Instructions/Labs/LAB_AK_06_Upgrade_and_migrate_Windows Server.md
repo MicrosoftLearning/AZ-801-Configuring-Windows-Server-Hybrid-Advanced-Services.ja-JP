@@ -7,6 +7,8 @@ lab:
 
 # ラボ回答キー: Windows Server でのアップグレードと移行
 
+この演習の所要時間は約 **60** 分です。 <!-- update with estimated duration -->
+
 ## 演習 1: AD DS ドメイン コントローラーを Azure にデプロイする
 
 #### タスク 1: Azure Resource Manager (ARM) テンプレートを使用してドメイン コントローラーをデプロイする

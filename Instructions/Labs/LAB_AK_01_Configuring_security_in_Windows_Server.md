@@ -7,6 +7,8 @@ lab:
 
 # ラボの解答集: Windows Server でのセキュリティの構成
 
+この演習の所要時間は約 **40** 分です。 <!-- update with estimated duration -->
+
 >**注**: 以前提供されていたラボ シミュレーションは廃止されました。
 
 ## 演習 1: Windows Defender Credential Guard の構成

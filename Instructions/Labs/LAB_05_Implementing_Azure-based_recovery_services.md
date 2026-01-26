@@ -6,6 +6,8 @@ lab:
 
 # ラボ: Azure ベースの復旧サービスの実装
 
+この演習の所要時間は約 **60** 分です。 <!-- update with estimated duration -->
+
 ## シナリオ 
 古い運用モデル、自動化の使用制限、復元とディザスター リカバリーのためのテープ バックアップへの依存に関する懸念に対処するために、Microsoft Azure ベースの復旧サービスを使用することにしました。 最初のステップとして、Azure Site Recovery と Azure Backup を実装します。
 
