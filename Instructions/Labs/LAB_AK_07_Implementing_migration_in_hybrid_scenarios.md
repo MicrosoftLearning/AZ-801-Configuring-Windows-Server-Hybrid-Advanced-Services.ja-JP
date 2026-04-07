@@ -3,6 +3,16 @@ lab:
   title: 'ラボ: Azure Migrate を使用して Hyper-V VM を Azure に移行する'
   type: Answer Key
   module: 'Module 7: Design for Migration'
+  description: Azure Migrate リソースと検出アプライアンスをデプロイして、移行用に Hyper-V 環境を準備します。 オンプレミスの仮想マシンを評価し、レプリケーションを構成して、テスト移行手順を実行します。
+  duration: 120 minutes
+  level: 300
+  islab: true
+  primarytopics:
+    - Azure
+    - Azure Migrate
+    - Hyper-V
+    - Migration
+    - Assessment
 ---
 
 # ラボの解答キー: Azure Migrate を使用して Hyper-V VM を Azure に移行する

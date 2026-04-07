@@ -3,6 +3,16 @@ lab:
   title: 'ラボ: Windows Server でのセキュリティの構成'
   type: Answer Key
   module: 'Module 1: Windows Server security'
+  description: グループ ポリシーとハードウェア準備ツールを使って、Windows Defender Credential Guard を構成します。 危険なドメイン アカウント設定を特定して修復し、ドメイン参加済みのサーバーにローカル管理者パスワード ソリューションをデプロイします。
+  duration: 40 minutes
+  level: 300
+  islab: true
+  primarytopics:
+    - Windows Server
+    - Security
+    - Active Directory
+    - LAPS
+    - Group Policy
 ---
 
 # ラボの解答集: Windows Server でのセキュリティの構成

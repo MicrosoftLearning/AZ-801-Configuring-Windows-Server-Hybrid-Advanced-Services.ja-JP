@@ -3,6 +3,15 @@ lab:
   title: 'ラボ: Windows Server の監視とトラブルシューティング'
   type: Answer Key
   module: 'Module 8: Monitoring, performance, and troubleshooting'
+  description: パフォーマンス カウンターを収集して分析し、パフォーマンス ベースラインを確立します。 負荷がかかるボトルネックを特定し、トラブルシューティングのために一元化された Windows イベント コレクションを構成します。
+  duration: 40 minutes
+  level: 300
+  islab: true
+  primarytopics:
+    - Windows Server
+    - Performance Monitoring
+    - Troubleshooting
+    - Event Logs
 ---
 
 # ラボの回答キー: Windows Server の監視とトラブルシューティング
