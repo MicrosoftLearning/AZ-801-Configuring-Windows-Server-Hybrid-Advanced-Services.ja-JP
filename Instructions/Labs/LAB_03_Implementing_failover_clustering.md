@@ -2,6 +2,16 @@
 lab:
   title: 'ラボ: フェールオーバー クラスタリングの実装'
   module: 'Module 3: High availability in Windows Server'
+  description: 共有 iSCSI ストレージを準備し、Windows Server ツールと PowerShell を使って 2 ノードのフェールオーバー クラスターをデプロイします。 高可用性のファイル サーバー ロールを構成し、フェールオーバーの動作を検証します。
+  duration: 60 minutes
+  level: 300
+  islab: true
+  primarytopics:
+    - Windows Server
+    - Failover Clustering
+    - High Availability
+    - iSCSI
+    - File Services
 ---
 
 # ラボ: フェールオーバー クラスタリングの実装

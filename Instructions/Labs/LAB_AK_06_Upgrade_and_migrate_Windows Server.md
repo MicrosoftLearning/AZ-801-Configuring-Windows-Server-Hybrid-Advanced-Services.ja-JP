@@ -3,6 +3,17 @@ lab:
   title: 'ラボ: Windows Server でのアップグレードと移行'
   type: Answer Key
   module: Module 6 - Upgrade and migrate in Windows Server
+  description: Azure Resource Manager テンプレートと Bastion アクセスを使って、Azure に Active Directory ドメイン コントローラーをデプロイします。 その後、Storage Migration Service を使ってファイル サーバーのワークロードを移行し、一括移行を検証します。
+  duration: 60 minutes
+  level: 400
+  islab: true
+  primarytopics:
+    - Azure
+    - Windows Server
+    - Active Directory
+    - Azure Resource Manager
+    - Storage Migration Service
+    - Hybrid Migration
 ---
 
 # ラボ回答キー: Windows Server でのアップグレードと移行

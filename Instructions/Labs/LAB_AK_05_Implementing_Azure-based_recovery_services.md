@@ -3,6 +3,16 @@ lab:
   title: 'ラボ: Azure ベースの復旧サービスの実装'
   type: Answer Key
   module: 'Module 5: Planning and implementing migration and recovery services in hybrid scenarios'
+  description: ハイブリッド ディザスター リカバリー用の Recovery Services コンテナーを作成して構成します。 Azure Site Recovery を使って Hyper-V 仮想マシンを保護し、復旧操作用に Azure Backup を構成します。
+  duration: 60 minutes
+  level: 400
+  islab: true
+  primarytopics:
+    - Azure
+    - Disaster Recovery
+    - Azure Site Recovery
+    - Azure Backup
+    - Hybrid Infrastructure
 ---
 
 # ラボの回答キー: Azure ベースの復旧サービスの実装

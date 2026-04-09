@@ -2,6 +2,16 @@
 lab:
   title: 'ラボ: Hyper-V レプリカおよび Windows Server バックアップの実装'
   module: 'Module 4: Disaster Recovery in Windows Server'
+  description: サーバー間で Hyper-V レプリカを構成し、計画されたフェールオーバーと計画外のフェールオーバーを検証します。 また、Windows Server バックアップを構成し、ネットワーク ターゲットへのバックアップを実行します。
+  duration: 45 minutes
+  level: 400
+  islab: true
+  primarytopics:
+    - Windows Server
+    - Hyper-V
+    - Disaster Recovery
+    - Backup
+    - Replication
 ---
 
 # ラボ: Hyper-V レプリカおよび Windows Server バックアップの実装
